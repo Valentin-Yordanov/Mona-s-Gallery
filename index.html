@@ -1,24 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mona's Gallery - Home</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- The TS will inject the Navbar here -->
-    <div id="navbar-container"></div> 
+<main class="home-main">
+        <section class="hero">
+            <img src="spceimg.webp" alt="Mona - The Artist">
+            
+            <div class="hero-text">
+                <h1>Mona's Art & Vision</h1>
+                <p>Discover the world through colors and emotions.</p>
+            </div>
+        </section>
 
-    <!-- Main Content -->
-    <main>
-        <h1>HOME PAGE</h1>
-        <p>This is the Home page.</p>
+        <section class="featured-panels">
+            <div class="panel">
+                <h3>Latest Work</h3>
+                <p>Explore recent paintings and creations.</p>
+                <a href="catalog.html" class="btn">View Catalog</a>
+            </div>
+            <div class="panel">
+                <h3>About the Artist</h3>
+                <p>Learn the story behind the canvas.</p>
+                <a href="artist.html" class="btn">Read Bio</a>
+            </div>
+        </section>
     </main>
-
-    <!-- The TS will inject the Footer here -->
-    <div id="footer-container"></div>
-
-    <script src="dist/main.js" defer></script>
-</body>
-</html>

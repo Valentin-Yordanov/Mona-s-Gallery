@@ -1,4 +1,4 @@
-/* 1. Basic Reset (Removes annoying default browser spacing) */
+/* 1. Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,58 +7,199 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #fafafa; 
+    color: #333;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: normal;
 }
 
 /* 2. The Navbar Container */
 .navbar {
     display: flex;
-    justify-content: space-between; /* Spreads logo, links, and button apart */
-    align-items: center; /* Vertically centers everything */
-    background-color: #222; /* Dark elegant background */
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a; 
     color: white;
-    padding: 1rem 3rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 5%; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 100;
 }
 
-/* 3. The Logo */
 .navbar .logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    letter-spacing: 1px;
+    font-size: 2rem;
+    letter-spacing: 1.5px;
 }
 
-/* 4. The Navigation Links */
 .nav-links {
-    list-style: none; /* Removes bullet points */
+    list-style: none;
     display: flex;
-    gap: 2.5rem; /* Space between each link */
+    gap: 3rem;
 }
 
 .nav-links a {
-    color: #ddd;
-    text-decoration: none; /* Removes the underline */
-    font-size: 1.1rem;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #ffffff; /* brightens when you hover over it */
+    color: #ffffff;
 }
 
-/* 5. The Translate Button */
 #lang-switch {
     background-color: transparent;
     color: white;
-    border: 2px solid white;
-    padding: 0.5rem 1rem;
-    font-weight: bold;
+    border: 1px solid white;
+    padding: 0.5rem 1.2rem;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 30px; 
     transition: all 0.3s ease;
+    letter-spacing: 1px;
 }
 
 #lang-switch:hover {
     background-color: white;
-    color: #222; /* Inverts colors on hover */
+    color: #1a1a1a;
+}
+
+/* --- HOME PAGE LAYOUT --- */
+.home-main {
+    width: 100%;
+    padding: 0; 
+    display: block; 
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 80vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    filter: brightness(0.6);
+    animation: slowZoom 25s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    max-width: 800px;
+}
+
+.hero-text h1 {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 4px 8px rgba(0,0,0,0.5);
+    letter-spacing: 2px;
+}
+
+.hero-text p {
+    font-size: 1.4rem;
+    text-shadow: 1px 2px 5px rgba(0,0,0,0.5);
+    font-weight: 300;
+}
+
+/* --- FEATURED PANELS --- */
+.featured-panels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    padding: 0 5% 6rem;
+    margin-top: -80px; 
+    position: relative;
+    z-index: 10;
+}
+
+.panel {
+    background: #ffffff;
+    padding: 4rem 3rem;
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); 
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    flex: 1;
+    min-width: 320px;
+    max-width: 450px;
+    border-bottom: 4px solid #1a1a1a; 
+}
+
+.panel:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.panel h3 {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+}
+
+.panel p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+/* --- REFINED BUTTON STYLE --- */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: transparent;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 50px;
+    border: 1px solid #1a1a1a;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+/* 7. Footer */
+.footer {
+    background-color: #1a1a1a;
+    color: #999;
+    text-align: center;
+    padding: 3rem 1.5rem; 
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+
+.footer p {
+    margin-bottom: 0.5rem;
 }
