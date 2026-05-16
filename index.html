@@ -1,23 +1,128 @@
-<main class="home-main">
-        <section class="hero">
-            <img src="spceimg.webp" alt="Mona - The Artist">
-            
-            <div class="hero-text">
-                <h1>Mona's Art & Vision</h1>
-                <p>Discover the world through colors and emotions.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mona's Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="logo">
+            <h1 class="logo-text">Mona <span>x</span> Gallery</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">HOME</a></li>
+            <li><a href="artist.html">ARTIST</a></li>
+            <li><a href="catalog.html">PAINTINGS</a></li>
+        </ul>
+        <button class="lang-switch">EN / BG</button>
+    </nav>
+    
+    <main>
+        <section class="hero-showcase">
+            <div class="showcase-frame">
+                <img src="image_38ccf3.jpg" alt="Featured Art">
             </div>
         </section>
 
-        <section class="featured-panels">
-            <div class="panel">
-                <h3>Latest Work</h3>
-                <p>Explore recent paintings and creations.</p>
-                <a href="catalog.html" class="btn">View Catalog</a>
+        <section class="hero-quote">
+            <div class="quote-container">
+                <h1>"Every canvas is a journey — <span class="highlight">color is my language</span>, emotion is my voice."</h1>
+                <p class="author">— MONA, ARTIST</p>
             </div>
-            <div class="panel">
-                <h3>About the Artist</h3>
-                <p>Learn the story behind the canvas.</p>
-                <a href="artist.html" class="btn">Read Bio</a>
+        </section>
+
+        <section class="featured-section">
+            <div class="featured-image">
+                <span class="badge">LATEST WORK</span>
+                <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Textured Painting">
+            </div>
+            
+            <div class="featured-text">
+                <h2>Paintings that Breathe</h2>
+                <p>Each piece is an intimate conversation between pigment, canvas, and feeling. Thick impasto layers invite you to reach out and touch the work itself.</p>
+                <a href="catalog.html" class="btn btn-primary">
+                    Explore Paintings &rarr;
+                </a>
+            </div>
+        </section>
+
+        <section class="series-section">
+            <div class="series-header">
+                <div>
+                    <span class="subtitle">SERIES</span>
+                    <h2>Color Worlds</h2>
+                </div>
+                <a href="catalog.html" class="view-all">View all series &rarr;</a>
+            </div>
+
+            <div class="color-grid">
+                <div class="color-card c-purple">
+                    <div class="color-info">
+                        <h3>Cosmic Bloom</h3><span>2025</span>
+                    </div>
+                </div>
+                <div class="color-card c-teal">
+                    <div class="color-info">
+                        <h3>Ocean Fire</h3><span>2024</span>
+                    </div>
+                </div>
+                <div class="color-card c-orange">
+                    <div class="color-info">
+                        <h3>Golden Hour</h3><span>2024</span>
+                    </div>
+                </div>
+                <div class="color-card c-green">
+                    <div class="color-info">
+                        <h3>Deep Forest</h3><span>2023</span>
+                    </div>
+                </div>
+                <div class="color-card c-blue">
+                    <div class="color-info">
+                        <h3>Twilight</h3><span>2023</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="about-section">
+            <div class="about-text">
+                <h2>An Artist Driven by Color</h2>
+                <p>Mona has been painting for over 8 years, exploring how color can evoke memory, mood, and meaning. Her studio is a laboratory of light and pigment.</p>
+                <a href="artist.html" class="btn btn-primary">
+                    Read the Story &rarr;
+                </a>
+            </div>
+            <div class="about-image">
+                <span class="badge">ABOUT MONA</span>
+                <img src="image_38cfe0.jpg" alt="Mona Painting">
             </div>
         </section>
     </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo-area">
+                <h2 class="logo-text">Mona <span>x</span> Gallery</h2>
+                <p>Fine art paintings — original works for sale</p>
+            </div>
+            
+            <div class="footer-nav">
+                <a href="artist.html">Artist</a>
+                <a href="catalog.html">Paintings</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" class="social-icon">In</a>
+                <a href="#" class="social-icon">Fb</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Mona's Gallery. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

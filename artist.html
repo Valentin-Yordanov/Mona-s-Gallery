@@ -3,22 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mona's Gallery - Artists</title>
+    <title>Mona - Artist Profile</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- The TS will inject the Navbar here -->
-    <div id="navbar-container"></div> 
+    
+    <nav class="navbar">
+        <div class="logo">
+            <h1 class="logo-text">Mona <span>x</span> Gallery</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="artist.html" class="active">ARTIST</a></li>
+            <li><a href="catalog.html">PAINTINGS</a></li>
+        </ul>
+        <button class="lang-switch">EN / BG</button>
+    </nav>
 
-    <!-- Main Content -->
-    <main>
-        <h1>Welcome to Mona's Gallery</h1>
-        <p>This is the Artists page.</p>
+    <main class="artist-main">
+        <section class="artist-hero">
+            <div class="artist-photo-placeholder">
+                <div class="placeholder-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <span>Artist photo</span>
+                </div>
+            
+            <div class="artist-title">
+                <h1>Mona</h1>
+                <p>Painter · Oil on Canvas · Based in Bucharest</p>
+            </div>
+        </section>
+
+        <section class="artist-details">
+            <div class="info-card">
+                <h3>Education</h3>
+                <p>Graduated from the National Academy of Fine Arts in 2016, majoring in Oil Painting and Visual Composition. Later attended a residency program in Florence, Italy, where she deepened her study of Renaissance color theory.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Influences</h3>
+                <p>Inspired by the emotional intensity of Mark Rothko, the textural richness of Cy Twombly, and the vivid palettes of Fauvism. Nature — especially water and light — is a constant source of energy in her work.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Process</h3>
+                <p>Mona works primarily in oil on canvas, building up thick impasto layers over days and weeks. She often begins with an intuitive underpainting before refining the composition through multiple sessions.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Exhibitions</h3>
+                <p>Has exhibited across Europe and North America — from solo shows in Bucharest and Berlin to group exhibitions in New York and Amsterdam. Her work has been featured in several international art publications.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Awards & Recognition</h3>
+                <p>Recipient of the Young European Artists Award (2019) and a finalist in the International Abstract Art Prize (2022). Her work is held in private collections across 12 countries.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Contact</h3>
+                <p>For commissions, exhibitions, or press inquiries, reach out at mona@gallery.art or via the contact form below.</p>
+            </div>
+        </section>
     </main>
 
-    <!-- The TS will inject the Footer here -->
-    <div id="footer-container"></div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo-area">
+                <h2 class="logo-text">Mona <span>x</span> Gallery</h2>
+                <p>Fine art paintings — original works for sale</p>
+            </div>
+            <div class="footer-nav">
+                <a href="artist.html">Artist</a>
+                <a href="catalog.html">Paintings</a>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-icon">In</a>
+                <a href="#" class="social-icon">Fb</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Mona's Gallery. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <script src="dist/main.js" defer></script>
 </body>
 </html>

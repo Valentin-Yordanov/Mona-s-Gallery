@@ -1,4 +1,16 @@
-/* 1. Basic Reset */
+/* --- GLOBAL RESET & VARIABLES --- */
+:root {
+    --bg-dark: #0a0f16; /* Мрачно синьо-черно от видеото */
+    --bg-quote: #111c26; /* Леко по-светъл тюркоазен оттенък за цитата */
+    --bg-panel: #111827; 
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --accent-blue: #3b82f6; 
+    --font-heading: 'Georgia', 'Times New Roman', serif;
+    --font-body: 'Inter', 'Segoe UI', sans-serif;
+    --border-radius: 12px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,200 +18,791 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fafafa; 
-    color: #333;
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-h1, h2, h3, .logo {
-    font-family: 'Georgia', 'Times New Roman', serif;
+h1, h2, h3, h4, .logo-text {
+    font-family: var(--font-heading);
     font-weight: normal;
 }
 
-/* 2. The Navbar Container */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- NAVIGATION BAR --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1a1a1a; 
-    color: white;
-    padding: 1.5rem 5%; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    position: relative;
-    z-index: 100;
+    padding: 1.5rem 5%;
+    background-color: var(--bg-dark);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.navbar .logo {
-    font-size: 2rem;
-    letter-spacing: 1.5px;
+.logo-text {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+
+.logo-text span {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    margin: 0 2px;
 }
 
 .nav-links {
-    list-style: none;
     display: flex;
     gap: 3rem;
+    list-style: none;
 }
 
 .nav-links a {
-    color: #ccc;
-    text-decoration: none;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #ffffff;
-}
-
-#lang-switch {
-    background-color: transparent;
-    color: white;
-    border: 1px solid white;
-    padding: 0.5rem 1.2rem;
-    cursor: pointer;
-    border-radius: 30px; 
-    transition: all 0.3s ease;
-    letter-spacing: 1px;
-}
-
-#lang-switch:hover {
-    background-color: white;
-    color: #1a1a1a;
-}
-
-/* --- HOME PAGE LAYOUT --- */
-.home-main {
-    width: 100%;
-    padding: 0; 
-    display: block; 
-}
-
-/* Hero Section */
-.hero {
-    position: relative;
-    width: 100%;
-    height: 80vh; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    overflow: hidden;
-}
-
-.hero img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-    filter: brightness(0.6);
-    animation: slowZoom 25s ease-in-out infinite alternate;
-}
-
-@keyframes slowZoom {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.1); }
-}
-
-.hero-text {
-    position: relative;
-    z-index: 2;
-    padding: 2rem;
-    max-width: 800px;
-}
-
-.hero-text h1 {
-    font-size: 4.5rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 4px 8px rgba(0,0,0,0.5);
+    color: var(--text-muted);
+    font-size: 0.8rem;
     letter-spacing: 2px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding-bottom: 5px;
 }
 
-.hero-text p {
-    font-size: 1.4rem;
-    text-shadow: 1px 2px 5px rgba(0,0,0,0.5);
-    font-weight: 300;
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent-blue);
+    border-bottom: 2px solid var(--accent-blue);
 }
 
-/* --- FEATURED PANELS --- */
-.featured-panels {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 3rem;
-    padding: 0 5% 6rem;
-    margin-top: -80px; 
-    position: relative;
+.lang-switch {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--text-main);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.lang-switch:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* --- BUTTONS & BADGES --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.btn-primary {
+    background-color: #0f172a; /* Тъмен бутон като във видеото */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1e293b;
+    border-color: var(--accent-blue);
+}
+
+.badge {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background: #0f172a;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    border: 1px solid rgba(255,255,255,0.1);
     z-index: 10;
 }
 
-.panel {
-    background: #ffffff;
-    padding: 4rem 3rem;
-    border-radius: 8px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); 
+/* --- HERO SHOWCASE (Framed Image) --- */
+.hero-showcase {
+    padding: 3rem 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.showcase-frame {
+    width: 100%;
+    max-width: 1300px;
+    height: 65vh;
+    border: 4px solid #ffffff; /* Бялата рамка */
+    padding: 12px; /* Разстоянието между рамката и снимката */
+}
+
+.showcase-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- HERO QUOTE --- */
+.hero-quote {
+    background-color: var(--bg-quote);
+    padding: 6rem 5%;
     text-align: center;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    flex: 1;
-    min-width: 320px;
-    max-width: 450px;
-    border-bottom: 4px solid #1a1a1a; 
+    border-top: 1px solid rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.03);
 }
 
-.panel:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+.quote-container {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.panel h3 {
-    font-size: 2rem;
-    color: #1a1a1a;
+.hero-quote h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 2.5rem;
+    color: var(--text-main);
+}
+
+.hero-quote .highlight {
+    color: var(--accent-blue);
+    font-style: italic;
+}
+
+.hero-quote .author {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+}
+
+/* --- FEATURED SECTION --- */
+.featured-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    padding: 6rem 8%;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.featured-image {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.featured-text h2 {
+    font-size: 3.5rem;
     margin-bottom: 1.5rem;
 }
 
-.panel p {
-    color: #666;
+.featured-text p {
+    color: var(--text-muted);
     font-size: 1.1rem;
-    line-height: 1.8;
     margin-bottom: 2.5rem;
+    max-width: 500px;
+    line-height: 1.8;
 }
 
-/* --- REFINED BUTTON STYLE --- */
-.btn {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background-color: transparent;
-    color: #1a1a1a;
-    text-decoration: none;
-    border-radius: 50px;
-    border: 1px solid #1a1a1a;
+/* --- SERIES SECTION (Color Worlds) --- */
+.series-section {
+    padding: 4rem 8% 6rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.series-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+}
+
+.series-header h2 {
+    font-size: 2.5rem;
+}
+
+.series-header .subtitle {
+    color: var(--accent-blue);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.view-all {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.view-all:hover {
+    color: var(--text-main);
+}
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 колони точно като във видеото */
+    gap: 1.5rem;
+}
+
+.color-card {
+    height: 300px;
+    border-radius: var(--border-radius);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.color-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Градиентите от видеото */
+.c-purple { background: linear-gradient(135deg, #d946ef, #8b5cf6); }
+.c-teal   { background: linear-gradient(135deg, #2dd4bf, #f97316); }
+.c-orange { background: linear-gradient(135deg, #fbbf24, #f97316); }
+.c-green  { background: linear-gradient(135deg, #10b981, #3b82f6); }
+.c-blue   { background: linear-gradient(135deg, #8b5cf6, #3b82f6); }
+
+.color-info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+.color-card:hover .color-info {
+    opacity: 1;
+}
+
+.color-info h3 { font-size: 1.1rem; margin-bottom: 0.2rem; }
+.color-info span { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+
+/* --- ABOUT THE ARTIST SECTION --- */
+.about-section {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    padding: 4rem 8% 8rem;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.about-text h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.about-text p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 450px;
+    line-height: 1.8;
+}
+
+.about-image {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- FOOTER --- */
+.footer {
+    padding: 3rem 8%;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.footer-logo-area p {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-nav a {
+    color: var(--accent-blue);
+    font-size: 0.9rem;
     font-weight: bold;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: var(--text-main);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+}
+
+.social-icon:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.copyright {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 2rem;
+}
+
+
+/* =========================================
+   ARTIST PAGE SPECIFIC STYLES
+   ========================================= */
+
+.artist-main {
+    padding: 4rem 5%;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Artist Hero Section */
+.artist-hero {
+    margin-bottom: 4rem;
+}
+
+.artist-photo-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: #1f2937; /* Тъмно сив фон за снимката */
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.placeholder-icon {
+    margin-bottom: 0.5rem;
+    opacity: 0.7;
+}
+
+.artist-photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.artist-title h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.artist-title p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+/* Info Cards (Panels) */
+.artist-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.info-card {
+    background-color: var(--bg-panel);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    padding: 2.5rem 3rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.info-card:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px); /* Лек ефект на преместване надясно при посочване */
+}
+
+.info-card h3 {
+    color: var(--accent-blue);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+}
+
+.info-card p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* Респонсив дизайн за по-малки екрани */
+@media (max-width: 768px) {
+    .artist-photo-placeholder {
+        height: 300px;
+    }
+    
+    .info-card {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* =========================================
+   CATALOG (GALLERY) PAGE SPECIFIC STYLES
+   ========================================= */
+
+.catalog-main {
+    padding: 2rem 5% 8rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Header & Filters */
+.catalog-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.catalog-header h1 {
+    font-size: 3rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.catalog-header p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.catalog-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+}
+
+.filter-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    color: var(--text-main);
+    border-bottom-color: var(--accent-blue);
+}
+
+/* --- THE GRID LAYOUT --- */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem 1.5rem; /* По-голямо вертикално разстояние, по-малко хоризонтално */
+}
+
+/* --- THE ART CARD (MINIMALIST) --- */
+.art-card {
+    display: flex; 
+    flex-direction: column;
+    text-decoration: none;
+    overflow: visible; 
+    background: transparent; /* Без фон */
+    border: none; /* Без рамка */
+    padding: 0;
+}
+
+/* Анимация при посочване (само снимката се повдига леко) */
+.art-card:hover .art-image-wrapper {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+}
+
+.art-image-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 1rem; /* Разстояние между снимката и текста */
+    background-color: #111;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.art-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(0.9);
+    transition: filter 0.4s ease;
+}
+
+.art-card:hover .art-image-wrapper img {
+    filter: brightness(1.05); /* Леко просветляване */
+}
+
+/* --- BADGES --- */
+.art-badge {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    z-index: 10;
+}
+
+.badge-sold {
+    background: rgba(0, 0, 0, 0.7);
+    color: #ddd;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+}
+
+.badge-available {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+}
+
+/* --- TEXT INFO (EXACT MATCH) --- */
+.art-info {
+    padding: 0; /* Текстът започва точно от ръба на снимката */
+    font-family: var(--font-body); /* Sans-serif за чист, модерен вид */
+}
+
+.art-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.2rem;
+}
+
+.art-title-row h3 {
+    font-size: 0.95rem; /* Фино заглавие */
+    font-weight: 600;
+    color: #ffffff;
+    font-family: var(--font-body);
+    transition: color 0.3s ease;
+}
+
+.art-card:hover .art-title-row h3 {
+    color: var(--accent-blue);
+}
+
+.art-price {
+    font-size: 0.85rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.art-medium {
+    color: #9ca3af; /* Тъмно сиво като на снимката */
+    font-size: 0.8rem;
+    margin-bottom: 0.1rem;
+    line-height: 1.4;
+}
+
+.art-dimensions {
+    color: #9ca3af;
+    font-size: 0.75rem;
+    letter-spacing: 0.2px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1200px) {
+    .catalog-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px) {
+    .catalog-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1.5rem; }
+}
+@media (max-width: 600px) {
+    .catalog-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .catalog-header h1 { font-size: 2.5rem; }
+}
+/* =========================================
+   STRUCTURED LIST / EXHIBITIONS STYLES
+   ========================================= */
+
+.structured-list-main {
+    padding: 4rem 5% 8rem;
+    max-width: 1200px; /* По-тясно от галерията за по-лесно четене */
+    margin: 0 auto;
+    width: 100%;
+}
+
+.list-page-header {
+    margin-bottom: 4rem;
+}
+
+.list-page-header h1 {
+    font-size: 3.5rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.list-page-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+/* ТОЗИ КЛАС Е КРИТИЧЕН ЗА ПОДРЕДБАТА */
+.list-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 250px; /* Това казва: 3 колони! */
+    align-items: center;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    text-decoration: none;
+    color: var(--text-main);
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+
+.list-header-row {
+    padding: 1rem 0;
+    color: var(--text-muted);
+    font-size: 0.75rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    font-size: 0.85rem;
-    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.btn:hover {
-    background-color: #1a1a1a;
-    color: #ffffff;
+.list-header-row:hover {
+    background-color: transparent; /* Премахва hover ефекта за заглавния ред */
+    padding-left: 0;
 }
 
-/* 7. Footer */
-.footer {
-    background-color: #1a1a1a;
-    color: #999;
-    text-align: center;
-    padding: 3rem 1.5rem; 
-    margin-top: auto;
+/* Hover ефект за интерактивните редове */
+a.list-row:hover {
+    background-color: rgba(255, 255, 255, 0.02); /* Много фин светъл фон */
+    /* Леко индикиране на интерактивност (опционално, може да се премахне за 100% статика) */
+}
+
+a.list-row:hover .col-title h3 {
+    color: var(--accent-blue);
+}
+
+/* Типография вътре в колоните */
+.col-year {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+.col-title h3 {
+    font-size: 1.6rem;
+    font-family: var(--font-heading);
+    font-weight: normal;
+    transition: color 0.3s ease;
+}
+
+.col-title h3 span {
+    font-family: var(--font-body);
     font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-left: 0.5rem;
 }
 
-.footer p {
-    margin-bottom: 0.5rem;
+.col-location {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    text-align: right; /* Подравнява текста вдясно */
+}
+
+/* Респонсив (за мобилни устройства) */
+@media (max-width: 768px) {
+    .list-row {
+        grid-template-columns: 1fr; /* Всичко минава на 1 колона */
+        gap: 0.5rem;
+        padding: 1.5rem 0;
+    }
+
+    .list-header-row {
+        display: none; /* Скрива заглавния ред на мобилни */
+    }
+
+    .col-location {
+        text-align: left;
+        font-size: 0.85rem;
+    }
+    
+    .col-year {
+        font-size: 0.9rem;
+        margin-bottom: 0.2rem;
+    }
 }

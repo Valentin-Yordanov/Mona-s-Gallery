@@ -1,24 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mona's Gallery - Changing</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- The TS will inject the Navbar here -->
-    <div id="navbar-container"></div> 
+<main class="structured-list-main">
+        
+        <header class="list-page-header">
+            <h1>Selected Exhibitions</h1>
+            <p>A chronological archive of solo and group shows.</p>
+        </header>
 
-    <!-- Main Content -->
-    <main>
-        <h1>Changing Page</h1>
-        <p>This is the Changing page.</p>
+        <section class="list-container">
+            <div class="list-row list-header-row">
+                <div class="col-year">YEAR</div>
+                <div class="col-title">TITLE / EXHIBITION</div>
+                <div class="col-location">LOCATION</div>
+            </div>
+
+            <a href="#" class="list-row">
+                <div class="col-year">2025</div>
+                <div class="col-title">
+                    <h3>Echoes of the Deep Blue <span>(Solo)</span></h3>
+                </div>
+                <div class="col-location">Lumina Gallery, Bucharest</div>
+            </a>
+
+            <a href="#" class="list-row">
+                <div class="col-year">2024</div>
+                <div class="col-title">
+                    <h3>Modern Textures & Form <span>(Group)</span></h3>
+                </div>
+                <div class="col-location">Apex Contemporary, Berlin</div>
+            </a>
+
+            <a href="#" class="list-row">
+                <div class="col-year">2024</div>
+                <div class="col-title">
+                    <h3>The Silent Canvas <span>(Solo)</span></h3>
+                </div>
+                <div class="col-location">Galerie Neu, Paris</div>
+            </a>
+
+            <a href="#" class="list-row">
+                <div class="col-year">2023</div>
+                <div class="col-title">
+                    <h3>Horizons: New Abstract Painters <span>(Group)</span></h3>
+                </div>
+                <div class="col-location">MoMA PS1, New York</div>
+            </a>
+
+            <a href="#" class="list-row">
+                <div class="col-year">2022</div>
+                <div class="col-title">
+                    <h3>Genesis of Color <span>(Solo)</span></h3>
+                </div>
+                <div class="col-location">National Museum of Art, Sofia</div>
+            </a>
+            
+        </section>
     </main>
-
-    <!-- The TS will inject the Footer here -->
-    <div id="footer-container"></div>
-
-    <script src="dist/main.js" defer></script>
-</body>
-</html>
