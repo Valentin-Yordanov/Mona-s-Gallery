@@ -108,13 +108,16 @@ a {
 }
 
 .btn-primary {
-    background-color: #0f172a; /* Тъмен бутон като във видеото */
+    background: linear-gradient(135deg, var(--accent-blue), #6366f1);
     color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
 .btn-primary:hover {
-    background-color: #1e293b;
-    border-color: var(--accent-blue);
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+    transform: translateY(-2px);
 }
 
 .badge {
@@ -584,10 +587,13 @@ a {
 .art-image-wrapper {
     position: relative;
     width: 100%;
+    aspect-ratio: 4 / 5; /* Gives empty boxes a uniform portrait shape */
     overflow: hidden;
-    margin-bottom: 1rem; /* Разстояние между снимката и текста */
-    background-color: #111;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #6b21a8, #9333ea); /* Vibrant purple placeholder */
+    border-radius: 8px; /* Softer, modern edges */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
 }
 
 .art-image-wrapper img {
