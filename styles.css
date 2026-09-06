@@ -1,507 +1,625 @@
 /* --- GLOBAL RESET & VARIABLES --- */
 :root {
-    --bg-dark: #0a0f16; /* Мрачно синьо-черно от видеото */
-    --bg-quote: #111c26; /* Леко по-светъл тюркоазен оттенък за цитата */
-    --bg-panel: #111827; 
-    --text-main: #f3f4f6;
-    --text-muted: #9ca3af;
-    --accent-blue: #3b82f6; 
-    --font-heading: 'Georgia', 'Times New Roman', serif;
-    --font-body: 'Inter', 'Segoe UI', sans-serif;
-    --border-radius: 12px;
+  --bg-dark: #f4efe9;
+  --bg-quote: #eae3d9;
+  --bg-panel: #ffffff;
+  --text-main: #2d2a26;
+  --text-muted: #75706b;
+  --accent-blue: #b47a46;
+  --navbar-bg: #221f1e;
+  --navbar-text: #f4efe9;
+  --font-heading: "Georgia", "Times New Roman", serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+  --border-radius: 20px;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: var(--font-body);
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    line-height: 1.6;
-    overflow-x: hidden;
+  font-family: var(--font-body);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-h1, h2, h3, h4, .logo-text {
-    font-family: var(--font-heading);
-    font-weight: normal;
+h1,
+h2,
+h3,
+h4,
+.logo-text {
+  font-family: var(--font-heading);
+  font-weight: normal;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* --- NAVIGATION BAR --- */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 5%;
-    background-color: var(--bg-dark);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background-color: var(--navbar-bg);
+  color: var(--navbar-text);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: none;
 }
 
 .logo-text {
-    font-size: 1.6rem;
-    letter-spacing: 1px;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  color: var(--navbar-text);
 }
 
 .logo-text span {
-    font-size: 1rem;
-    color: var(--text-muted);
-    font-family: var(--font-body);
-    margin: 0 2px;
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  margin: 0 2px;
 }
 
 .nav-links {
-    display: flex;
-    gap: 3rem;
-    list-style: none;
+  display: flex;
+  gap: 3rem;
+  list-style: none;
 }
 
 .nav-links a {
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    font-weight: 600;
-    transition: color 0.3s ease;
-    padding-bottom: 5px;
+  color: rgba(244, 239, 233, 0.7);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  padding-bottom: 5px;
 }
 
-.nav-links a:hover, .nav-links a.active {
-    color: var(--accent-blue);
-    border-bottom: 2px solid var(--accent-blue);
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent-blue);
+  border-bottom: 2px solid var(--accent-blue);
 }
 
 .lang-switch {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.2);
-    color: var(--text-main);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.75rem;
-    transition: all 0.3s ease;
+  background: transparent;
+  border: 1px solid rgba(244, 239, 233, 0.3);
+  color: var(--navbar-text);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: all 0.3s ease;
 }
 
 .lang-switch:hover {
-    background: rgba(255,255,255,0.1);
+  background: rgba(244, 239, 233, 0.1);
 }
 
 /* --- BUTTONS & BADGES --- */
 .btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.8rem 1.8rem;
-    border-radius: 30px;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: 1px solid rgba(255,255,255,0.1);
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 1.8rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--accent-blue), #6366f1);
-    color: white;
-    border: none;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  background: #9d5d41;
+  color: white;
+  box-shadow: none;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #2563eb, #4f46e5);
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
-    transform: translateY(-2px);
+  background: #824a31;
+  transform: translateY(-2px);
 }
 
 .badge {
-    position: absolute;
-    top: 1.5rem;
-    left: 1.5rem;
-    background: #0f172a;
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
-    font-size: 0.7rem;
-    letter-spacing: 1.5px;
-    border: 1px solid rgba(255,255,255,0.1);
-    z-index: 10;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+  border: none;
+  z-index: 10;
 }
 
 /* --- HERO SHOWCASE (Framed Image) --- */
 .hero-showcase {
-    padding: 3rem 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  padding: 3rem 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .showcase-frame {
-    width: 100%;
-    max-width: 1300px;
-    height: 65vh;
-    border: 4px solid #ffffff; /* Бялата рамка */
-    padding: 12px; /* Разстоянието между рамката и снимката */
+  width: 100%;
+  max-width: 1300px;
+  height: 65vh;
+  border: 4px solid #ffffff; /* Бялата рамка */
+  padding: 12px; /* Разстоянието между рамката и снимката */
 }
 
 .showcase-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* --- HERO QUOTE --- */
 .hero-quote {
-    background-color: var(--bg-quote);
-    padding: 6rem 5%;
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.03);
-    border-bottom: 1px solid rgba(255,255,255,0.03);
+  background-color: var(--bg-quote);
+  padding: 6rem 5%;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .quote-container {
-    max-width: 900px;
-    margin: 0 auto;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .hero-quote h1 {
-    font-size: 3.5rem;
-    line-height: 1.2;
-    margin-bottom: 2.5rem;
-    color: var(--text-main);
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 2.5rem;
+  color: var(--text-main);
 }
 
 .hero-quote .highlight {
-    color: var(--accent-blue);
-    font-style: italic;
+  color: var(--accent-blue);
+  font-style: italic;
 }
 
 .hero-quote .author {
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    letter-spacing: 3px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 3px;
 }
 
 /* --- FEATURED SECTION --- */
 .featured-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    padding: 6rem 8%;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  padding: 6rem 8%;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .featured-image {
-    position: relative;
-    border-radius: var(--border-radius);
-    overflow: hidden;
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
 }
 
 .featured-image img {
-    width: 100%;
-    height: auto;
-    display: block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .featured-text h2 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .featured-text p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    margin-bottom: 2.5rem;
-    max-width: 500px;
-    line-height: 1.8;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+  line-height: 1.8;
+}
+/* --- QUOTE SECTION --- */
+.hero-quote {
+  background-color: var(--bg-quote);
+  padding: 5rem 2rem;
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
+.quote-container h1 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-style: italic;
+  color: var(--text-main);
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  font-weight: normal;
+}
+
+.quote-container .highlight {
+  color: var(--accent-blue);
+  font-weight: bold;
+  font-style: italic;
+}
+
+.quote-container .author {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* --- FEATURED CARD SECTION --- */
+.featured-section {
+  padding: 0 5% 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featured-card {
+  background-color: var(--bg-panel);
+  border-radius: var(--border-radius);
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.featured-image {
+  position: relative;
+}
+
+.featured-image img {
+  width: 100%;
+  border-radius: calc(var(--border-radius) - 5px);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.accent-line {
+  width: 40px;
+  height: 3px;
+  background-color: var(--accent-blue);
+  margin-bottom: 1.5rem;
+}
+
+.featured-text h2 {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+}
+
+.featured-text p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  max-width: 450px;
+  line-height: 1.8;
+}
 /* --- SERIES SECTION (Color Worlds) --- */
 .series-section {
-    padding: 4rem 8% 6rem;
-    max-width: 1400px;
-    margin: 0 auto;
+  padding: 4rem 8% 6rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .series-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
 }
 
 .series-header h2 {
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 
 .series-header .subtitle {
-    color: var(--accent-blue);
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    display: block;
-    margin-bottom: 0.5rem;
+  color: var(--accent-blue);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 .view-all {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    transition: color 0.3s;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: color 0.3s;
 }
 
 .view-all:hover {
-    color: var(--text-main);
+  color: var(--text-main);
 }
 
 .color-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 колони точно като във видеото */
-    gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
 }
 
 .color-card {
-    height: 300px;
-    border-radius: var(--border-radius);
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s;
+  height: 300px;
+  border-radius: var(--border-radius);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
 .color-card:hover {
-    transform: translateY(-8px);
+  transform: translateY(-8px);
 }
 
-/* Градиентите от видеото */
-.c-purple { background: linear-gradient(135deg, #d946ef, #8b5cf6); }
-.c-teal   { background: linear-gradient(135deg, #2dd4bf, #f97316); }
-.c-orange { background: linear-gradient(135deg, #fbbf24, #f97316); }
-.c-green  { background: linear-gradient(135deg, #10b981, #3b82f6); }
-.c-blue   { background: linear-gradient(135deg, #8b5cf6, #3b82f6); }
+.c-purple {
+  background: linear-gradient(135deg, #d946ef, #8b5cf6);
+}
+.c-teal {
+  background: linear-gradient(135deg, #2dd4bf, #f97316);
+}
+.c-orange {
+  background: linear-gradient(135deg, #fbbf24, #f97316);
+}
+.c-green {
+  background: linear-gradient(135deg, #10b981, #3b82f6);
+}
+.c-blue {
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+}
 
 .color-info {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 1.5rem;
-    opacity: 0;
-    transition: opacity 0.3s;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
 }
 
 .color-card:hover .color-info {
-    opacity: 1;
+  opacity: 1;
 }
 
-.color-info h3 { font-size: 1.1rem; margin-bottom: 0.2rem; }
-.color-info span { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+.color-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+.color-info span {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
 
 /* --- ABOUT THE ARTIST SECTION --- */
 .about-section {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 5rem;
-    padding: 4rem 8% 8rem;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
+  padding: 4rem 8% 8rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-card {
+  background-color: var(--bg-panel);
+  border-radius: var(--border-radius);
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .about-text h2 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  color: var(--text-main);
 }
 
 .about-text p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    margin-bottom: 2.5rem;
-    max-width: 450px;
-    line-height: 1.8;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  max-width: 450px;
+  line-height: 1.8;
 }
 
 .about-image {
-    position: relative;
-    border-radius: var(--border-radius);
-    overflow: hidden;
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
 }
 
 .about-image img {
-    width: 100%;
-    height: auto;
-    display: block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* --- FOOTER --- */
 .footer {
-    padding: 3rem 8%;
-    border-top: 1px solid rgba(255,255,255,0.05);
+  background-color: var(--navbar-bg);
+  color: var(--navbar-text);
+  padding: 4rem 8%;
+  border-top: none;
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
-.footer-logo-area p {
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
+.footer-logo-area p,
+.copyright {
+  color: rgba(244, 239, 233, 0.6);
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
 }
 
 .footer-nav {
-    display: flex;
-    gap: 2rem;
+  display: flex;
+  gap: 2rem;
 }
 
 .footer-nav a {
-    color: var(--accent-blue);
-    font-size: 0.9rem;
-    font-weight: bold;
-    transition: color 0.3s;
+  color: rgba(244, 239, 233, 0.8);
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
 .footer-nav a:hover {
-    color: var(--text-main);
+  color: var(--accent-blue);
 }
 
 .social-links {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .social-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    transition: all 0.3s;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(244, 239, 233, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: all 0.3s;
 }
 
 .social-icon:hover {
-    background: rgba(255,255,255,0.1);
+  background: rgba(244, 239, 233, 0.1);
 }
 
 .copyright {
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.75rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    padding-top: 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(244, 239, 233, 0.1);
+  padding-top: 2rem;
 }
-
 
 /* =========================================
    ARTIST PAGE SPECIFIC STYLES
    ========================================= */
 
 .artist-main {
-    padding: 4rem 5%;
-    max-width: 1000px;
-    margin: 0 auto;
-    width: 100%;
+  padding: 4rem 5%;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 /* Artist Hero Section */
 .artist-hero {
-    margin-bottom: 4rem;
+  margin-bottom: 4rem;
 }
 
 .artist-photo-placeholder {
-    width: 100%;
-    height: 400px;
-    background-color: #1f2937; /* Тъмно сив фон за снимката */
-    border-radius: var(--border-radius);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 3rem;
+  width: 100%;
+  height: 400px;
+  background-color: #1f2937; /* Тъмно сив фон за снимката */
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 3rem;
 }
 
 .placeholder-icon {
-    margin-bottom: 0.5rem;
-    opacity: 0.7;
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
 }
 
 .artist-photo-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .artist-title h1 {
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-main);
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
 }
 
 .artist-title p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
 }
 
 /* Info Cards (Panels) */
 .artist-details {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
 }
 
 .info-card {
-    background-color: var(--bg-panel);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: var(--border-radius);
-    padding: 2.5rem 3rem;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+  background-color: var(--bg-panel);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: 2.5rem 3rem;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .info-card:hover {
-    border-color: rgba(255, 255, 255, 0.1);
-    transform: translateX(5px); /* Лек ефект на преместване надясно при посочване */
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(
+    5px
+  ); /* Лек ефект на преместване надясно при посочване */
 }
 
 .info-card h3 {
-    color: var(--accent-blue);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    font-family: var(--font-heading);
+  color: var(--accent-blue);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
 }
 
 .info-card p {
-    color: var(--text-muted);
-    font-size: 1.05rem;
-    line-height: 1.8;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
 }
 
 /* Респонсив дизайн за по-малки екрани */
 @media (max-width: 768px) {
-    .artist-photo-placeholder {
-        height: 300px;
-    }
-    
-    .info-card {
-        padding: 2rem 1.5rem;
-    }
+  .artist-photo-placeholder {
+    height: 300px;
+  }
+
+  .info-card {
+    padding: 2rem 1.5rem;
+  }
 }
 
 /* =========================================
@@ -509,306 +627,325 @@ a {
    ========================================= */
 
 .catalog-main {
-    padding: 2rem 5% 8rem;
-    max-width: 1600px;
-    margin: 0 auto;
-    width: 100%;
+  padding: 2rem 5% 8rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 /* Header & Filters */
 .catalog-header {
-    text-align: center;
-    margin-bottom: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .catalog-header h1 {
-    font-size: 3rem;
-    color: var(--text-main);
-    margin-bottom: 0.5rem;
+  font-size: 3rem;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
 }
 
 .catalog-header p {
-    color: var(--text-muted);
-    font-size: 1rem;
-    letter-spacing: 1px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  letter-spacing: 1px;
 }
 
 .catalog-filters {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-    padding-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
 }
 
 .filter-btn {
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    padding-bottom: 5px;
-    border-bottom: 2px solid transparent;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
 }
 
-.filter-btn:hover, .filter-btn.active {
-    color: var(--text-main);
-    border-bottom-color: var(--accent-blue);
+.filter-btn:hover,
+.filter-btn.active {
+  color: var(--text-main);
+  border-bottom-color: var(--accent-blue);
 }
 
 /* --- THE GRID LAYOUT --- */
 .catalog-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem 1.5rem; /* По-голямо вертикално разстояние, по-малко хоризонтално */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem 1.5rem; /* По-голямо вертикално разстояние, по-малко хоризонтално */
 }
 
 /* --- THE ART CARD (MINIMALIST) --- */
 .art-card {
-    display: flex; 
-    flex-direction: column;
-    text-decoration: none;
-    overflow: visible; 
-    background: transparent; /* Без фон */
-    border: none; /* Без рамка */
-    padding: 0;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  overflow: visible;
+  background: transparent; /* Без фон */
+  border: none; /* Без рамка */
+  padding: 0;
 }
 
 /* Анимация при посочване (само снимката се повдига леко) */
 .art-card:hover .art-image-wrapper {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
 }
 
 .art-image-wrapper {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4 / 5; /* Gives empty boxes a uniform portrait shape */
-    overflow: hidden;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, #6b21a8, #9333ea); /* Vibrant purple placeholder */
-    border-radius: 8px; /* Softer, modern edges */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5; /* Gives empty boxes a uniform portrait shape */
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    135deg,
+    #6b21a8,
+    #9333ea
+  ); /* Vibrant purple placeholder */
+  border-radius: 8px; /* Softer, modern edges */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.4s ease;
 }
 
 .art-image-wrapper img {
-    width: 100%;
-    height: auto;
-    display: block;
-    filter: brightness(0.9);
-    transition: filter 0.4s ease;
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(0.9);
+  transition: filter 0.4s ease;
 }
 
 .art-card:hover .art-image-wrapper img {
-    filter: brightness(1.05); /* Леко просветляване */
+  filter: brightness(1.05); /* Леко просветляване */
 }
 
 /* --- BADGES --- */
 .art-badge {
-    position: absolute;
-    top: 0.6rem;
-    right: 0.6rem;
-    padding: 0.3rem 0.6rem;
-    border-radius: 3px;
-    font-size: 0.65rem;
-    letter-spacing: 1.5px;
-    font-weight: 600;
-    font-family: var(--font-body);
-    z-index: 10;
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  z-index: 10;
 }
 
 .badge-sold {
-    background: rgba(0, 0, 0, 0.7);
-    color: #ddd;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.7);
+  color: #ddd;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
 }
 
 .badge-available {
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
 }
 
 /* --- TEXT INFO (EXACT MATCH) --- */
 .art-info {
-    padding: 0; /* Текстът започва точно от ръба на снимката */
-    font-family: var(--font-body); /* Sans-serif за чист, модерен вид */
+  padding: 0; /* Текстът започва точно от ръба на снимката */
+  font-family: var(--font-body); /* Sans-serif за чист, модерен вид */
 }
 
 .art-title-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 0.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.2rem;
 }
 
 .art-title-row h3 {
-    font-size: 0.95rem; /* Фино заглавие */
-    font-weight: 600;
-    color: #ffffff;
-    font-family: var(--font-body);
-    transition: color 0.3s ease;
+  font-size: 0.95rem; /* Фино заглавие */
+  font-weight: 600;
+  color: #ffffff;
+  font-family: var(--font-body);
+  transition: color 0.3s ease;
 }
 
 .art-card:hover .art-title-row h3 {
-    color: var(--accent-blue);
+  color: var(--accent-blue);
 }
 
 .art-price {
-    font-size: 0.85rem;
-    color: #ffffff;
-    font-weight: 600;
+  font-size: 0.85rem;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .art-medium {
-    color: #9ca3af; /* Тъмно сиво като на снимката */
-    font-size: 0.8rem;
-    margin-bottom: 0.1rem;
-    line-height: 1.4;
+  color: #9ca3af; /* Тъмно сиво като на снимката */
+  font-size: 0.8rem;
+  margin-bottom: 0.1rem;
+  line-height: 1.4;
 }
 
 .art-dimensions {
-    color: #9ca3af;
-    font-size: 0.75rem;
-    letter-spacing: 0.2px;
+  color: #9ca3af;
+  font-size: 0.75rem;
+  letter-spacing: 0.2px;
 }
 
 /* --- RESPONSIVE --- */
 @media (max-width: 1200px) {
-    .catalog-grid { grid-template-columns: repeat(3, 1fr); }
+  .catalog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 @media (max-width: 900px) {
-    .catalog-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1.5rem; }
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 1.5rem;
+  }
 }
 @media (max-width: 600px) {
-    .catalog-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .catalog-header h1 { font-size: 2.5rem; }
+  .catalog-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .catalog-header h1 {
+    font-size: 2.5rem;
+  }
 }
 /* =========================================
    STRUCTURED LIST / EXHIBITIONS STYLES
    ========================================= */
 
 .structured-list-main {
-    padding: 4rem 5% 8rem;
-    max-width: 1200px; /* По-тясно от галерията за по-лесно четене */
-    margin: 0 auto;
-    width: 100%;
+  padding: 4rem 5% 8rem;
+  max-width: 1200px; /* По-тясно от галерията за по-лесно четене */
+  margin: 0 auto;
+  width: 100%;
 }
 
 .list-page-header {
-    margin-bottom: 4rem;
+  margin-bottom: 4rem;
 }
 
 .list-page-header h1 {
-    font-size: 3.5rem;
-    color: var(--text-main);
-    margin-bottom: 0.5rem;
+  font-size: 3.5rem;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
 }
 
 .list-page-header p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    letter-spacing: 1px;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
 }
 
 .list-container {
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* ТОЗИ КЛАС Е КРИТИЧЕН ЗА ПОДРЕДБАТА */
 .list-row {
-    display: grid;
-    grid-template-columns: 100px 1fr 250px; /* Това казва: 3 колони! */
-    align-items: center;
-    padding: 2rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-    text-decoration: none;
-    color: var(--text-main);
-    transition: background-color 0.3s ease, padding-left 0.3s ease;
+  display: grid;
+  grid-template-columns: 100px 1fr 250px; /* Това казва: 3 колони! */
+  align-items: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  color: var(--text-main);
+  transition:
+    background-color 0.3s ease,
+    padding-left 0.3s ease;
 }
 
 .list-header-row {
-    padding: 1rem 0;
-    color: var(--text-muted);
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem 0;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .list-header-row:hover {
-    background-color: transparent; /* Премахва hover ефекта за заглавния ред */
-    padding-left: 0;
+  background-color: transparent; /* Премахва hover ефекта за заглавния ред */
+  padding-left: 0;
 }
 
 /* Hover ефект за интерактивните редове */
 a.list-row:hover {
-    background-color: rgba(255, 255, 255, 0.02); /* Много фин светъл фон */
-    /* Леко индикиране на интерактивност (опционално, може да се премахне за 100% статика) */
+  background-color: rgba(255, 255, 255, 0.02); /* Много фин светъл фон */
+  /* Леко индикиране на интерактивност (опционално, може да се премахне за 100% статика) */
 }
 
 a.list-row:hover .col-title h3 {
-    color: var(--accent-blue);
+  color: var(--accent-blue);
 }
 
 /* Типография вътре в колоните */
 .col-year {
-    font-family: var(--font-body);
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    font-weight: 300;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-weight: 300;
 }
 
 .col-title h3 {
-    font-size: 1.6rem;
-    font-family: var(--font-heading);
-    font-weight: normal;
-    transition: color 0.3s ease;
+  font-size: 1.6rem;
+  font-family: var(--font-heading);
+  font-weight: normal;
+  transition: color 0.3s ease;
 }
 
 .col-title h3 span {
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    font-style: italic;
-    margin-left: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-left: 0.5rem;
 }
 
 .col-location {
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    text-align: right; /* Подравнява текста вдясно */
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-align: right; /* Подравнява текста вдясно */
 }
 
 /* Респонсив (за мобилни устройства) */
 @media (max-width: 768px) {
-    .list-row {
-        grid-template-columns: 1fr; /* Всичко минава на 1 колона */
-        gap: 0.5rem;
-        padding: 1.5rem 0;
-    }
+  .list-row {
+    grid-template-columns: 1fr; /* Всичко минава на 1 колона */
+    gap: 0.5rem;
+    padding: 1.5rem 0;
+  }
 
-    .list-header-row {
-        display: none; /* Скрива заглавния ред на мобилни */
-    }
+  .list-header-row {
+    display: none; /* Скрива заглавния ред на мобилни */
+  }
 
-    .col-location {
-        text-align: left;
-        font-size: 0.85rem;
-    }
-    
-    .col-year {
-        font-size: 0.9rem;
-        margin-bottom: 0.2rem;
-    }
+  .col-location {
+    text-align: left;
+    font-size: 0.85rem;
+  }
+
+  .col-year {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+  }
 }
