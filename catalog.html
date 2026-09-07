@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse the selected works and original paintings by Mona.">
     <title>Mona's Gallery - Paintings</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main Navigation">
         <div class="logo">
             <h1 class="logo-text">Mona <span>x</span> Gallery</h1>
         </div>
         <ul class="nav-links">
             <li><a href="index.html">HOME</a></li>
             <li><a href="artist.html">ARTIST</a></li>
-            <li><a href="catalog.html" class="active">PAINTINGS</a></li>
+            <li><a href="catalog.html" class="active" aria-current="page">PAINTINGS</a></li>
         </ul>
-        <button class="lang-switch">EN / BG</button>
+        <button class="lang-switch" aria-label="Switch Language">EN / BG</button>
     </nav>
 
     <main class="catalog-main">
@@ -26,12 +27,12 @@
             <p>Original paintings, studies, and textural explorations.</p>
         </header>
 
-        <div class="catalog-filters">
-            <button class="filter-btn active">All Works</button>
-            <button class="filter-btn">Available</button>
-            <button class="filter-btn">Sold</button>
-            <button class="filter-btn">2025 Series</button>
-        </div>
+        <nav class="catalog-filters" aria-label="Catalog Filters">
+            <button class="filter-btn active" aria-pressed="true">All Works</button>
+            <button class="filter-btn" aria-pressed="false">Available</button>
+            <button class="filter-btn" aria-pressed="false">Sold</button>
+            <button class="filter-btn" aria-pressed="false">2025 Series</button>
+        </nav>
 
         <section class="catalog-grid">
             
@@ -41,12 +42,12 @@
                     <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mona Lisa">
                 </div>
                 <div class="art-info">
-                    <div class="art-title-row">
+                    <header class="art-title-row">
                         <h3>Mona Lisa</h3>
-                        <span class="art-price">€850,000,000</span>
-                    </div>
+                        <span class="art-price">&euro;850,000,000</span>
+                    </header>
                     <p class="art-medium">Oil on poplar panel</p>
-                    <p class="art-dimensions">77 x 53 cm | 1503</p>
+                    <p class="art-dimensions">77 &times; 53 cm | 1503</p>
                 </div>
             </a>
 
@@ -56,12 +57,12 @@
                     <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Starry Night">
                 </div>
                 <div class="art-info">
-                    <div class="art-title-row">
+                    <header class="art-title-row">
                         <h3>Starry Night</h3>
-                        <span class="art-price">€100,000,000</span>
-                    </div>
+                        <span class="art-price">&euro;100,000,000</span>
+                    </header>
                     <p class="art-medium">Oil on canvas</p>
-                    <p class="art-dimensions">73.7 x 92.1 cm | 1889</p>
+                    <p class="art-dimensions">73.7 &times; 92.1 cm | 1889</p>
                 </div>
             </a>
 
@@ -71,12 +72,12 @@
                     <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="The Scream">
                 </div>
                 <div class="art-info">
-                    <div class="art-title-row">
+                    <header class="art-title-row">
                         <h3>The Scream</h3>
                         <span class="art-price">Private Collection</span>
-                    </div>
+                    </header>
                     <p class="art-medium">Oil, tempera, pastel and crayon on cardboard</p>
-                    <p class="art-dimensions">91 x 73.5 cm | 1893</p>
+                    <p class="art-dimensions">91 &times; 73.5 cm | 1893</p>
                 </div>
             </a>
 
@@ -86,12 +87,12 @@
                     <img src="https://images.unsplash.com/photo-1544967082-d9d25d867d66?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="The Scream Version 2">
                 </div>
                 <div class="art-info">
-                    <div class="art-title-row">
+                    <header class="art-title-row">
                         <h3>The Scream</h3>
-                        <span class="art-price">€119,900,000</span>
-                    </div>
+                        <span class="art-price">&euro;119,900,000</span>
+                    </header>
                     <p class="art-medium">Oil, tempera, pastel and crayon on cardboard</p>
-                    <p class="art-dimensions">91 x 73.5 cm | 1893</p>
+                    <p class="art-dimensions">91 &times; 73.5 cm | 1893</p>
                 </div>
             </a>
 
@@ -104,13 +105,13 @@
                 <h2 class="logo-text">Mona <span>x</span> Gallery</h2>
                 <p>Fine art paintings — original works for sale</p>
             </div>
-            <div class="footer-nav">
+            <nav class="footer-nav" aria-label="Footer Navigation">
                 <a href="artist.html">Artist</a>
                 <a href="catalog.html">Paintings</a>
-            </div>
+            </nav>
             <div class="social-links">
-                <a href="#" class="social-icon">In</a>
-                <a href="#" class="social-icon">Fb</a>
+                <a href="#" class="social-icon" aria-label="Instagram">In</a>
+                <a href="#" class="social-icon" aria-label="Facebook">Fb</a>
             </div>
         </div>
         <div class="copyright">

@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mona's Gallery - Fine art paintings and original works for sale.">
     <title>Mona's Gallery</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main Navigation">
         <div class="logo">
             <h1 class="logo-text">Mona <span>x</span> Gallery</h1>
         </div>
         <ul class="nav-links">
-            <li><a href="index.html" class="active">HOME</a></li>
+            <li><a href="index.html" class="active" aria-current="page">HOME</a></li>
             <li><a href="artist.html">ARTIST</a></li>
             <li><a href="catalog.html">PAINTINGS</a></li>
         </ul>
-        <button class="lang-switch">EN / BG</button>
+        <button class="lang-switch" aria-label="Switch Language">EN / BG</button>
     </nav>
     
     <main>
-        <section class="hero-banner" style="padding: 2rem 5%; margin-bottom: 1rem;">
-            <img src="images/img2.jpg" alt="Gallery Banner" style="width: 100%; height: 350px; object-fit: cover; border-radius: var(--border-radius);">
+        <section class="hero-banner">
+            <img src="images/img2.jpg" alt="Gallery Banner" class="hero-image">
         </section>
 
        <section class="hero-quote">
@@ -35,7 +36,7 @@
         <section class="featured-section">
             <div class="featured-card">
                 <div class="featured-image">
-                    <span class="badge" style="background: rgba(255,255,255,0.9); color: var(--accent-blue);">LATEST WORK</span>
+                    <span class="badge badge-light">LATEST WORK</span>
                     <img src="images/img3.jpg" alt="Textured Painting">
                 </div>
                 
@@ -47,45 +48,44 @@
                         Explore Paintings &rarr;
                     </a>
                 </div>
-                </div>
             </div>
         </section>
 
         <section class="series-section">
-            <div class="series-header">
+            <header class="series-header">
                 <div>
                     <span class="subtitle">SERIES</span>
                     <h2>Color Worlds</h2>
                 </div>
                 <a href="catalog.html" class="view-all">View all series &rarr;</a>
-            </div>
+            </header>
 
             <div class="color-grid">
-                <div class="color-card c-purple">
+                <article class="color-card c-purple">
                     <div class="color-info">
                         <h3>Cosmic Bloom</h3><span>2025</span>
                     </div>
-                </div>
-                <div class="color-card c-teal">
+                </article>
+                <article class="color-card c-teal">
                     <div class="color-info">
                         <h3>Ocean Fire</h3><span>2024</span>
                     </div>
-                </div>
-                <div class="color-card c-orange">
+                </article>
+                <article class="color-card c-orange">
                     <div class="color-info">
                         <h3>Golden Hour</h3><span>2024</span>
                     </div>
-                </div>
-                <div class="color-card c-green">
+                </article>
+                <article class="color-card c-green">
                     <div class="color-info">
                         <h3>Deep Forest</h3><span>2023</span>
                     </div>
-                </div>
-                <div class="color-card c-blue">
+                </article>
+                <article class="color-card c-blue">
                     <div class="color-info">
                         <h3>Twilight</h3><span>2023</span>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
         
@@ -100,7 +100,7 @@
                 </div>
                 <div class="about-image">
                     <span class="badge">ABOUT MONA</span>
-                    <img src="images/img1.jpg" alt="Mona Painting">
+                    <img src="images/img1.jpg" alt="Mona Painting in her studio">
                 </div>
             </div>
         </section>
@@ -113,14 +113,14 @@
                 <p>Fine art paintings — original works for sale</p>
             </div>
             
-            <div class="footer-nav">
+            <nav class="footer-nav" aria-label="Footer Navigation">
                 <a href="artist.html">Artist</a>
                 <a href="catalog.html">Paintings</a>
-            </div>
+            </nav>
             
             <div class="social-links">
-                <a href="#" class="social-icon">In</a>
-                <a href="#" class="social-icon">Fb</a>
+                <a href="#" class="social-icon" aria-label="Instagram">In</a>
+                <a href="#" class="social-icon" aria-label="Facebook">Fb</a>
             </div>
         </div>
         <div class="copyright">
