@@ -1,37 +1,28 @@
-// 1. Define the HTML for the Navbar
-const navbarHTML = `
-<nav class="navbar">
-    <div class="logo">Mona's Gallery</div>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="info.html">Info</a></li>
-        <li><a href="catalog.html">All Paintings</a></li>
-    </ul>
-    <button id="lang-switch">EN / BG</button>
-</nav>
-`;
-
-// 2. Define the HTML for the Footer
-const footerHTML = `
-<footer class="footer">
-    <p>&copy; 2026 Mona's Gallery. All rights reserved.</p>
-    <p>Contact: info@monasgallery.com</p>
-</footer>
-`;
-
-// 3. Inject them into the page when it loads
-function loadComponents() {
+async function loadComponents() {
     const navContainer = document.getElementById('navbar-container');
     const footerContainer = document.getElementById('footer-container');
 
     if (navContainer) {
-        navContainer.innerHTML = navbarHTML;
+        const navRes = await fetch('navbar.html');
+        navContainer.innerHTML = await navRes.text();
+        
+        // Automatically highlight the current page in the navbar
+        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        const navLinks = navContainer.querySelectorAll('.nav-links a');
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+                link.setAttribute('aria-current', 'page');
+            }
+        });
     }
     
     if (footerContainer) {
-        footerContainer.innerHTML = footerHTML;
+        const footerRes = await fetch('footer.html');
+        footerContainer.innerHTML = await footerRes.text();
     }
 }
 
-// Run the function
 loadComponents();

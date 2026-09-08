@@ -513,10 +513,26 @@ a {
   border-bottom: 2px solid transparent;
 }
 
-.filter-btn:hover,
-.filter-btn.active {
+
+.filter-select {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   color: var(--text-main);
-  border-bottom-color: var(--accent-blue);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  outline: none;
+  font-family: var(--font-body);
+  transition: border-color var(--transition-smooth);
+}
+
+.filter-select:hover,
+.filter-select:focus {
+  border-color: var(--accent-blue);
 }
 
 .catalog-grid {
@@ -944,7 +960,7 @@ a {
   .nav-links {
     gap: 1.5rem;
   }
-
+  
   .quote-container h1 {
     font-size: 2rem;
   }
