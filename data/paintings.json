@@ -2,225 +2,450 @@
   {
     "id": "1",
     "imageUrl": "images/img1.jpg",
-    "title": "Birth Of Venus",
+
+    "titleENG": "Birth Of Venus",
+    "titleBGN": "Раждането на Венера",
+
     "date": "26.06.2023",
-    "description": ""
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
+
+
   },
   {
     "id": "2",
     "imageUrl": "images/img2.jpg",
-    "title": "Sunset Over the Ocean",
+
+    "titleENG": "Sunset Over the Ocean",
+    "titleBGN": "Залез над океана",
+
     "date": "15.10.2025",
-    "description": ""
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "3",
     "imageUrl": "images/img3.jpg",
-    "title": "Mountain Landscape",
+
+    "titleENG": "Mountain Landscape",
+    "titleBGN": "Планински пейзаж", 
     "date": "17.06.2023",
-    "description": ""
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "4",
     "imageUrl": "images/img4.jpg",
-    "title": "Cityscape at Night",
+
+    "titleENG": "Cityscape at Night",
+    "titleBGN": "Градски пейзаж през нощта",
+
     "date": "12.09.2025",
-    "description": ""
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "5",
     "imageUrl": "images/img5.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": "Koki",
+    "titleBGN": "Коки",
+
     "date": "18.01.2025",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "6",
     "imageUrl": "images/img6.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": "Lillies Abstract",
+    "titleBGN": "",
+
     "date": "14.06.2025",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "7",
     "imageUrl": "images/img7.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": "Lillies First",
+    "titleBGN": "",
+
     "date": "26.05.2024",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "8",
     "imageUrl": "images/img8.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": "Lillies Second",
+    "titleBGN": "",
+
     "date": "26.05.2024",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "9",
     "imageUrl": "images/img9.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": "Little Girl",
+    "titleBGN": "",
+
     "date": "09.11.2024",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "10",
     "imageUrl": "images/img10.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": "Lukovit",
+    "titleBGN": "",
+
     "date": "24.07.2025",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "11",
     "imageUrl": "images/img11.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": "Naked Body",
+    "titleBGN": "",
+
     "date": "10.06.2024",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "12",
     "imageUrl": "images/img12.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "12.02.2026",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "13",
     "imageUrl": "images/img13.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "01.04.2025",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "14",
     "imageUrl": "images/img14.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+    
     "date": "27.11.2025",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "15",
     "imageUrl": "images/img15.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "07.02.2026",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "16",
     "imageUrl": "images/img16.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "12.03.2025",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "17",
     "imageUrl": "images/img17.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "01.04.2023",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "18",
     "imageUrl": "images/img18.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "16.05.2024",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "19",
     "imageUrl": "images/img19.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "18.04.2026",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "20",
     "imageUrl": "images/img20.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "19.11.2025",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "21",
     "imageUrl": "images/img21.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "18.06.2025",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "22",
     "imageUrl": "images/img22.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "27.04.2024",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "23",
     "imageUrl": "images/img23.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "17.04.2025",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "24",
     "imageUrl": "images/img24.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "31.05.2025",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "25",
     "imageUrl": "images/img25.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "26.09.2025",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "26",
     "imageUrl": "images/img26.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "13.04.2024",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "27",
     "imageUrl": "images/img27.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+    
     "date": "17.12.2025",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "28",
     "imageUrl": "images/img28.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "13.07.2023",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "29",
     "imageUrl": "images/img29.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "21.12.2024",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+    
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "30",
     "imageUrl": "images/img30.jpg",
-    "title": "Abstract Art",
+    
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "14.05.2025",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "31",
     "imageUrl": "images/img31.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "03.02.2024",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   },
   {
     "id": "32",
     "imageUrl": "images/img32.jpg",
-    "title": "Abstract Art",
+
+    "titleENG": " ",
+    "titleBGN": "",
+
     "date": "21.12.2024",
-    "description": " "
+    "price": " €",
+    "size": "  cm",
+
+    "descriptionENG": "",
+    "descriptionBGN": ""
   }
 ]

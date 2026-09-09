@@ -36,82 +36,8 @@
         </select>
       </nav>
 
-      <section class="catalog-grid">
-        <a href="painting.html?id=1" class="art-card">
-          <div class="art-image-wrapper">
-            <span class="art-badge badge-available">AVAILABLE</span>
-            <img
-              src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              alt="Mona Lisa"
-            />
-          </div>
-          <div class="art-info">
-            <header class="art-title-row">
-              <h3>Mona Lisa</h3>
-              <span class="art-price">&euro;850,000,000</span>
-            </header>
-            <p class="art-medium">Oil on poplar panel</p>
-            <p class="art-dimensions">77 &times; 53 cm | 1503</p>
-          </div>
-        </a>
-
-        <a href="painting.html?id=2" class="art-card">
-          <div class="art-image-wrapper">
-            <span class="art-badge badge-sold">SOLD</span>
-            <img
-              src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              alt="Starry Night"
-            />
-          </div>
-          <div class="art-info">
-            <header class="art-title-row">
-              <h3>Starry Night</h3>
-              <span class="art-price">&euro;100,000,000</span>
-            </header>
-            <p class="art-medium">Oil on canvas</p>
-            <p class="art-dimensions">73.7 &times; 92.1 cm | 1889</p>
-          </div>
-        </a>
-
-        <a href="painting.html?id=3" class="art-card">
-          <div class="art-image-wrapper">
-            <span class="art-badge badge-sold">SOLD</span>
-            <img
-              src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              alt="The Scream"
-            />
-          </div>
-          <div class="art-info">
-            <header class="art-title-row">
-              <h3>The Scream</h3>
-              <span class="art-price">Private Collection</span>
-            </header>
-            <p class="art-medium">
-              Oil, tempera, pastel and crayon on cardboard
-            </p>
-            <p class="art-dimensions">91 &times; 73.5 cm | 1893</p>
-          </div>
-        </a>
-
-        <a href="painting.html?id=4" class="art-card">
-          <div class="art-image-wrapper">
-            <span class="art-badge badge-sold">SOLD</span>
-            <img
-              src="https://images.unsplash.com/photo-1544967082-d9d25d867d66?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              alt="The Scream Version 2"
-            />
-          </div>
-          <div class="art-info">
-            <header class="art-title-row">
-              <h3>The Scream</h3>
-              <span class="art-price">&euro;119,900,000</span>
-            </header>
-            <p class="art-medium">
-              Oil, tempera, pastel and crayon on cardboard
-            </p>
-            <p class="art-dimensions">91 &times; 73.5 cm | 1893</p>
-          </div>
-        </a>
+      <section class="catalog-grid" id="catalog-grid">
+        <!-- Картините ще се зареждат тук динамично -->
       </section>
     </main>
 
@@ -130,6 +56,41 @@
         .then((data) => {
           document.getElementById("footer-placeholder").innerHTML = data;
         });
+
+      // Load Catalog Data
+      fetch("data/paintings.json")
+        .then((response) => response.json())
+        .then((paintings) => {
+          const grid = document.getElementById("catalog-grid");
+          let gridHTML = "";
+
+          paintings.forEach((painting) => {
+            // Ако заглавието е празно, показваме "Untitled"
+            const title = painting.titleENG.trim()
+              ? painting.titleENG
+              : "Untitled";
+
+            gridHTML += `
+                <a href="painting.html?id=${painting.id}" class="art-card">
+                    <div class="art-image-wrapper">
+                        <span class="art-badge badge-available">AVAILABLE</span>
+                        <img src="${painting.imageUrl}" alt="${title}" />
+                    </div>
+                    <div class="art-info">
+                        <header class="art-title-row">
+                            <h3>${title}</h3>
+                            <span class="art-price">${painting.price}</span>
+                        </header>
+                        <p class="art-medium">Medium placeholder</p>
+                        <p class="art-dimensions">${painting.size} | ${painting.date}</p>
+                    </div>
+                </a>
+            `;
+          });
+
+          grid.innerHTML = gridHTML;
+        })
+        .catch((error) => console.error("Error loading paintings:", error));
     </script>
   </body>
 </html>
