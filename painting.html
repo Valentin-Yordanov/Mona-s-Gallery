@@ -23,17 +23,13 @@
 
       <section class="painting-layout">
         <div class="painting-image-wrapper">
-          <img src="images/img4.jpg" alt="Morning Light Painting" />
+          <img id="p-image" src="" alt="Loading..." />
         </div>
 
         <div class="painting-info">
           <div class="overline">ORIGINAL WORK</div>
-          <h1 class="painting-title">Morning Light</h1>
-          <p class="painting-desc">
-            A square canvas filled with the soft clarity of early morning. Cool
-            whites and pale yellows blend seamlessly, creating a sense of quiet
-            and possibility before the day begins.
-          </p>
+          <h1 class="painting-title" id="p-title">Loading...</h1>
+          <p class="painting-desc" id="p-desc"></p>
 
           <div class="specs-grid">
             <div class="spec-card">
@@ -70,7 +66,9 @@
               </div>
               <div class="spec-text">
                 <span class="spec-label">MEDIUM</span>
-                <span class="spec-value">Acrylic on Canvas</span>
+                <span class="spec-value" id="p-medium"
+                  >Oil/Acrylic on Canvas</span
+                >
               </div>
             </div>
 
@@ -91,7 +89,7 @@
               </div>
               <div class="spec-text">
                 <span class="spec-label">SIZE</span>
-                <span class="spec-value">50 &times; 50 cm</span>
+                <span class="spec-value" id="p-size"></span>
               </div>
             </div>
 
@@ -111,8 +109,8 @@
                 </svg>
               </div>
               <div class="spec-text">
-                <span class="spec-label">YEAR</span>
-                <span class="spec-value">2022</span>
+                <span class="spec-label">DATE</span>
+                <span class="spec-value" id="p-date"></span>
               </div>
             </div>
 
@@ -134,13 +132,13 @@
               </div>
               <div class="spec-text">
                 <span class="spec-label">STATUS</span>
-                <span class="spec-value">Available</span>
+                <span class="spec-value" id="p-status">Available</span>
               </div>
             </div>
           </div>
 
           <div class="purchase-action">
-            <span class="price">&euro;420</span>
+            <span class="price" id="p-price"></span>
             <button
               id="inquire-btn"
               class="btn-purchase"
@@ -195,6 +193,54 @@
         .then((data) => {
           document.getElementById("footer-placeholder").innerHTML = data;
         });
+
+      // Fetch dynamic painting data
+      const urlParams = new URLSearchParams(window.location.search);
+      const paintingId = urlParams.get("id");
+
+      if (paintingId) {
+        fetch("data/paintings.json")
+          .then((response) => response.json())
+          .then((paintings) => {
+            const painting = paintings.find((p) => p.id === paintingId);
+
+            if (painting) {
+              const imgElement = document.getElementById("p-image");
+
+              // Detect orientation and expand both layout AND page container
+              imgElement.onload = () => {
+                const layout = document.querySelector(".painting-layout");
+                const mainPage = document.querySelector(".painting-page");
+
+                if (imgElement.naturalWidth > imgElement.naturalHeight) {
+                  layout.classList.add("landscape");
+                  mainPage.classList.add("is-landscape");
+                } else {
+                  layout.classList.remove("landscape");
+                  mainPage.classList.remove("is-landscape");
+                }
+              };
+
+              imgElement.src = painting.imageUrl;
+              imgElement.alt = title;
+
+              document.getElementById("p-title").textContent = title;
+              document.getElementById("p-desc").textContent =
+                painting.descriptionENG || "No description provided.";
+              document.getElementById("p-size").textContent =
+                painting.size || "N/A";
+              document.getElementById("p-date").textContent =
+                painting.date || "N/A";
+              document.getElementById("p-price").textContent = painting.price;
+            } else {
+              document.getElementById("p-title").textContent =
+                "Painting not found";
+            }
+          })
+          .catch((error) =>
+            console.error("Error loading painting details:", error),
+          );
+      }
 
       const modal = document.getElementById("purchase-modal");
       const inquireBtn = document.getElementById("inquire-btn");
