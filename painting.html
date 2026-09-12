@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="View details and inquire about Morning Light by Mona."
+      content="View details and inquire about Mona's artworks."
     />
-    <title>Morning Light - Mona's Gallery</title>
+    <title>Mona's Gallery</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
 
@@ -27,9 +27,9 @@
         </div>
 
         <div class="painting-info">
-          <div class="overline">ORIGINAL WORK</div>
+          <!-- Added ID for dynamic Type insertion -->
+          <div class="overline" id="p-type">ORIGINAL WORK</div>
           <h1 class="painting-title" id="p-title">Loading...</h1>
-          <p class="painting-desc" id="p-desc"></p>
 
           <div class="specs-grid">
             <div class="spec-card">
@@ -44,31 +44,14 @@
                   <path
                     d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.389 2.83481 16.5828 4.2185 18.3098C4.54922 18.7228 4.96023 19.349 4.70882 19.9882C4.51268 20.4868 4.88726 21.0375 5.41908 21.0118C8.58156 20.8587 10.9782 22 12 22Z"
                   ></path>
-                  <circle
-                    cx="7.5"
-                    cy="10.5"
-                    r="1.5"
-                    fill="currentColor"
-                  ></circle>
-                  <circle
-                    cx="10.5"
-                    cy="7.5"
-                    r="1.5"
-                    fill="currentColor"
-                  ></circle>
-                  <circle
-                    cx="15.5"
-                    cy="9.5"
-                    r="1.5"
-                    fill="currentColor"
-                  ></circle>
+                  <circle cx="7.5" cy="10.5" r="1.5" fill="currentColor"></circle>
+                  <circle cx="10.5" cy="7.5" r="1.5" fill="currentColor"></circle>
+                  <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"></circle>
                 </svg>
               </div>
               <div class="spec-text">
                 <span class="spec-label">MEDIUM</span>
-                <span class="spec-value" id="p-medium"
-                  >Oil/Acrylic on Canvas</span
-                >
+                <span class="spec-value" id="p-medium"></span>
               </div>
             </div>
 
@@ -150,6 +133,11 @@
           </div>
         </div>
       </section>
+      
+      <div class="description-panel" id="desc-container" style="display: none;">
+        <h3>Description</h3>
+        <p id="p-desc"></p>
+      </div>
 
       <!-- Purchase Modal Panel -->
       <div
@@ -175,6 +163,15 @@
           </div>
         </div>
       </div>
+
+      <!-- Image Zoom Modal -->
+      <div id="zoom-modal" class="modal-overlay" role="dialog" aria-modal="true">
+        <button class="close-modal" id="close-zoom" aria-label="Close zoom">
+          &times;
+        </button>
+        <img id="zoomed-image" src="" alt="Zoomed View" />
+      </div>
+
     </main>
 
     <footer class="footer" id="footer-placeholder"></footer>
@@ -206,6 +203,9 @@
 
             if (painting) {
               const imgElement = document.getElementById("p-image");
+              
+              // Define title BEFORE trying to use it
+              const title = painting.titleENG && painting.titleENG.trim() ? painting.titleENG : "Untitled";
 
               // Detect orientation and expand both layout AND page container
               imgElement.onload = () => {
@@ -221,20 +221,34 @@
                 }
               };
 
+              // Inject Image and Text
               imgElement.src = painting.imageUrl;
               imgElement.alt = title;
-
+              document.title = `${title} - Mona's Gallery`;
               document.getElementById("p-title").textContent = title;
-              document.getElementById("p-desc").textContent =
-                painting.descriptionENG || "No description provided.";
-              document.getElementById("p-size").textContent =
-                painting.size || "N/A";
-              document.getElementById("p-date").textContent =
-                painting.date || "N/A";
-              document.getElementById("p-price").textContent = painting.price;
+              
+              // Inject Type (Overline)
+              document.getElementById("p-type").textContent = painting.typeENG ? painting.typeENG.toUpperCase() : "ORIGINAL WORK";
+              
+              // Inject Medium
+              document.getElementById("p-medium").textContent = painting.madeOutOFENG || "N/A";
+
+              // Inject Description Logic
+              const descText = painting.descriptionENG && painting.descriptionENG.trim();
+              if (descText) {
+                document.getElementById("p-desc").textContent = descText;
+                document.getElementById("desc-container").style.display = "block";
+              } else {
+                document.getElementById("desc-container").style.display = "none";
+              }
+              
+              // Inject Size, Date, Price
+              document.getElementById("p-size").textContent = painting.size && painting.size.trim() !== "cm" ? painting.size : "N/A";
+              document.getElementById("p-date").textContent = painting.date || "N/A";
+              document.getElementById("p-price").textContent = painting.price && painting.price.trim() !== "€" ? painting.price : "Price upon request";
+              
             } else {
-              document.getElementById("p-title").textContent =
-                "Painting not found";
+              document.getElementById("p-title").textContent = "Painting not found";
             }
           })
           .catch((error) =>
@@ -272,6 +286,108 @@
           modal.classList.remove("active");
           inquireBtn.setAttribute("aria-expanded", "false");
         }
+      });
+
+      // Zoom Modal Logic
+      const zoomModal = document.getElementById("zoom-modal");
+      const zoomedImage = document.getElementById("zoomed-image");
+      const closeZoomBtn = document.getElementById("close-zoom");
+      const mainImage = document.getElementById("p-image");
+      
+      let isZoomed = false;
+      let isDragging = false;
+      let startX = 0, startY = 0;
+      let translateX = 0, translateY = 0;
+      let lastTranslateX = 0, lastTranslateY = 0;
+      let isClick = true;
+
+      function updateTransform() {
+        if (isZoomed) {
+          zoomedImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(2.5)`;
+        } else {
+          zoomedImage.style.transform = `translate(0px, 0px) scale(1)`;
+        }
+      }
+
+      function resetZoom() {
+        isZoomed = false;
+        isDragging = false;
+        translateX = 0; translateY = 0;
+        lastTranslateX = 0; lastTranslateY = 0;
+        zoomedImage.classList.remove("is-zoomed");
+        zoomedImage.style.transition = "transform var(--transition-smooth)";
+        updateTransform();
+      }
+
+      // Open zoom modal
+      mainImage.addEventListener("click", () => {
+        zoomedImage.src = mainImage.src;
+        resetZoom();
+        zoomModal.classList.add("active");
+      });
+
+      // Pointer Events (Handles both Touch and Mouse)
+      zoomedImage.addEventListener("pointerdown", (e) => {
+        isClick = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        if (!isZoomed) return;
+        
+        e.preventDefault(); // Stops default image drag
+        isDragging = true;
+        zoomedImage.style.transition = "none"; // Disable animation while dragging
+      });
+
+      window.addEventListener("pointermove", (e) => {
+        if (!isDragging) return;
+        
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        
+        // 5px threshold for shaky fingers so it doesn't cancel clicks
+        if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+          isClick = false; 
+        }
+        
+        translateX = lastTranslateX + dx;
+        translateY = lastTranslateY + dy;
+        updateTransform();
+      });
+
+      window.addEventListener("pointerup", (e) => {
+        if (isDragging) {
+          isDragging = false;
+          lastTranslateX = translateX;
+          lastTranslateY = translateY;
+          zoomedImage.style.transition = "transform var(--transition-smooth)";
+        }
+        
+        // If tapped/clicked without moving, toggle zoom
+        if (isClick && e.target === zoomedImage) {
+          isZoomed = !isZoomed;
+          if (isZoomed) {
+            zoomedImage.classList.add("is-zoomed");
+          } else {
+            resetZoom();
+          }
+          updateTransform();
+        }
+      });
+
+      // Close routines
+      const closeZoom = () => {
+        zoomModal.classList.remove("active");
+        setTimeout(resetZoom, 300);
+      };
+
+      closeZoomBtn.addEventListener("click", closeZoom);
+      
+      zoomModal.addEventListener("click", (e) => {
+        if (e.target === zoomModal) closeZoom();
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && zoomModal.classList.contains("active")) closeZoom();
       });
     </script>
   </body>

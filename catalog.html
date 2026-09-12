@@ -65,10 +65,20 @@
           let gridHTML = "";
 
           paintings.forEach((painting) => {
-            // Ако заглавието е празно, показваме "Untitled"
-            const title = painting.titleENG.trim()
-              ? painting.titleENG
-              : "Untitled";
+            const title = painting.titleENG.trim() ? painting.titleENG : "Untitled";
+            
+            // Extract only the year (last 4 characters after the split)
+            const year = painting.date ? painting.date.split('.').pop() : "";
+            
+            // Fetch the material (fallback to "Original Work" if you haven't added it to JSON yet)
+            const type = painting.madeOutOFENG || "Original Work"; 
+            
+            // Format the size so it doesn't just say "cm" when empty
+            const size = painting.size && painting.size.trim() !== "cm" ? painting.size : "";
+
+            // Build the details line, filtering out empty variables so you don't get awkward orphan pipes "|"
+            const detailsArray = [type, size, year].filter(item => item !== "");
+            const detailsLine = detailsArray.join(" | ");
 
             gridHTML += `
                 <a href="painting.html?id=${painting.id}" class="art-card">
@@ -81,12 +91,12 @@
                             <h3>${title}</h3>
                             <span class="art-price">${painting.price}</span>
                         </header>
-                        <p class="art-medium">Medium placeholder</p>
-                        <p class="art-dimensions">${painting.size} | ${painting.date}</p>
+                        <p class="art-details-line">${painting.typeENG}</p>
+                        <p class="art-details-line">${detailsLine}</p>
                     </div>
                 </a>
             `;
-          });
+        });
 
           grid.innerHTML = gridHTML;
         })

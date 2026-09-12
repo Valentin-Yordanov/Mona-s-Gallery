@@ -10,15 +10,15 @@
   --accent-blue: #b47a46;
   --navbar-bg: #221f1e;
   --navbar-text: #f4efe9;
-  
+
   --font-heading: "Georgia", "Times New Roman", serif;
   --font-body: "Inter", "Segoe UI", sans-serif;
-  
+
   --border-radius: 20px;
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
-  
+
   --transition-fast: 0.2s ease;
   --transition-smooth: 0.3s ease;
 }
@@ -42,7 +42,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, .logo-text {
+h1,
+h2,
+h3,
+h4,
+.logo-text {
   font-family: var(--font-heading);
   font-weight: normal;
 }
@@ -91,7 +95,9 @@ a {
   font-size: 0.85rem;
   letter-spacing: 2px;
   font-weight: 600;
-  transition: color var(--transition-smooth), border-color var(--transition-smooth);
+  transition:
+    color var(--transition-smooth),
+    border-color var(--transition-smooth);
   padding-bottom: 5px;
   border-bottom: 2px solid transparent;
 }
@@ -110,7 +116,9 @@ a {
   border-radius: 20px;
   cursor: pointer;
   font-size: 0.75rem;
-  transition: background var(--transition-smooth), border-color var(--transition-smooth);
+  transition:
+    background var(--transition-smooth),
+    border-color var(--transition-smooth);
 }
 
 .lang-switch:hover {
@@ -228,7 +236,7 @@ a {
 /* =========================================
    HOME PAGE: FEATURED & ABOUT CARDS
    ========================================= */
-.featured-section, 
+.featured-section,
 .about-section {
   padding: 0 5% 4rem;
   max-width: 1200px;
@@ -236,7 +244,7 @@ a {
   width: 100%;
 }
 
-.featured-card, 
+.featured-card,
 .about-card {
   background-color: var(--bg-panel);
   border-radius: var(--border-radius);
@@ -248,14 +256,14 @@ a {
   box-shadow: var(--shadow-md);
 }
 
-.featured-image, 
+.featured-image,
 .about-image {
   position: relative;
   border-radius: calc(var(--border-radius) - 5px);
   overflow: hidden;
 }
 
-.featured-image img, 
+.featured-image img,
 .about-image img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -344,7 +352,9 @@ a {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  transition:
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth);
 }
 
 .color-card:hover {
@@ -352,11 +362,21 @@ a {
   box-shadow: var(--shadow-md);
 }
 
-.c-purple { background: linear-gradient(135deg, #d946ef, #8b5cf6); }
-.c-teal   { background: linear-gradient(135deg, #2dd4bf, #f97316); }
-.c-orange { background: linear-gradient(135deg, #fbbf24, #f97316); }
-.c-green  { background: linear-gradient(135deg, #10b981, #3b82f6); }
-.c-blue   { background: linear-gradient(135deg, #8b5cf6, #3b82f6); }
+.c-purple {
+  background: linear-gradient(135deg, #d946ef, #8b5cf6);
+}
+.c-teal {
+  background: linear-gradient(135deg, #2dd4bf, #f97316);
+}
+.c-orange {
+  background: linear-gradient(135deg, #fbbf24, #f97316);
+}
+.c-green {
+  background: linear-gradient(135deg, #10b981, #3b82f6);
+}
+.c-blue {
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+}
 
 .color-info {
   position: absolute;
@@ -445,7 +465,9 @@ a {
   border-radius: var(--border-radius);
   padding: 2.5rem 3rem;
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  transition:
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth);
 }
 
 .info-card:hover {
@@ -513,7 +535,6 @@ a {
   border-bottom: 2px solid transparent;
 }
 
-
 .filter-select {
   background: transparent;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -544,7 +565,13 @@ a {
 .art-card {
   display: flex;
   flex-direction: column;
-  background: transparent;
+  background: var(--bg-panel);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.4s ease;
+  overflow: hidden;
 }
 
 .art-image-wrapper {
@@ -552,16 +579,16 @@ a {
   width: 100%;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  margin-bottom: 1.2rem;
-  background: linear-gradient(135deg, #e5dfd5, #d5ce c2);
-  border-radius: 12px;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  background: #e5dfd5;
 }
 
-.art-card:hover .art-image-wrapper {
+.art-card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-lg);
+}
+
+.art-info {
+  padding: 1.5rem;
 }
 
 .art-image-wrapper img {
@@ -569,7 +596,9 @@ a {
   height: 100%;
   object-fit: contain;
   display: block;
-  transition: filter 0.4s ease, transform 0.4s ease;
+  transition:
+    filter 0.4s ease,
+    transform 0.4s ease;
 }
 
 .art-card:hover .art-image-wrapper img {
@@ -627,16 +656,13 @@ a {
   font-weight: 600;
 }
 
-.art-medium {
+.art-details-line {
+  text-align: center;
   color: var(--text-muted);
   font-size: 0.85rem;
-  margin-bottom: 0.2rem;
-}
-
-.art-dimensions {
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  opacity: 0.8;
+  margin-top: 1rem;
+  letter-spacing: 0.5px;
+  font-weight: 500;
 }
 
 /* =========================================
@@ -648,13 +674,19 @@ a {
   padding: 3rem 5% 6rem;
 }
 
+.painting-page.is-landscape {
+  max-width: 1450px;
+}
+
 .back-link {
   display: inline-block;
   color: var(--text-muted);
   font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 3rem;
-  transition: color var(--transition-smooth), transform var(--transition-smooth);
+  transition:
+    color var(--transition-smooth),
+    transform var(--transition-smooth);
 }
 
 .back-link:hover {
@@ -666,14 +698,29 @@ a {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 5rem;
-  align-items: start;
+  align-items: stretch;
 }
 
+.painting-layout.landscape {
+  grid-template-columns: 1.7fr 1.2fr;
+  align-items: stretch;
+}
+
+.painting-info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+CSS
 .painting-image-wrapper {
   background: var(--bg-panel);
   padding: 12px;
   border-radius: 12px;
   box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .painting-image-wrapper img {
@@ -683,17 +730,6 @@ a {
   border-radius: 6px;
   display: block;
   margin: 0 auto;
-}
-
-/* Expands the maximum width of the entire page just for wide paintings */
-.painting-page.is-landscape {
-  max-width: 1450px;
-}
-
-/* Gives the image column a massive 70% of the space, pushes text to the side */
-.painting-layout.landscape {
-  grid-template-columns: 2.2fr 1fr;
-  align-items: center; /* Vertically centers the info next to the giant image */
 }
 
 .overline {
@@ -769,9 +805,12 @@ a {
 }
 
 .purchase-action {
+  margin-top: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   background: var(--bg-panel);
   padding: 1.5rem 2rem;
   border-radius: var(--border-radius);
@@ -784,10 +823,11 @@ a {
   font-size: 2.5rem;
   font-weight: bold;
   color: var(--text-main);
+  white-space: nowrap;
 }
 
 .btn-purchase {
-  background: var(--navbar-bg); 
+  background: var(--navbar-bg);
   color: var(--navbar-text);
   padding: 1rem 2.5rem;
   border-radius: 30px;
@@ -802,6 +842,27 @@ a {
   transform: translateY(-2px);
   background: var(--accent-blue);
   box-shadow: 0 8px 20px rgba(180, 122, 70, 0.3);
+}
+
+.description-panel {
+  background-color: var(--bg-panel);
+  border-radius: var(--border-radius);
+  padding: 2.5rem 3rem;
+  margin-top: 4rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.description-panel h3 {
+  color: var(--accent-blue);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.description-panel p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
 }
 
 /* =========================================
@@ -872,6 +933,40 @@ a {
 
 .close-modal:hover {
   color: var(--accent-blue);
+}
+
+#p-image {
+  cursor: zoom-in;
+  transition: opacity var(--transition-fast);
+}
+
+#p-image:hover {
+  opacity: 0.9;
+}
+
+#zoomed-image {
+  max-width: 95vw;
+  max-height: 95vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  transform: scale(0.95);
+  transition: transform var(--transition-smooth);
+  cursor: zoom-in;
+  touch-action: none;
+  user-select: none;
+}
+
+#zoom-modal.active #zoomed-image {
+  transform: scale(1) translate(0px, 0px);
+}
+
+#zoom-modal.active #zoomed-image.is-zoomed {
+  cursor: grab;
+}
+
+#zoom-modal.active #zoomed-image.is-zoomed:active {
+  cursor: grabbing;
 }
 
 /* =========================================
@@ -952,7 +1047,7 @@ a {
    MEDIA QUERIES (RESPONSIVE DESIGN)
    ========================================= */
 @media (max-width: 1024px) {
-  .featured-card, 
+  .featured-card,
   .about-card,
   .painting-layout {
     gap: 3rem;
@@ -969,16 +1064,16 @@ a {
     gap: 1.5rem;
     padding: 1.5rem;
   }
-  
+
   .nav-links {
     gap: 1.5rem;
   }
-  
+
   .quote-container h1 {
     font-size: 2rem;
   }
 
-  .featured-card, 
+  .featured-card,
   .about-card {
     grid-template-columns: 1fr;
     text-align: center;
@@ -1003,20 +1098,21 @@ a {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .painting-layout {
+  .painting-layout,
+  .painting-layout.landscape {
     grid-template-columns: 1fr;
   }
 
   .specs-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .purchase-action {
     flex-direction: column;
     gap: 1.5rem;
     text-align: center;
   }
-  
+
   .footer-content {
     flex-direction: column;
     text-align: center;
@@ -1031,7 +1127,7 @@ a {
   .catalog-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .artist-photo-placeholder {
     height: 300px;
   }
@@ -1039,7 +1135,7 @@ a {
   .info-card {
     padding: 2rem 1.5rem;
   }
-  
+
   .painting-title {
     font-size: 2.5rem;
   }
