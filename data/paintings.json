@@ -2,639 +2,480 @@
   {
     "id": "1",
     "imageUrl": "images/img1.jpg",
-
-    "titleENG": "Birth Of Venus",
+    "titleENG": "The Birth of Venus",
     "titleBGN": "Раждането на Венера",
-
     "date": "26.06.2023",
-    "price": " 9999 €",
-    "size": " 35 x 70 cm",
-
-    "typeENG": "Original",
-    "typeBGN": "",
-
-    "madeOutOFENG": "hugb",
-    "madeOutOFBGN": "",
-
-    "descriptionENG": "tneohnoiprythnoirp",
+    "price": "9999 €",
+    "size": "50 x 80 cm",
+    "typeENG": "Not Original",
+    "typeBGN": "Неоригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
+    "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "2",
     "imageUrl": "images/img2.jpg",
-
-    "titleENG": "Sunset Over the Ocean",
-    "titleBGN": "Залез над океана",
-
+    "titleENG": "Everyday Life",
+    "titleBGN": "Битово Ежедневие",
     "date": "15.10.2025",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "50 x 70 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "3",
     "imageUrl": "images/img3.jpg",
-
-    "titleENG": "Mountain Landscape",
-    "titleBGN": "Планински пейзаж", 
+    "titleENG": "The Fallen Angel",
+    "titleBGN": "Падналият Ангел",
     "date": "17.06.2023",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "50 x 70 cm",
+    "typeENG": "Not Original",
+    "typeBGN": "Неоригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "4",
     "imageUrl": "images/img4.jpg",
-
-    "titleENG": "Cityscape at Night",
-    "titleBGN": "Градски пейзаж през нощта",
-
+    "titleENG": "st st Kiril and Metodii",
+    "titleBGN": "св св Кирил и Методий",
     "date": "12.09.2025",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "50 x 70 cm",
+    "typeENG": "Not Original",
+    "typeBGN": "Неоригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "5",
     "imageUrl": "images/img5.jpg",
-
-    "titleENG": "Koki",
-    "titleBGN": "Коки",
-
+    "titleENG": "The World of Koki",
+    "titleBGN": "Светът на Коки",
     "date": "18.01.2025",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "40 x 40 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "6",
     "imageUrl": "images/img6.jpg",
-
-    "titleENG": "Lillies Abstract",
-    "titleBGN": "",
-
+    "titleENG": "May Lillies 3",
+    "titleBGN": "Майски Лилии 3",
     "date": "14.06.2025",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "155 €",
+    "size": "40 x 40 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "7",
     "imageUrl": "images/img7.jpg",
-
-    "titleENG": "Lillies First",
-    "titleBGN": "",
-
+    "titleENG": "May Lillies 1",
+    "titleBGN": "Майски Лилии 1",
     "date": "26.05.2024",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "40 x 40 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "8",
     "imageUrl": "images/img8.jpg",
-
-    "titleENG": "Lillies Second",
-    "titleBGN": "",
-
+    "titleENG": "May Lillies 2",
+    "titleBGN": "Майски Лилии 2",
     "date": "26.05.2024",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "40 x 40 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "9",
     "imageUrl": "images/img9.jpg",
-
-    "titleENG": "Little Girl",
-    "titleBGN": "",
-
+    "titleENG": "A Child’s work",
+    "titleBGN": "Детски труд",
     "date": "09.11.2024",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "50 x 70 cm",
+    "typeENG": "Not Original",
+    "typeBGN": "Неоригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "10",
     "imageUrl": "images/img10.jpg",
-
     "titleENG": "Lukovit",
-    "titleBGN": "",
-
+    "titleBGN": "Луковит",
     "date": "24.07.2025",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "50 x 70 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "11",
     "imageUrl": "images/img11.jpg",
-
-    "titleENG": "Naked Body",
-    "titleBGN": "",
-
+    "titleENG": "A Woman’s Body",
+    "titleBGN": "Женско Тяло",
     "date": "10.06.2024",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "40 x 50 cm",
+    "typeENG": "Not Original",
+    "typeBGN": "Неоригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "12",
     "imageUrl": "images/img12.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "A woman’s Body 2",
+    "titleBGN": "Женско Тяло 2",
     "date": "12.02.2026",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "155 €",
+    "size": "40 x 40 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "13",
     "imageUrl": "images/img13.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "Calm in the Library",
+    "titleBGN": "Спокойствие в библиотеката",
     "date": "01.04.2025",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "40 x 70 cm",
+    "typeENG": "Not Original",
+    "typeBGN": "Неоригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "14",
     "imageUrl": "images/img14.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-    
+    "titleENG": "On the Way Home",
+    "titleBGN": "По път за Вкъщи",
     "date": "27.11.2025",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "40 x 40 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "15",
     "imageUrl": "images/img15.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "Sister’s love",
+    "titleBGN": "Сестринска любов",
     "date": "07.02.2026",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "20 x 30 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "16",
     "imageUrl": "images/img16.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "Pieta",
+    "titleBGN": "Пиета",
     "date": "12.03.2025",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "50 x 70 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "17",
     "imageUrl": "images/img17.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "The Beginning",
+    "titleBGN": "Началото",
     "date": "01.04.2023",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "40 x 40 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "18",
     "imageUrl": "images/img18.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "My Second Home",
+    "titleBGN": "Моя втори дом",
     "date": "16.05.2024",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "250 €",
+    "size": "50 x 80 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "19",
     "imageUrl": "images/img19.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "Ravda",
+    "titleBGN": "Равда",
     "date": "18.04.2026",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "270 €",
+    "size": "50 x 70 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "20",
     "imageUrl": "images/img20.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "On the Way to Rila",
+    "titleBGN": "На път за Рила",
     "date": "19.11.2025",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "50 x 70 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "21",
     "imageUrl": "images/img21.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "Autoportrait",
+    "titleBGN": "Автопортрет",
     "date": "18.06.2025",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "120 €",
+    "size": "35 x 40 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "22",
     "imageUrl": "images/img22.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "Portrait of a Friend",
+    "titleBGN": "Портрет на другарче",
     "date": "27.04.2024",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "40 x 40 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "23",
     "imageUrl": "images/img23.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "Love",
+    "titleBGN": "Любовта",
     "date": "17.04.2025",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "40 x 40 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "24",
     "imageUrl": "images/img24.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "The Shiny Kettle",
+    "titleBGN": "Лъскавият Чайник",
     "date": "31.05.2025",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "200 €",
+    "size": "40 x 40 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "25",
     "imageUrl": "images/img25.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "Life after some time",
+    "titleBGN": "Животът след време",
     "date": "26.09.2025",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "180 €",
+    "size": "40 x 40 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "26",
     "imageUrl": "images/img26.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "Sunflowers",
+    "titleBGN": "Слънчогледи",
     "date": "13.04.2024",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "50 x 70 cm",
+    "typeENG": "Not Original",
+    "typeBGN": "Неоригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "27",
     "imageUrl": "images/img27.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-    
+    "titleENG": "Sweden",
+    "titleBGN": "Швеция",
     "date": "17.12.2025",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "35 x 40 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "28",
     "imageUrl": "images/img28.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "portrait",
+    "titleBGN": "Портрет",
     "date": "13.07.2023",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "40 x 40 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "29",
     "imageUrl": "images/img29.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "A statuette",
+    "titleBGN": "Статуетка",
     "date": "21.12.2024",
-    "price": " €",
-    "size": "  cm",
-    
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "100 €",
+    "size": "35 x 40 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "30",
     "imageUrl": "images/img30.jpg",
-    
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "A dear friend",
+    "titleBGN": "Скъпа приятелка",
     "date": "14.05.2025",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "50 x 70 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "31",
     "imageUrl": "images/img31.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "Window to the world",
+    "titleBGN": "Прозорец към света",
     "date": "03.02.2024",
-    "price": " €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "50 x 70 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   },
   {
     "id": "32",
     "imageUrl": "images/img32.jpg",
-
-    "titleENG": " ",
-    "titleBGN": "",
-
+    "titleENG": "Pigeon",
+    "titleBGN": "Гълъб",
     "date": "21.12.2024",
-    "price": " NO €",
-    "size": "  cm",
-
-    "typeENG": "",
-    "typeBGN": "",
-
-    "madeOutOFENG": "",
-    "madeOutOFBGN": "",
-
+    "price": "9999 €",
+    "size": "20 x 20 cm",
+    "typeENG": "Original",
+    "typeBGN": "Оригинална",
+    "madeOutOFENG": "Oil paints",
+    "madeOutOFBGN": "Маслени бои",
     "descriptionENG": "",
     "descriptionBGN": ""
   }

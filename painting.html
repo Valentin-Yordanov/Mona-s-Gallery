@@ -28,7 +28,7 @@
 
         <div class="painting-info">
           <!-- Added ID for dynamic Type insertion -->
-          <div class="overline" id="p-type">ORIGINAL WORK</div>
+          <div class="overline" id="p-type"><painting class="typeENG"></painting></div>
           <h1 class="painting-title" id="p-title">Loading...</h1>
 
           <div class="specs-grid">
@@ -245,7 +245,7 @@
               // Inject Size, Date, Price
               document.getElementById("p-size").textContent = painting.size && painting.size.trim() !== "cm" ? painting.size : "N/A";
               document.getElementById("p-date").textContent = painting.date || "N/A";
-              document.getElementById("p-price").textContent = painting.price && painting.price.trim() !== "€" ? painting.price : "Price upon request";
+              document.getElementById("p-price").textContent = painting.price && painting.price.trim() !== "€" ? painting.price : "Unavailable";
               
             } else {
               document.getElementById("p-title").textContent = "Painting not found";

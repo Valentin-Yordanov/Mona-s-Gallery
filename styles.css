@@ -411,18 +411,26 @@ a {
    ========================================= */
 .artist-main {
   padding: 4rem 5%;
-  max-width: 1000px;
+  max-width: 1400px; /* Беше 1000px */
   margin: 0 auto;
 }
-
-.artist-hero {
+.artist-layout-top {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr; 
+  gap: 4rem;
+  align-items: start;
   margin-bottom: 4rem;
-  text-align: center;
+}
+
+.artist-title {
+  text-align: left;
+  margin-bottom: 2rem;
 }
 
 .artist-photo-placeholder {
   width: 100%;
-  height: 400px;
+  aspect-ratio: 4 / 4.5;
+  height: auto;
   background-color: #e5dfd5;
   border-radius: var(--border-radius);
   display: flex;
@@ -431,8 +439,12 @@ a {
   justify-content: center;
   color: var(--text-muted);
   overflow: hidden;
-  margin-bottom: 2.5rem;
   box-shadow: var(--shadow-sm);
+}
+
+.artist-text-content {
+  display: flex;
+  flex-direction: column;
 }
 
 .placeholder-icon {
@@ -712,7 +724,6 @@ a {
   height: 100%;
 }
 
-CSS
 .painting-image-wrapper {
   background: var(--bg-panel);
   padding: 12px;
@@ -721,15 +732,16 @@ CSS
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
 .painting-image-wrapper img {
   width: 100%;
+  height: 100%;
   max-height: 75vh;
   object-fit: contain;
   border-radius: 6px;
   display: block;
-  margin: 0 auto;
 }
 
 .overline {
@@ -1088,6 +1100,10 @@ CSS
     margin: 0 auto 2.5rem;
   }
 
+  .artist-layout-top {
+    grid-template-columns: 1fr;
+  }
+
   .series-header {
     flex-direction: column;
     align-items: flex-start;
@@ -1095,7 +1111,21 @@ CSS
   }
 
   .color-grid {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem; /* Space for shadow */
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+  }
+
+  .color-grid::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari/Edge */
+  }
+
+  .color-card {
+    flex: 0 0 75%; /* Shows exactly 75% of the card so the next one peeks in */
+    scroll-snap-align: center;
   }
 
   .painting-layout,

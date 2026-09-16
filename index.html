@@ -64,7 +64,7 @@
           <a href="catalog.html" class="view-all">View all series &rarr;</a>
         </header>
 
-        <div class="color-grid">
+        <div class="color-grid" id="series-carousel">
           <article class="color-card c-purple">
             <div class="color-info">
               <h3>Cosmic Bloom</h3>
@@ -134,6 +134,53 @@
         .then((data) => {
           document.getElementById("footer-placeholder").innerHTML = data;
         });
+
+      const carousel = document.getElementById("series-carousel");
+
+      // 1. Desktop: Fade and rotate every 7 seconds
+      setInterval(() => {
+        if (window.innerWidth > 768 && carousel) {
+          const firstCard = carousel.firstElementChild;
+          firstCard.style.transition = "opacity 0.3s ease";
+          firstCard.style.opacity = "0";
+          
+          setTimeout(() => {
+            carousel.appendChild(firstCard);
+            firstCard.style.opacity = "1";
+          }, 300);
+        }
+      }, 7000);
+
+      // 2. Mobile: Seamless infinite scroll loop (Fixed bounce/jitter)
+      if (carousel && window.innerWidth <= 768) {
+        const cards = Array.from(carousel.children);
+        
+        // Clone the cards TWICE to create a massive buffer on both sides.
+        // This prevents the browser from hitting the absolute edges and triggering rubber-banding.
+        cards.forEach(card => carousel.appendChild(card.cloneNode(true)));
+        cards.forEach(card => carousel.appendChild(card.cloneNode(true)));
+
+        const gap = parseFloat(getComputedStyle(carousel).gap) || 24; 
+        const jumpDistance = (cards[0].offsetWidth + gap) * cards.length;
+
+        // Start perfectly in the middle cloned set 
+        setTimeout(() => { carousel.scrollLeft = jumpDistance; }, 50);
+
+        carousel.addEventListener("scroll", () => {
+          // If we reach the end of the middle set, teleport back
+          if (carousel.scrollLeft >= jumpDistance * 2 - 5) {
+            carousel.style.scrollSnapType = "none"; // Stop CSS snap fight
+            carousel.scrollLeft -= jumpDistance;
+            setTimeout(() => carousel.style.scrollSnapType = "x mandatory", 10);
+          } 
+          // If we reach the start of the middle set, teleport forward
+          else if (carousel.scrollLeft <= 5) {
+            carousel.style.scrollSnapType = "none";
+            carousel.scrollLeft += jumpDistance;
+            setTimeout(() => carousel.style.scrollSnapType = "x mandatory", 10);
+          }
+        });
+      }
     </script>
   </body>
 </html>
