@@ -177,218 +177,292 @@
     <footer class="footer" id="footer-placeholder"></footer>
 
     <script>
-      // Load Navbar safely
-      fetch("page_elements/navbar.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar-placeholder").innerHTML = data;
-        });
-
-      // Load Footer
-      fetch("page_elements/footer.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("footer-placeholder").innerHTML = data;
-        });
-
-      // Fetch dynamic painting data
-      const urlParams = new URLSearchParams(window.location.search);
-      const paintingId = urlParams.get("id");
-
-      if (paintingId) {
-        fetch("data/paintings.json")
-          .then((response) => response.json())
-          .then((paintings) => {
-            const painting = paintings.find((p) => p.id === paintingId);
-
-            if (painting) {
-              const imgElement = document.getElementById("p-image");
-              
-              // Define title BEFORE trying to use it
-              const title = painting.titleENG && painting.titleENG.trim() ? painting.titleENG : "Untitled";
-
-              // Detect orientation and expand both layout AND page container
-              imgElement.onload = () => {
-                const layout = document.querySelector(".painting-layout");
-                const mainPage = document.querySelector(".painting-page");
-
-                if (imgElement.naturalWidth > imgElement.naturalHeight) {
-                  layout.classList.add("landscape");
-                  mainPage.classList.add("is-landscape");
-                } else {
-                  layout.classList.remove("landscape");
-                  mainPage.classList.remove("is-landscape");
-                }
-              };
-
-              // Inject Image and Text
-              imgElement.src = painting.imageUrl;
-              imgElement.alt = title;
-              document.title = `${title} - Mona's Gallery`;
-              document.getElementById("p-title").textContent = title;
-              
-              // Inject Type (Overline)
-              document.getElementById("p-type").textContent = painting.typeENG ? painting.typeENG.toUpperCase() : "ORIGINAL WORK";
-              
-              // Inject Medium
-              document.getElementById("p-medium").textContent = painting.madeOutOFENG || "N/A";
-
-              // Inject Description Logic
-              const descText = painting.descriptionENG && painting.descriptionENG.trim();
-              if (descText) {
-                document.getElementById("p-desc").textContent = descText;
-                document.getElementById("desc-container").style.display = "block";
-              } else {
-                document.getElementById("desc-container").style.display = "none";
-              }
-              
-              // Inject Size, Date, Price
-              document.getElementById("p-size").textContent = painting.size && painting.size.trim() !== "cm" ? painting.size : "N/A";
-              document.getElementById("p-date").textContent = painting.date || "N/A";
-              document.getElementById("p-price").textContent = painting.price && painting.price.trim() !== "€" ? painting.price : "Unavailable";
-              
-            } else {
-              document.getElementById("p-title").textContent = "Painting not found";
-            }
-          })
-          .catch((error) =>
-            console.error("Error loading painting details:", error),
-          );
-      }
-
-      const modal = document.getElementById("purchase-modal");
-      const inquireBtn = document.getElementById("inquire-btn");
-      const closeBtn = document.getElementById("close-modal");
-
-      // Open modal
-      inquireBtn.addEventListener("click", () => {
-        modal.classList.add("active");
-        inquireBtn.setAttribute("aria-expanded", "true");
-      });
-
-      // Close modal on X click
-      closeBtn.addEventListener("click", () => {
-        modal.classList.remove("active");
-        inquireBtn.setAttribute("aria-expanded", "false");
-      });
-
-      // Close modal when clicking outside the panel
-      window.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          modal.classList.remove("active");
-          inquireBtn.setAttribute("aria-expanded", "false");
+      // --- TRANSLATION DICTIONARY ---
+      const t = {
+        ENG: {
+          backLink: "\u2190 Back to Paintings",
+          specMedium: "MEDIUM",
+          specSize: "SIZE",
+          specDate: "DATE",
+          specStatus: "STATUS",
+          statusAvail: "Available",
+          statusUnavail: "Unavailable",
+          priceRequest: "Price upon request",
+          btnInquire: "Inquire to Purchase",
+          descTitle: "Description",
+          modalTitle: "Purchase Inquiry",
+          modalText: "To acquire this piece, please contact me directly through my social media channels. I handle all sales personally to ensure secure shipping and authenticity.",
+          navHome: "HOME",
+          navArtist: "ARTIST",
+          navPaintings: "PAINTINGS",
+          langBtn: "БГ",
+          notFound: "Painting not found",
+          defaultType: "ORIGINAL WORK",
+          defaultMedium: "N/A"
+        },
+        BGN: {
+          backLink: "\u2190 Назад към картините",
+          specMedium: "МАТЕРИАЛ",
+          specSize: "РАЗМЕР",
+          specDate: "ГОДИНА",
+          specStatus: "СТАТУС",
+          statusAvail: "Налична",
+          statusUnavail: "Продадена",
+          priceRequest: "Цена по запитване",
+          btnInquire: "Запитване за покупка",
+          descTitle: "Описание",
+          modalTitle: "Запитване за покупка",
+          modalText: "За да придобиете тази творба, моля свържете се с мен директно чрез социалните ми мрежи. Обработвам всички продажби лично, за да гарантирам сигурна доставка и автентичност.",
+          navHome: "НАЧАЛО",
+          navArtist: "ХУДОЖНИК",
+          navPaintings: "КАРТИНИ",
+          langBtn: "EN",
+          notFound: "Картината не е намерена",
+          defaultType: "ОРИГИНАЛНА ТВОРБА",
+          defaultMedium: "Няма данни"
         }
-      });
-
-      // Accessibility: Close modal on Escape key
-      window.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modal.classList.contains("active")) {
-          modal.classList.remove("active");
-          inquireBtn.setAttribute("aria-expanded", "false");
-        }
-      });
-
-      // Zoom Modal Logic
-      const zoomModal = document.getElementById("zoom-modal");
-      const zoomedImage = document.getElementById("zoomed-image");
-      const closeZoomBtn = document.getElementById("close-zoom");
-      const mainImage = document.getElementById("p-image");
-      
-      let isZoomed = false;
-      let isDragging = false;
-      let startX = 0, startY = 0;
-      let translateX = 0, translateY = 0;
-      let lastTranslateX = 0, lastTranslateY = 0;
-      let isClick = true;
-
-      function updateTransform() {
-        if (isZoomed) {
-          zoomedImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(2.5)`;
-        } else {
-          zoomedImage.style.transform = `translate(0px, 0px) scale(1)`;
-        }
-      }
-
-      function resetZoom() {
-        isZoomed = false;
-        isDragging = false;
-        translateX = 0; translateY = 0;
-        lastTranslateX = 0; lastTranslateY = 0;
-        zoomedImage.classList.remove("is-zoomed");
-        zoomedImage.style.transition = "transform var(--transition-smooth)";
-        updateTransform();
-      }
-
-      // Open zoom modal
-      mainImage.addEventListener("click", () => {
-        zoomedImage.src = mainImage.src;
-        resetZoom();
-        zoomModal.classList.add("active");
-      });
-
-      // Pointer Events (Handles both Touch and Mouse)
-      zoomedImage.addEventListener("pointerdown", (e) => {
-        isClick = true;
-        startX = e.clientX;
-        startY = e.clientY;
-        if (!isZoomed) return;
-        
-        e.preventDefault(); // Stops default image drag
-        isDragging = true;
-        zoomedImage.style.transition = "none"; // Disable animation while dragging
-      });
-
-      window.addEventListener("pointermove", (e) => {
-        if (!isDragging) return;
-        
-        const dx = e.clientX - startX;
-        const dy = e.clientY - startY;
-        
-        // 5px threshold for shaky fingers so it doesn't cancel clicks
-        if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
-          isClick = false; 
-        }
-        
-        translateX = lastTranslateX + dx;
-        translateY = lastTranslateY + dy;
-        updateTransform();
-      });
-
-      window.addEventListener("pointerup", (e) => {
-        if (isDragging) {
-          isDragging = false;
-          lastTranslateX = translateX;
-          lastTranslateY = translateY;
-          zoomedImage.style.transition = "transform var(--transition-smooth)";
-        }
-        
-        // If tapped/clicked without moving, toggle zoom
-        if (isClick && e.target === zoomedImage) {
-          isZoomed = !isZoomed;
-          if (isZoomed) {
-            zoomedImage.classList.add("is-zoomed");
-          } else {
-            resetZoom();
-          }
-          updateTransform();
-        }
-      });
-
-      // Close routines
-      const closeZoom = () => {
-        zoomModal.classList.remove("active");
-        setTimeout(resetZoom, 300);
       };
 
-      closeZoomBtn.addEventListener("click", closeZoom);
-      
-      zoomModal.addEventListener("click", (e) => {
-        if (e.target === zoomModal) closeZoom();
-      });
+      let currentLang = localStorage.getItem("mona_lang") || "ENG";
+      let currentPainting = null;
 
-      window.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && zoomModal.classList.contains("active")) closeZoom();
-      });
+      // --- DATA LOADING & INITIALIZATION ---
+      Promise.all([
+        fetch("page_elements/navbar.html").then((res) => res.text()),
+        fetch("page_elements/footer.html").then((res) => res.text()),
+        fetch("data/paintings.json").then((res) => res.json())
+      ]).then(([navData, footData, paintData]) => {
+        document.getElementById("navbar-placeholder").innerHTML = navData;
+        document.getElementById("footer-placeholder").innerHTML = footData;
+
+        // Parse URL to find the current painting
+        const urlParams = new URLSearchParams(window.location.search);
+        const paintingId = urlParams.get("id");
+        if (paintingId) {
+          currentPainting = paintData.find((p) => p.id === paintingId);
+        }
+
+        // Bind language switch button
+        const langBtn = document.querySelector(".lang-switch");
+        if (langBtn) {
+          langBtn.addEventListener("click", () => {
+            currentLang = currentLang === "ENG" ? "BGN" : "ENG";
+            localStorage.setItem("mona_lang", currentLang);
+            applyTranslations();
+          });
+        }
+
+        applyTranslations();
+        setupInteractiveElements();
+      }).catch((error) => console.error("Error loading page data:", error));
+
+
+      // --- TRANSLATION APPLICATION ---
+      function applyTranslations() {
+        // 1. Navbar
+        const navLinks = document.querySelectorAll(".nav-links a");
+        if (navLinks.length >= 3) {
+          navLinks[0].textContent = t[currentLang].navHome;
+          navLinks[1].textContent = t[currentLang].navArtist;
+          navLinks[2].textContent = t[currentLang].navPaintings;
+        }
+        const langBtn = document.querySelector(".lang-switch");
+        if (langBtn) langBtn.textContent = t[currentLang].langBtn;
+
+        // 2. Static UI Elements
+        document.querySelector(".back-link").textContent = t[currentLang].backLink;
+        document.getElementById("inquire-btn").textContent = t[currentLang].btnInquire;
+        document.querySelector("#desc-container h3").textContent = t[currentLang].descTitle;
+        document.getElementById("modal-title").textContent = t[currentLang].modalTitle;
+        document.querySelector("#purchase-modal .modal-content p").textContent = t[currentLang].modalText;
+
+        const specLabels = document.querySelectorAll(".spec-label");
+        if (specLabels.length >= 4) {
+          specLabels[0].textContent = t[currentLang].specMedium;
+          specLabels[1].textContent = t[currentLang].specSize;
+          specLabels[2].textContent = t[currentLang].specDate;
+          specLabels[3].textContent = t[currentLang].specStatus;
+        }
+
+        // 3. Dynamic Painting Data
+        if (currentPainting) {
+          // Title
+          const title = currentLang === "BGN" 
+            ? (currentPainting.titleBGN?.trim() ? currentPainting.titleBGN : "Неозаглавена")
+            : (currentPainting.titleENG?.trim() ? currentPainting.titleENG : "Untitled");
+            
+          document.title = `${title} - Mona's Gallery`;
+          document.getElementById("p-title").textContent = title;
+
+          // Image & Orientation (Only loads once)
+          const imgElement = document.getElementById("p-image");
+          if (!imgElement.src.includes(currentPainting.imageUrl)) {
+            imgElement.src = currentPainting.imageUrl;
+            imgElement.alt = title;
+            imgElement.onload = () => {
+              const layout = document.querySelector(".painting-layout");
+              const mainPage = document.querySelector(".painting-page");
+              if (imgElement.naturalWidth > imgElement.naturalHeight) {
+                layout.classList.add("landscape");
+                mainPage.classList.add("is-landscape");
+              } else {
+                layout.classList.remove("landscape");
+                mainPage.classList.remove("is-landscape");
+              }
+            };
+          }
+
+          // Types & Mediums
+          const type = currentLang === "BGN" ? currentPainting.typeBGN : currentPainting.typeENG;
+          document.getElementById("p-type").textContent = type ? type.toUpperCase() : t[currentLang].defaultType;
+          
+          const medium = currentLang === "BGN" ? currentPainting.madeOutOFBGN : currentPainting.madeOutOFENG;
+          document.getElementById("p-medium").textContent = medium || t[currentLang].defaultMedium;
+
+          // Description logic
+          const desc = currentLang === "BGN" ? currentPainting.descriptionBGN : currentPainting.descriptionENG;
+          if (desc && desc.trim() !== "") {
+            document.getElementById("p-desc").textContent = desc;
+            document.getElementById("desc-container").style.display = "block";
+          } else {
+            document.getElementById("desc-container").style.display = "none";
+          }
+
+          // Formatting Specs
+          document.getElementById("p-size").textContent = currentPainting.size && currentPainting.size.trim() !== "cm" ? currentPainting.size : "N/A";
+          document.getElementById("p-date").textContent = currentPainting.date ? currentPainting.date.split(".").pop() : "N/A";
+
+          // Availability Logic
+          const priceStr = currentPainting.price;
+          const numericPrice = (priceStr && priceStr.trim() !== "" && priceStr.trim() !== "€") ? parseFloat(priceStr.replace(/[^\d.-]/g, "")) : null;
+          const isAvailable = !isNaN(numericPrice) && numericPrice !== null;
+
+          document.getElementById("p-status").textContent = isAvailable ? t[currentLang].statusAvail : t[currentLang].statusUnavail;
+          
+          // Display Price or "Price upon request"
+          document.getElementById("p-price").textContent = isAvailable ? priceStr : t[currentLang].priceRequest;
+          
+          // Hide purchase button if sold
+          document.getElementById("inquire-btn").style.display = isAvailable ? "block" : "none";
+
+        } else {
+          document.getElementById("p-title").textContent = t[currentLang].notFound;
+        }
+      }
+
+      // --- MODAL & INTERACTIVITY LOGIC ---
+      function setupInteractiveElements() {
+        // Purchase Modal
+        const purchaseModal = document.getElementById("purchase-modal");
+        const inquireBtn = document.getElementById("inquire-btn");
+        const closePurchaseBtn = document.getElementById("close-modal");
+
+        inquireBtn.addEventListener("click", () => {
+          purchaseModal.classList.add("active");
+          inquireBtn.setAttribute("aria-expanded", "true");
+        });
+
+        closePurchaseBtn.addEventListener("click", () => {
+          purchaseModal.classList.remove("active");
+          inquireBtn.setAttribute("aria-expanded", "false");
+        });
+
+        window.addEventListener("click", (e) => {
+          if (e.target === purchaseModal) {
+            purchaseModal.classList.remove("active");
+            inquireBtn.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        // Zoom Modal Logic
+        const zoomModal = document.getElementById("zoom-modal");
+        const zoomedImage = document.getElementById("zoomed-image");
+        const closeZoomBtn = document.getElementById("close-zoom");
+        const mainImage = document.getElementById("p-image");
+        
+        let isZoomed = false;
+        let isDragging = false;
+        let startX = 0, startY = 0, translateX = 0, translateY = 0;
+        let lastTranslateX = 0, lastTranslateY = 0;
+        let isClick = true;
+
+        function updateTransform() {
+          zoomedImage.style.transform = isZoomed ? `translate(${translateX}px, ${translateY}px) scale(2.5)` : `translate(0px, 0px) scale(1)`;
+        }
+
+        function resetZoom() {
+          isZoomed = false;
+          isDragging = false;
+          translateX = 0; translateY = 0;
+          lastTranslateX = 0; lastTranslateY = 0;
+          zoomedImage.classList.remove("is-zoomed");
+          zoomedImage.style.transition = "transform var(--transition-smooth)";
+          updateTransform();
+        }
+
+        mainImage.addEventListener("click", () => {
+          zoomedImage.src = mainImage.src;
+          resetZoom();
+          zoomModal.classList.add("active");
+        });
+
+        zoomedImage.addEventListener("pointerdown", (e) => {
+          isClick = true;
+          startX = e.clientX;
+          startY = e.clientY;
+          if (!isZoomed) return;
+          
+          e.preventDefault();
+          isDragging = true;
+          zoomedImage.style.transition = "none";
+        });
+
+        window.addEventListener("pointermove", (e) => {
+          if (!isDragging) return;
+          const dx = e.clientX - startX;
+          const dy = e.clientY - startY;
+          
+          if (Math.abs(dx) > 5 || Math.abs(dy) > 5) isClick = false; 
+          
+          translateX = lastTranslateX + dx;
+          translateY = lastTranslateY + dy;
+          updateTransform();
+        });
+
+        window.addEventListener("pointerup", (e) => {
+          if (isDragging) {
+            isDragging = false;
+            lastTranslateX = translateX;
+            lastTranslateY = translateY;
+            zoomedImage.style.transition = "transform var(--transition-smooth)";
+          }
+          
+          if (isClick && e.target === zoomedImage) {
+            isZoomed = !isZoomed;
+            if (isZoomed) zoomedImage.classList.add("is-zoomed");
+            else resetZoom();
+            updateTransform();
+          }
+        });
+
+        const closeZoom = () => {
+          zoomModal.classList.remove("active");
+          setTimeout(resetZoom, 300);
+        };
+
+        closeZoomBtn.addEventListener("click", closeZoom);
+        zoomModal.addEventListener("click", (e) => { if (e.target === zoomModal) closeZoom(); });
+
+        window.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            if (purchaseModal.classList.contains("active")) {
+              purchaseModal.classList.remove("active");
+              inquireBtn.setAttribute("aria-expanded", "false");
+            }
+            if (zoomModal.classList.contains("active")) closeZoom();
+          }
+        });
+      }
     </script>
   </body>
 </html>

@@ -9,6 +9,106 @@
     />
     <title>Mona's Gallery - Paintings</title>
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Layout for filters */
+      .filter-controls-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 4rem;
+        width: 100%;
+      }
+
+      /* Push Buttons */
+      .filter-toggles {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .toggle-btn {
+        background: var(--bg-panel, #ffffff);
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        color: var(--text-muted, #75706b);
+        padding: 0.6rem 1.5rem;
+        border-radius: 30px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+      }
+
+      .toggle-btn:hover {
+        border-color: var(--text-main, #2d2a26);
+        color: var(--text-main, #2d2a26);
+      }
+
+      /* Pressed State with Shading */
+      .toggle-btn.active {
+        background: var(--text-main, #2d2a26);
+        color: #ffffff;
+        border-color: var(--text-main, #2d2a26);
+        box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.4);
+        transform: translateY(2px);
+      }
+
+      /* Professional Dropdowns */
+      .filter-group-selects {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        max-width: 1200px;
+      }
+
+      .custom-select-wrapper {
+        position: relative;
+      }
+
+      /* Custom Arrow */
+      .custom-select-wrapper::after {
+        content: '▼';
+        font-size: 0.6rem;
+        color: var(--text-muted);
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+
+      .filter-select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: var(--bg-panel, #ffffff);
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        color: var(--text-main);
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 0.6rem 2.5rem 0.6rem 1.5rem;
+        border-radius: 30px;
+        cursor: pointer;
+        outline: none;
+        font-family: var(--font-body);
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+      }
+
+      .filter-select:hover,
+      .filter-select:focus {
+        border-color: var(--accent-blue, #b47a46);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+    </style>
   </head>
   <body>
     <nav
@@ -23,84 +123,338 @@
         <p>Original paintings, studies, and textural explorations.</p>
       </header>
 
-      <nav class="catalog-filters" aria-label="Catalog Filters">
-        <button class="filter-btn active" aria-pressed="true">All Works</button>
-        <button class="filter-btn" aria-pressed="false">Available</button>
-        <button class="filter-btn" aria-pressed="false">Unavailable</button>
+      <nav class="filter-controls-wrapper" aria-label="Catalog Filters">
+        
+        <!-- Toggle Push Buttons -->
+        <div class="filter-toggles">
+          <button class="toggle-btn" data-filter-type="availability" data-value="available">Available</button>
+          <button class="toggle-btn" data-filter-type="availability" data-value="unavailable">Unavailable</button>
+          <button class="toggle-btn" data-filter-type="originality" data-value="Original">Original</button>
+          <button class="toggle-btn" data-filter-type="originality" data-value="Not Original">Not Original</button>
+        </div>
 
-        <select class="filter-select" aria-label="Filter by category">
-          <option value="all">Select Category...</option>
-          <option value="jibberish1">Foo Bar Baz</option>
-          <option value="jibberish2">Lorem Ipsum</option>
-          <option value="jibberish3">Dolor Sit Amet</option>
-        </select>
+        <!-- Custom Dropdowns -->
+        <div class="filter-group-selects">
+          <div class="custom-select-wrapper">
+            <select class="filter-select" id="sort-select" aria-label="Sort by">
+              <option value="date-desc">Newest to Oldest</option>
+              <option value="date-asc">Oldest to Newest</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+            </select>
+          </div>
+
+          <div class="custom-select-wrapper">
+            <select class="filter-select" id="price-filter-select" aria-label="Filter by price">
+              <option value="all">All Prices</option>
+              <option value="under-150">Under 150 €</option>
+              <option value="150-250">150 € - 250 €</option>
+              <option value="over-250">Over 250 €</option>
+            </select>
+          </div>
+
+          <div class="custom-select-wrapper">
+            <select class="filter-select" id="medium-select" aria-label="Filter by medium">
+              <option value="all">All Mediums</option>
+              <!-- Populated dynamically via JS -->
+            </select>
+          </div>
+
+          <div class="custom-select-wrapper">
+            <select class="filter-select" id="size-select" aria-label="Filter by size">
+              <option value="all">All Sizes</option>
+              <!-- Populated dynamically via JS -->
+            </select>
+          </div>
+        </div>
       </nav>
 
       <section class="catalog-grid" id="catalog-grid">
-        <!-- Картините ще се зареждат тук динамично -->
+        <!-- Paintings load here dynamically -->
       </section>
     </main>
 
     <footer class="footer" id="footer-placeholder"></footer>
+    
     <script>
-      // Load Navbar safely
-      fetch("page_elements/navbar.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar-placeholder").innerHTML = data;
+      // --- TRANSLATION DICTIONARY ---
+      const t = {
+        ENG: {
+            title: "Selected Works",
+            subtitle: "Original paintings, studies, and textural explorations.",
+            btnAvail: "Available",
+            btnUnavail: "Unavailable",
+            btnOrig: "Original",
+            btnNotOrig: "Not Original",
+            optSortDateDesc: "Newest to Oldest",
+            optSortDateAsc: "Oldest to Newest",
+            optSortPriceAsc: "Price: Low to High",
+            optSortPriceDesc: "Price: High to Low",
+            optPriceAll: "All Prices",
+            optPriceUnder: "Under 150 €",
+            optPriceMid: "150 € - 250 €",
+            optPriceOver: "Over 250 €",
+            optMediumAll: "All Mediums",
+            optSizeAll: "All Sizes",
+            badgeAvail: "AVAILABLE",
+            badgeUnavail: "UNAVAILABLE",
+            textUnavail: "Unavailable",
+            textNoMatch: "No paintings match your selected filters.",
+            navHome: "HOME",
+            navArtist: "ARTIST",
+            navPaintings: "PAINTINGS",
+            langBtn: "БГ" // Shows what you will switch TO
+        },
+        BGN: {
+            title: "Избрани Творби",
+            subtitle: "Оригинални картини, етюди и текстурни изследвания.",
+            btnAvail: "Налични",
+            btnUnavail: "Неналични",
+            btnOrig: "Оригинални",
+            btnNotOrig: "Неоригинални",
+            optSortDateDesc: "От най-нови към най-стари",
+            optSortDateAsc: "От най-стари към най-нови",
+            optSortPriceAsc: "Цена: Ниска към Висока",
+            optSortPriceDesc: "Цена: Висока към Ниска",
+            optPriceAll: "Всички цени",
+            optPriceUnder: "Под 150 €",
+            optPriceMid: "150 € - 250 €",
+            optPriceOver: "Над 250 €",
+            optMediumAll: "Всички материали",
+            optSizeAll: "Всички размери",
+            badgeAvail: "НАЛИЧНА",
+            badgeUnavail: "ПРОДАДЕНА",
+            textUnavail: "Неналична",
+            textNoMatch: "Няма картини, отговарящи на вашите филтри.",
+            navHome: "НАЧАЛО",
+            navArtist: "ХУДОЖНИК",
+            navPaintings: "КАРТИНИ",
+            langBtn: "EN"
+        }
+      };
+
+      // Get saved language or default to ENG
+      let currentLang = localStorage.getItem("mona_lang") || "ENG";
+      let allPaintings = [];
+
+      // --- DATA LOADING & INITIALIZATION ---
+      // We use Promise.all to load the Navbar, Footer, and JSON simultaneously
+      Promise.all([
+        fetch("page_elements/navbar.html").then(res => res.text()),
+        fetch("page_elements/footer.html").then(res => res.text()),
+        fetch("data/paintings.json").then(res => res.json())
+      ]).then(([navData, footData, paintData]) => {
+        document.getElementById("navbar-placeholder").innerHTML = navData;
+        document.getElementById("footer-placeholder").innerHTML = footData;
+        allPaintings = paintData;
+
+        // Bind the language switch button
+        const langBtn = document.querySelector(".lang-switch");
+        if (langBtn) {
+            langBtn.addEventListener("click", () => {
+                currentLang = currentLang === "ENG" ? "BGN" : "ENG";
+                localStorage.setItem("mona_lang", currentLang);
+                
+                // Reset medium filter to "all" to prevent filtering bugs when switching languages
+                document.getElementById("medium-select").value = "all";
+                applyTranslations();
+            });
+        }
+
+        // Initialize UI
+        applyTranslations();
+        setupEventListeners();
+      }).catch(error => console.error("Error loading resources:", error));
+
+
+      // --- TRANSLATION APPLICATION ---
+      function applyTranslations() {
+        // 1. Static Header
+        document.querySelector(".catalog-header h1").textContent = t[currentLang].title;
+        document.querySelector(".catalog-header p").textContent = t[currentLang].subtitle;
+        
+        // 2. Buttons
+        document.querySelector('.toggle-btn[data-value="available"]').textContent = t[currentLang].btnAvail;
+        document.querySelector('.toggle-btn[data-value="unavailable"]').textContent = t[currentLang].btnUnavail;
+        document.querySelector('.toggle-btn[data-value="Original"]').textContent = t[currentLang].btnOrig;
+        document.querySelector('.toggle-btn[data-value="Not Original"]').textContent = t[currentLang].btnNotOrig;
+        
+        // 3. Dropdowns
+        const sortSelect = document.getElementById("sort-select");
+        sortSelect.options[0].textContent = t[currentLang].optSortDateDesc;
+        sortSelect.options[1].textContent = t[currentLang].optSortDateAsc;
+        sortSelect.options[2].textContent = t[currentLang].optSortPriceAsc;
+        sortSelect.options[3].textContent = t[currentLang].optSortPriceDesc;
+
+        const priceSelect = document.getElementById("price-filter-select");
+        priceSelect.options[0].textContent = t[currentLang].optPriceAll;
+        priceSelect.options[1].textContent = t[currentLang].optPriceUnder;
+        priceSelect.options[2].textContent = t[currentLang].optPriceMid;
+        priceSelect.options[3].textContent = t[currentLang].optPriceOver;
+
+        // 4. Navbar
+        const navLinks = document.querySelectorAll(".nav-links a");
+        if (navLinks.length >= 3) {
+            navLinks[0].textContent = t[currentLang].navHome;
+            navLinks[1].textContent = t[currentLang].navArtist;
+            navLinks[2].textContent = t[currentLang].navPaintings;
+        }
+        
+        const langBtn = document.querySelector(".lang-switch");
+        if (langBtn) langBtn.textContent = t[currentLang].langBtn;
+
+        // 5. Dynamic Dropdowns & Gallery
+        populateDynamicDropdowns(allPaintings);
+        renderGallery();
+      }
+
+      // --- GALLERY LOGIC ---
+      function parseDate(dateStr) {
+        if (!dateStr) return new Date(0);
+        const parts = dateStr.split(".");
+        return parts.length === 3 ? new Date(parts[2], parts[1] - 1, parts[0]) : new Date(0);
+      }
+
+      function parsePrice(priceStr) {
+        if (!priceStr || priceStr.trim() === "" || priceStr.trim() === "€") return null;
+        const val = parseFloat(priceStr.replace(/[^\d.-]/g, ""));
+        return isNaN(val) ? null : val;
+      }
+
+      function populateDynamicDropdowns(data) {
+        const mediums = new Set();
+        const sizes = new Set();
+
+        data.forEach((p) => {
+          const medium = currentLang === "BGN" ? p.madeOutOFBGN : p.madeOutOFENG;
+          if (medium && medium.trim() !== "") mediums.add(medium);
+          if (p.size && p.size.trim() !== "" && p.size.trim() !== "cm") sizes.add(p.size);
         });
 
-      // Load Footer
-      fetch("page_elements/footer.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("footer-placeholder").innerHTML = data;
+        const mediumSelect = document.getElementById("medium-select");
+        const currentMediumVal = mediumSelect.value;
+        mediumSelect.innerHTML = `<option value="all">${t[currentLang].optMediumAll}</option>`;
+        mediums.forEach((m) => mediumSelect.innerHTML += `<option value="${m}">${m}</option>`);
+        if (mediums.has(currentMediumVal)) mediumSelect.value = currentMediumVal;
+
+        const sizeSelect = document.getElementById("size-select");
+        const currentSizeVal = sizeSelect.value;
+        sizeSelect.innerHTML = `<option value="all">${t[currentLang].optSizeAll}</option>`;
+        sizes.forEach((s) => sizeSelect.innerHTML += `<option value="${s}">${s}</option>`);
+        if (sizes.has(currentSizeVal)) sizeSelect.value = currentSizeVal;
+      }
+
+      function renderGallery() {
+        const grid = document.getElementById("catalog-grid");
+        
+        const activeAvail = document.querySelector('.toggle-btn[data-filter-type="availability"].active');
+        const availFilter = activeAvail ? activeAvail.getAttribute('data-value') : 'all';
+
+        const activeOrig = document.querySelector('.toggle-btn[data-filter-type="originality"].active');
+        const origFilter = activeOrig ? activeOrig.getAttribute('data-value') : 'all';
+
+        const sortFilter = document.getElementById("sort-select").value;
+        const priceFilter = document.getElementById("price-filter-select").value;
+        const mediumFilter = document.getElementById("medium-select").value;
+        const sizeFilter = document.getElementById("size-select").value;
+
+        let filteredData = allPaintings.filter((p) => {
+          const priceVal = parsePrice(p.price);
+          const isAvailable = priceVal !== null;
+
+          if (availFilter === "available" && !isAvailable) return false;
+          if (availFilter === "unavailable" && isAvailable) return false;
+          if (origFilter !== "all" && p.typeENG !== origFilter) return false; // Internal check stays ENG
+
+          if (priceFilter !== "all") {
+            if (!isAvailable) return false;
+            if (priceFilter === "under-150" && priceVal >= 150) return false;
+            if (priceFilter === "150-250" && (priceVal < 150 || priceVal > 250)) return false;
+            if (priceFilter === "over-250" && priceVal <= 250) return false;
+          }
+
+          const pMedium = currentLang === "BGN" ? p.madeOutOFBGN : p.madeOutOFENG;
+          if (mediumFilter !== "all" && pMedium !== mediumFilter) return false;
+          if (sizeFilter !== "all" && p.size !== sizeFilter) return false;
+
+          return true;
         });
 
-      // Load Catalog Data
-      fetch("data/paintings.json")
-        .then((response) => response.json())
-        .then((paintings) => {
-          const grid = document.getElementById("catalog-grid");
-          let gridHTML = "";
-
-          paintings.forEach((painting) => {
-            const title = painting.titleENG.trim() ? painting.titleENG : "Untitled";
-            
-            // Extract only the year (last 4 characters after the split)
-            const year = painting.date ? painting.date.split('.').pop() : "";
-            
-            // Fetch the material (fallback to "Original Work" if you haven't added it to JSON yet)
-            const type = painting.madeOutOFENG || "Original Work"; 
-            
-            // Format the size so it doesn't just say "cm" when empty
-            const size = painting.size && painting.size.trim() !== "cm" ? painting.size : "";
-
-            // Build the details line, filtering out empty variables so you don't get awkward orphan pipes "|"
-            const detailsArray = [type, size, year].filter(item => item !== "");
-            const detailsLine = detailsArray.join(" | ");
-
-            gridHTML += `
-                <a href="painting.html?id=${painting.id}" class="art-card">
-                    <div class="art-image-wrapper">
-                        <span class="art-badge badge-available">AVAILABLE</span>
-                        <img src="${painting.imageUrl}" alt="${title}" />
-                    </div>
-                    <div class="art-info">
-                        <header class="art-title-row">
-                            <h3>${title}</h3>
-                            <span class="art-price">${painting.price}</span>
-                        </header>
-                        <p class="art-details-line">${painting.typeENG}</p>
-                        <p class="art-details-line">${detailsLine}</p>
-                    </div>
-                </a>
-            `;
+        filteredData.sort((a, b) => {
+          if (sortFilter === "date-desc") return parseDate(b.date) - parseDate(a.date);
+          if (sortFilter === "date-asc") return parseDate(a.date) - parseDate(b.date);
+          
+          const pA = parsePrice(a.price) ?? Infinity;
+          const pB = parsePrice(b.price) ?? Infinity;
+          return sortFilter === "price-asc" ? pA - pB : pB - pA;
         });
 
-          grid.innerHTML = gridHTML;
-        })
-        .catch((error) => console.error("Error loading paintings:", error));
+        let gridHTML = "";
+        
+        if (filteredData.length === 0) {
+          gridHTML = `<p style="text-align:center; grid-column: 1/-1; color: var(--text-muted); margin-top: 2rem;">${t[currentLang].textNoMatch}</p>`;
+        }
+
+        filteredData.forEach((painting) => {
+          const title = currentLang === "BGN" 
+              ? (painting.titleBGN?.trim() ? painting.titleBGN : "Неозаглавена")
+              : (painting.titleENG?.trim() ? painting.titleENG : "Untitled");
+              
+          const type = currentLang === "BGN" ? painting.typeBGN : painting.typeENG;
+          const medium = currentLang === "BGN" ? painting.madeOutOFBGN : painting.madeOutOFENG;
+          const year = painting.date ? painting.date.split(".").pop() : "";
+          const size = painting.size && painting.size.trim() !== "cm" ? painting.size : "";
+          
+          const numericPrice = parsePrice(painting.price);
+          const isAvailable = numericPrice !== null;
+          
+          const badgeClass = isAvailable ? "badge-available" : "badge-sold";
+          const badgeText = isAvailable ? t[currentLang].badgeAvail : t[currentLang].badgeUnavail;
+          const displayPrice = isAvailable ? painting.price : t[currentLang].textUnavail;
+
+          const detailsArray = [medium, size, year].filter(item => item !== "");
+          const detailsLine = detailsArray.join(" | ");
+
+          gridHTML += `
+              <a href="painting.html?id=${painting.id}" class="art-card">
+                  <div class="art-image-wrapper">
+                      <span class="art-badge ${badgeClass}">${badgeText}</span>
+                      <img src="${painting.imageUrl}" alt="${title}" loading="lazy" />
+                  </div>
+                  <div class="art-info">
+                      <header class="art-title-row">
+                          <h3>${title}</h3>
+                          <span class="art-price">${displayPrice}</span>
+                      </header>
+                      <p class="art-details-line">${type || "Original"}</p>
+                      <p class="art-details-line">${detailsLine}</p>
+                  </div>
+              </a>
+          `;
+        });
+
+        grid.innerHTML = gridHTML;
+      }
+
+      function setupEventListeners() {
+        const toggleBtns = document.querySelectorAll('.toggle-btn');
+        toggleBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const type = btn.getAttribute('data-filter-type');
+            if (btn.classList.contains('active')) {
+              btn.classList.remove('active');
+            } else {
+              document.querySelectorAll(`.toggle-btn[data-filter-type="${type}"]`).forEach(b => b.classList.remove('active'));
+              btn.classList.add('active');
+            }
+            renderGallery();
+          });
+        });
+
+        document.querySelectorAll(".filter-select").forEach(select => {
+          select.addEventListener("change", renderGallery);
+        });
+      }
     </script>
   </body>
 </html>
