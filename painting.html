@@ -9,6 +9,7 @@
     />
     <title>Mona's Gallery</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/jpeg" href="page_elements/kokosan.png">
   </head>
 
   <body>
@@ -299,6 +300,7 @@
           if (!imgElement.src.includes(currentPainting.imageUrl)) {
             imgElement.src = currentPainting.imageUrl;
             imgElement.alt = title;
+            
             imgElement.onload = () => {
               const layout = document.querySelector(".painting-layout");
               const mainPage = document.querySelector(".painting-page");
@@ -309,6 +311,12 @@
                 layout.classList.remove("landscape");
                 mainPage.classList.remove("is-landscape");
               }
+            };
+
+            // НОВО: Предпазва от счупване, ако снимката я няма
+            imgElement.onerror = () => {
+              imgElement.alt = "Изображението не е налично";
+              imgElement.style.opacity = "0"; // Скрива грозната счупена икона
             };
           }
 
