@@ -285,11 +285,6 @@ a, button {
   transition: transform 0.5s ease;
 }
 
-.featured-card:hover .featured-image img,
-.about-card:hover .about-image img {
-  transform: scale(1.03);
-}
-
 .accent-line {
   width: 40px;
   height: 3px;
@@ -424,7 +419,7 @@ a, button {
    ========================================= */
 .artist-main {
   padding: 4rem 5%;
-  max-width: 1400px; /* Беше 1000px */
+  max-width: 1400px; /* Was 1000px */
   margin: 0 auto;
 }
 .artist-layout-top {
@@ -538,47 +533,113 @@ a, button {
   letter-spacing: 1px;
 }
 
-.catalog-filters {
+/* =========================================
+   CATALOG FILTERS (BEM)
+   ========================================= */
+.catalog-filters,
+.filter-controls-wrapper {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   gap: 2rem;
   margin-bottom: 4rem;
+  width: 100%;
 }
 
-.filter-btn {
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
+.catalog-filters__toggles,
+.filter-toggles {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.catalog-filters__toggle-btn,
+.toggle-btn {
+  background: var(--bg-panel, #ffffff);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: var(--text-muted, #75706b);
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   cursor: pointer;
-  transition: color var(--transition-smooth);
-  padding-bottom: 5px;
-  border-bottom: 2px solid transparent;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
 }
 
+.catalog-filters__toggle-btn:hover,
+.toggle-btn:hover {
+  border-color: var(--text-main, #2d2a26);
+  color: var(--text-main, #2d2a26);
+}
+
+.catalog-filters__toggle-btn--active,
+.catalog-filters__toggle-btn.active,
+.toggle-btn.active {
+  background: var(--text-main, #2d2a26);
+  color: #ffffff;
+  border-color: var(--text-main, #2d2a26);
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.4);
+  transform: translateY(2px);
+}
+
+.catalog-filters__selects,
+.filter-group-selects {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.catalog-filters__select-wrapper,
+.custom-select-wrapper {
+  position: relative;
+}
+
+.catalog-filters__select-wrapper::after,
+.custom-select-wrapper::after {
+  content: '▼';
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.catalog-filters__select,
 .filter-select {
-  background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: var(--bg-panel, #ffffff);
+  border: 1px solid rgba(0, 0, 0, 0.15);
   color: var(--text-main);
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 0.4rem 1rem;
-  border-radius: 20px;
+  padding: 0.6rem 2.5rem 0.6rem 1.5rem;
+  border-radius: 30px;
   cursor: pointer;
   outline: none;
   font-family: var(--font-body);
-  transition: border-color var(--transition-smooth);
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
 }
 
+.catalog-filters__select:hover,
+.catalog-filters__select:focus,
 .filter-select:hover,
 .filter-select:focus {
-  border-color: var(--accent-blue);
+  border-color: var(--accent-blue, #b47a46);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .catalog-grid {
@@ -744,7 +805,7 @@ a, button {
   height: 100%;
   max-width: 100%;
   overflow: hidden;
-  min-height: 400px; /* НОВО: Държи контейнера отворен, ако няма снимка */
+  min-height: 400px; /* Keep container open if image is missing */
 }
 
 .painting-info {
@@ -1180,16 +1241,16 @@ a, button {
     text-align: center;
   }
   .painting-page {
-    padding: 1.5rem 5% 3rem; /* Намалява огромното разстояние на мобилни */
+    padding: 1.5rem 5% 3rem; /* Reduce padding on mobile */
   }
 
   .painting-title {
     font-size: 2.5rem;
-    word-wrap: break-word; /* Предотвратява излизане на дълги думи от екрана */
+    word-wrap: break-word; /* Prevent long words overflowing on screen */
   }
 
 .painting-image-wrapper {
-    min-height: 250px; /* НОВО за мобилни */
+    min-height: 250px; /* Mobile minimum height */
     padding: 0;
     background: transparent;
     box-shadow: none;

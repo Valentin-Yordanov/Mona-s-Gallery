@@ -9,7 +9,7 @@
     />
     <title>Mona's Gallery</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" type="image/jpeg" href="page_elements/kokosan.png">
+    <link rel="icon" type="image/jpeg" href="page_elements/kokosan.png" />
   </head>
 
   <body>
@@ -20,124 +20,126 @@
     ></nav>
 
     <main class="painting-page">
-      <a href="catalog.html" class="back-link">&larr; Back to Paintings</a>
+      <a href="catalog.html" class="back-link" data-i18n="backLink">&larr; Back to Paintings</a>
 
-      <section class="painting-layout">
-        <div class="painting-image-wrapper">
-          <img id="p-image" src="" alt="Loading..." />
-        </div>
-
-        <div class="painting-info">
-          <!-- Added ID for dynamic Type insertion -->
-          <div class="overline" id="p-type"><painting class="typeENG"></painting></div>
-          <h1 class="painting-title" id="p-title">Loading...</h1>
-
-          <div class="specs-grid">
-            <div class="spec-card">
-              <div class="spec-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.389 2.83481 16.5828 4.2185 18.3098C4.54922 18.7228 4.96023 19.349 4.70882 19.9882C4.51268 20.4868 4.88726 21.0375 5.41908 21.0118C8.58156 20.8587 10.9782 22 12 22Z"
-                  ></path>
-                  <circle cx="7.5" cy="10.5" r="1.5" fill="currentColor"></circle>
-                  <circle cx="10.5" cy="7.5" r="1.5" fill="currentColor"></circle>
-                  <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"></circle>
-                </svg>
-              </div>
-              <div class="spec-text">
-                <span class="spec-label">MEDIUM</span>
-                <span class="spec-value" id="p-medium"></span>
-              </div>
-            </div>
-
-            <div class="spec-card">
-              <div class="spec-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M21.44 11.05l-9.19 9.19a2 2 0 0 1-2.83 0l-5.66-5.66a2 2 0 0 1 0-2.83l9.19-9.19a2 2 0 0 1 2.83 0l5.66 5.66a2 2 0 0 1 0 2.83z"
-                  ></path>
-                  <line x1="8.5" y1="8.5" x2="8.51" y2="8.5"></line>
-                </svg>
-              </div>
-              <div class="spec-text">
-                <span class="spec-label">SIZE</span>
-                <span class="spec-value" id="p-size"></span>
-              </div>
-            </div>
-
-            <div class="spec-card">
-              <div class="spec-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                  <line x1="16" y1="2" x2="16" y2="6"></line>
-                  <line x1="8" y1="2" x2="8" y2="6"></line>
-                  <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-              </div>
-              <div class="spec-text">
-                <span class="spec-label">DATE</span>
-                <span class="spec-value" id="p-date"></span>
-              </div>
-            </div>
-
-            <div class="spec-card">
-              <div class="spec-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
-                  ></path>
-                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                </svg>
-              </div>
-              <div class="spec-text">
-                <span class="spec-label">STATUS</span>
-                <span class="spec-value" id="p-status">Available</span>
-              </div>
-            </div>
+      <div id="painting-content">
+        <section class="painting-layout">
+          <div class="painting-image-wrapper">
+            <img id="p-image" src="" alt="Loading..." />
           </div>
 
-          <div class="purchase-action">
-            <span class="price" id="p-price"></span>
-            <button
-              id="inquire-btn"
-              class="btn-purchase"
-              aria-haspopup="dialog"
-              aria-expanded="false"
-            >
-              Inquire to Purchase
-            </button>
+          <div class="painting-info">
+            <div class="overline" id="p-type"></div>
+            <h1 class="painting-title" id="p-title">Loading...</h1>
+
+            <div class="specs-grid">
+              <div class="spec-card">
+                <div class="spec-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.389 2.83481 16.5828 4.2185 18.3098C4.54922 18.7228 4.96023 19.349 4.70882 19.9882C4.51268 20.4868 4.88726 21.0375 5.41908 21.0118C8.58156 20.8587 10.9782 22 12 22Z"
+                    ></path>
+                    <circle cx="7.5" cy="10.5" r="1.5" fill="currentColor"></circle>
+                    <circle cx="10.5" cy="7.5" r="1.5" fill="currentColor"></circle>
+                    <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"></circle>
+                  </svg>
+                </div>
+                <div class="spec-text">
+                  <span class="spec-label" data-i18n="specMedium">MEDIUM</span>
+                  <span class="spec-value" id="p-medium"></span>
+                </div>
+              </div>
+
+              <div class="spec-card">
+                <div class="spec-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M21.44 11.05l-9.19 9.19a2 2 0 0 1-2.83 0l-5.66-5.66a2 2 0 0 1 0-2.83l9.19-9.19a2 2 0 0 1 2.83 0l5.66 5.66a2 2 0 0 1 0 2.83z"
+                    ></path>
+                    <line x1="8.5" y1="8.5" x2="8.51" y2="8.5"></line>
+                  </svg>
+                </div>
+                <div class="spec-text">
+                  <span class="spec-label" data-i18n="specSize">SIZE</span>
+                  <span class="spec-value" id="p-size"></span>
+                </div>
+              </div>
+
+              <div class="spec-card">
+                <div class="spec-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </div>
+                <div class="spec-text">
+                  <span class="spec-label" data-i18n="specDate">DATE</span>
+                  <span class="spec-value" id="p-date"></span>
+                </div>
+              </div>
+
+              <div class="spec-card">
+                <div class="spec-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                    ></path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                  </svg>
+                </div>
+                <div class="spec-text">
+                  <span class="spec-label" data-i18n="specStatus">STATUS</span>
+                  <span class="spec-value" id="p-status"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="purchase-action">
+              <span class="price" id="p-price"></span>
+              <button
+                id="inquire-btn"
+                class="btn-purchase"
+                aria-haspopup="dialog"
+                aria-expanded="false"
+                data-i18n="btnInquire"
+              >
+                Inquire to Purchase
+              </button>
+            </div>
           </div>
+        </section>
+
+        <div class="description-panel" id="desc-container" style="display: none;">
+          <h3 data-i18n="descTitle">Description</h3>
+          <p id="p-desc"></p>
         </div>
-      </section>
-      
-      <div class="description-panel" id="desc-container" style="display: none;">
-        <h3>Description</h3>
-        <p id="p-desc"></p>
       </div>
 
       <!-- Purchase Modal Panel -->
@@ -152,15 +154,15 @@
           <button class="close-modal" id="close-modal" aria-label="Close modal">
             &times;
           </button>
-          <h2 id="modal-title">Purchase Inquiry</h2>
-          <p>
+          <h2 id="modal-title" data-i18n="modalTitle">Purchase Inquiry</h2>
+          <p data-i18n="modalText">
             To acquire this piece, please contact me directly through my social
             media channels. I handle all sales personally to ensure secure
             shipping and authenticity.
           </p>
           <div class="modal-buttons">
-            <a href="#" class="btn btn-outline">Instagram</a>
-            <a href="#" class="btn btn-outline">Facebook</a>
+            <a href="https://www.instagram.com/dobreva.simona/?hl=en" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Instagram</a>
+            <a href="https://www.facebook.com/simona.dobreva.58" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Facebook</a>
           </div>
         </div>
       </div>
@@ -172,305 +174,259 @@
         </button>
         <img id="zoomed-image" src="" alt="Zoomed View" />
       </div>
-
     </main>
 
     <footer class="footer" id="footer-placeholder"></footer>
 
-    <script>
-      // --- TRANSLATION DICTIONARY ---
-      const t = {
-        ENG: {
-          backLink: "\u2190 Back to Paintings",
-          specMedium: "MEDIUM",
-          specSize: "SIZE",
-          specDate: "DATE",
-          specStatus: "STATUS",
-          statusAvail: "Available",
-          statusUnavail: "Unavailable",
-          priceRequest: "Price upon request",
-          btnInquire: "Inquire to Purchase",
-          descTitle: "Description",
-          modalTitle: "Purchase Inquiry",
-          modalText: "To acquire this piece, please contact me directly through my social media channels. I handle all sales personally to ensure secure shipping and authenticity.",
-          navHome: "HOME",
-          navArtist: "ARTIST",
-          navPaintings: "PAINTINGS",
-          langBtn: "БГ",
-          notFound: "Painting not found",
-          defaultType: "ORIGINAL WORK",
-          defaultMedium: "N/A"
-        },
-        BGN: {
-          backLink: "\u2190 Назад към картините",
-          specMedium: "МАТЕРИАЛ",
-          specSize: "РАЗМЕР",
-          specDate: "ГОДИНА",
-          specStatus: "СТАТУС",
-          statusAvail: "Налична",
-          statusUnavail: "Продадена",
-          priceRequest: "Цена по запитване",
-          btnInquire: "Запитване за покупка",
-          descTitle: "Описание",
-          modalTitle: "Запитване за покупка",
-          modalText: "За да придобиете тази творба, моля свържете се с мен директно чрез социалните ми мрежи. Обработвам всички продажби лично, за да гарантирам сигурна доставка и автентичност.",
-          navHome: "НАЧАЛО",
-          navArtist: "ХУДОЖНИК",
-          navPaintings: "КАРТИНИ",
-          langBtn: "EN",
-          notFound: "Картината не е намерена",
-          defaultType: "ОРИГИНАЛНА ТВОРБА",
-          defaultMedium: "Няма данни"
-        }
-      };
+    <!-- Shared Modules -->
+    <script src="js/i18n.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/art-service.js"></script>
 
-      let currentLang = localStorage.getItem("mona_lang") || "ENG";
+    <script>
       let currentPainting = null;
 
-      // --- DATA LOADING & INITIALIZATION ---
-      Promise.all([
-        fetch("page_elements/navbar.html").then((res) => res.text()),
-        fetch("page_elements/footer.html").then((res) => res.text()),
-        fetch("data/paintings.json").then((res) => res.json())
-      ]).then(([navData, footData, paintData]) => {
-        document.getElementById("navbar-placeholder").innerHTML = navData;
-        document.getElementById("footer-placeholder").innerHTML = footData;
+      async function initPaintingPage() {
+        try {
+          await Components.initLayout();
 
-        // Parse URL to find the current painting
-        const urlParams = new URLSearchParams(window.location.search);
-        const paintingId = urlParams.get("id");
-        if (paintingId) {
-          currentPainting = paintData.find((p) => p.id === paintingId);
-        }
+          const urlParams = new URLSearchParams(window.location.search);
+          const paintingId = urlParams.get("id");
 
-        // Bind language switch button
-        const langBtn = document.querySelector(".lang-switch");
-        if (langBtn) {
-          langBtn.addEventListener("click", () => {
-            currentLang = currentLang === "ENG" ? "BGN" : "ENG";
-            localStorage.setItem("mona_lang", currentLang);
-            applyTranslations();
+          if (paintingId) {
+            currentPainting = await ArtService.getById(paintingId);
+          }
+
+          renderPaintingDetails();
+          setupInteractiveElements();
+
+          I18n.onLanguageChange(() => {
+            renderPaintingDetails();
           });
-        }
-
-        applyTranslations();
-        setupInteractiveElements();
-      }).catch((error) => console.error("Error loading page data:", error));
-
-
-      // --- TRANSLATION APPLICATION ---
-      function applyTranslations() {
-        // 1. Navbar
-        const navLinks = document.querySelectorAll(".nav-links a");
-        if (navLinks.length >= 3) {
-          navLinks[0].textContent = t[currentLang].navHome;
-          navLinks[1].textContent = t[currentLang].navArtist;
-          navLinks[2].textContent = t[currentLang].navPaintings;
-        }
-        const langBtn = document.querySelector(".lang-switch");
-        if (langBtn) langBtn.textContent = t[currentLang].langBtn;
-
-        // 2. Static UI Elements
-        document.querySelector(".back-link").textContent = t[currentLang].backLink;
-        document.getElementById("inquire-btn").textContent = t[currentLang].btnInquire;
-        document.querySelector("#desc-container h3").textContent = t[currentLang].descTitle;
-        document.getElementById("modal-title").textContent = t[currentLang].modalTitle;
-        document.querySelector("#purchase-modal .modal-content p").textContent = t[currentLang].modalText;
-
-        const specLabels = document.querySelectorAll(".spec-label");
-        if (specLabels.length >= 4) {
-          specLabels[0].textContent = t[currentLang].specMedium;
-          specLabels[1].textContent = t[currentLang].specSize;
-          specLabels[2].textContent = t[currentLang].specDate;
-          specLabels[3].textContent = t[currentLang].specStatus;
-        }
-
-        // 3. Dynamic Painting Data
-        if (currentPainting) {
-          // Title
-          const title = currentLang === "BGN" 
-            ? (currentPainting.titleBGN?.trim() ? currentPainting.titleBGN : "Неозаглавена")
-            : (currentPainting.titleENG?.trim() ? currentPainting.titleENG : "Untitled");
-            
-          document.title = `${title} - Mona's Gallery`;
-          document.getElementById("p-title").textContent = title;
-
-          // Image & Orientation (Only loads once)
-          const imgElement = document.getElementById("p-image");
-          if (!imgElement.src.includes(currentPainting.imageUrl)) {
-            imgElement.src = currentPainting.imageUrl;
-            imgElement.alt = title;
-            
-            imgElement.onload = () => {
-              const layout = document.querySelector(".painting-layout");
-              const mainPage = document.querySelector(".painting-page");
-              if (imgElement.naturalWidth > imgElement.naturalHeight) {
-                layout.classList.add("landscape");
-                mainPage.classList.add("is-landscape");
-              } else {
-                layout.classList.remove("landscape");
-                mainPage.classList.remove("is-landscape");
-              }
-            };
-
-            // НОВО: Предпазва от счупване, ако снимката я няма
-            imgElement.onerror = () => {
-              imgElement.alt = "Изображението не е налично";
-              imgElement.style.opacity = "0"; // Скрива грозната счупена икона
-            };
-          }
-
-          // Types & Mediums
-          const type = currentLang === "BGN" ? currentPainting.typeBGN : currentPainting.typeENG;
-          document.getElementById("p-type").textContent = type ? type.toUpperCase() : t[currentLang].defaultType;
-          
-          const medium = currentLang === "BGN" ? currentPainting.madeOutOFBGN : currentPainting.madeOutOFENG;
-          document.getElementById("p-medium").textContent = medium || t[currentLang].defaultMedium;
-
-          // Description logic
-          const desc = currentLang === "BGN" ? currentPainting.descriptionBGN : currentPainting.descriptionENG;
-          if (desc && desc.trim() !== "") {
-            document.getElementById("p-desc").textContent = desc;
-            document.getElementById("desc-container").style.display = "block";
-          } else {
-            document.getElementById("desc-container").style.display = "none";
-          }
-
-          // Formatting Specs
-          document.getElementById("p-size").textContent = currentPainting.size && currentPainting.size.trim() !== "cm" ? currentPainting.size : "N/A";
-          document.getElementById("p-date").textContent = currentPainting.date ? currentPainting.date.split(".").pop() : "N/A";
-
-          // Availability Logic
-          const priceStr = currentPainting.price;
-          const numericPrice = (priceStr && priceStr.trim() !== "" && priceStr.trim() !== "€") ? parseFloat(priceStr.replace(/[^\d.-]/g, "")) : null;
-          const isAvailable = !isNaN(numericPrice) && numericPrice !== null;
-
-          document.getElementById("p-status").textContent = isAvailable ? t[currentLang].statusAvail : t[currentLang].statusUnavail;
-          
-          // Display Price or "Price upon request"
-          document.getElementById("p-price").textContent = isAvailable ? priceStr : t[currentLang].priceRequest;
-          
-          // Hide purchase button if sold
-          document.getElementById("inquire-btn").style.display = isAvailable ? "block" : "none";
-
-        } else {
-          document.getElementById("p-title").textContent = t[currentLang].notFound;
+        } catch (error) {
+          console.error("Error initializing painting page:", error);
         }
       }
 
-      // --- MODAL & INTERACTIVITY LOGIC ---
+      function renderPaintingDetails() {
+        const lang = I18n.getLanguage();
+
+        if (!currentPainting) {
+          document.title = `${I18n.t("notFound", lang)} - Mona's Gallery`;
+          document.getElementById("painting-content").innerHTML = `
+            <div style="text-align: center; padding: 4rem 1rem;">
+              <h1 style="font-size: 2rem; margin-bottom: 1.5rem;">${I18n.t("notFound", lang)}</h1>
+              <a href="catalog.html" class="btn btn-primary">${I18n.t("backLink", lang)}</a>
+            </div>
+          `;
+          return;
+        }
+
+        const title = ArtService.getLocalized(
+          currentPainting.title,
+          lang,
+          I18n.t("untitled", lang)
+        );
+        document.title = `${title} - Mona's Gallery`;
+        document.getElementById("p-title").textContent = title;
+
+        // Image & Orientation
+        const imgElement = document.getElementById("p-image");
+        imgElement.alt = title;
+
+        function updateOrientation() {
+          const layout = document.querySelector(".painting-layout");
+          const mainPage = document.querySelector(".painting-page");
+          if (imgElement.naturalWidth > imgElement.naturalHeight) {
+            layout?.classList.add("landscape");
+            mainPage?.classList.add("is-landscape");
+          } else {
+            layout?.classList.remove("landscape");
+            mainPage?.classList.remove("is-landscape");
+          }
+        }
+
+        if (!imgElement.src.includes(currentPainting.imageUrl)) {
+          imgElement.src = currentPainting.imageUrl;
+          imgElement.onload = updateOrientation;
+          if (imgElement.complete && imgElement.naturalWidth > 0) {
+            updateOrientation();
+          }
+
+          imgElement.onerror = () => {
+            imgElement.alt = I18n.t("notFound", lang);
+            imgElement.style.opacity = "0";
+          };
+        } else {
+          updateOrientation();
+        }
+
+        // Type & Medium
+        const type = ArtService.getLocalized(currentPainting.type, lang, I18n.t("defaultType", lang));
+        document.getElementById("p-type").textContent = type.toUpperCase();
+
+        const medium = ArtService.getLocalized(currentPainting.medium, lang, I18n.t("defaultMedium", lang));
+        document.getElementById("p-medium").textContent = medium;
+
+        // Size & Date
+        document.getElementById("p-size").textContent =
+          currentPainting.size && currentPainting.size.trim() !== "cm"
+            ? currentPainting.size
+            : "N/A";
+        document.getElementById("p-date").textContent =
+          ArtService.getYear(currentPainting.date) || "N/A";
+
+        // Availability & Price
+        const isAvailable = currentPainting.price !== null;
+        document.getElementById("p-status").textContent = isAvailable
+          ? I18n.t("statusAvail", lang)
+          : I18n.t("statusUnavail", lang);
+
+        document.getElementById("p-price").textContent = isAvailable
+          ? ArtService.formatPrice(currentPainting.price, lang)
+          : I18n.t("priceRequest", lang);
+
+        document.getElementById("inquire-btn").style.display = isAvailable
+          ? "block"
+          : "none";
+
+        // Description
+        const desc = ArtService.getLocalized(currentPainting.description, lang, "");
+        const descContainer = document.getElementById("desc-container");
+        if (desc && desc.trim()) {
+          document.getElementById("p-desc").textContent = desc;
+          descContainer.style.display = "block";
+        } else {
+          descContainer.style.display = "none";
+        }
+      }
+
       function setupInteractiveElements() {
         // Purchase Modal
         const purchaseModal = document.getElementById("purchase-modal");
         const inquireBtn = document.getElementById("inquire-btn");
         const closePurchaseBtn = document.getElementById("close-modal");
 
-        inquireBtn.addEventListener("click", () => {
-          purchaseModal.classList.add("active");
-          inquireBtn.setAttribute("aria-expanded", "true");
-        });
+        if (inquireBtn && purchaseModal && closePurchaseBtn) {
+          inquireBtn.addEventListener("click", () => {
+            purchaseModal.classList.add("active");
+            inquireBtn.setAttribute("aria-expanded", "true");
+          });
 
-        closePurchaseBtn.addEventListener("click", () => {
-          purchaseModal.classList.remove("active");
-          inquireBtn.setAttribute("aria-expanded", "false");
-        });
-
-        window.addEventListener("click", (e) => {
-          if (e.target === purchaseModal) {
+          closePurchaseBtn.addEventListener("click", () => {
             purchaseModal.classList.remove("active");
             inquireBtn.setAttribute("aria-expanded", "false");
-          }
-        });
+          });
+
+          window.addEventListener("click", (e) => {
+            if (e.target === purchaseModal) {
+              purchaseModal.classList.remove("active");
+              inquireBtn.setAttribute("aria-expanded", "false");
+            }
+          });
+        }
 
         // Zoom Modal Logic
         const zoomModal = document.getElementById("zoom-modal");
         const zoomedImage = document.getElementById("zoomed-image");
         const closeZoomBtn = document.getElementById("close-zoom");
         const mainImage = document.getElementById("p-image");
-        
-        let isZoomed = false;
-        let isDragging = false;
-        let startX = 0, startY = 0, translateX = 0, translateY = 0;
-        let lastTranslateX = 0, lastTranslateY = 0;
-        let isClick = true;
 
-        function updateTransform() {
-          zoomedImage.style.transform = isZoomed ? `translate(${translateX}px, ${translateY}px) scale(2.5)` : `translate(0px, 0px) scale(1)`;
-        }
+        if (zoomModal && zoomedImage && closeZoomBtn && mainImage) {
+          let isZoomed = false;
+          let isDragging = false;
+          let startX = 0, startY = 0, translateX = 0, translateY = 0;
+          let lastTranslateX = 0, lastTranslateY = 0;
+          let isClick = true;
 
-        function resetZoom() {
-          isZoomed = false;
-          isDragging = false;
-          translateX = 0; translateY = 0;
-          lastTranslateX = 0; lastTranslateY = 0;
-          zoomedImage.classList.remove("is-zoomed");
-          zoomedImage.style.transition = "transform var(--transition-smooth)";
-          updateTransform();
-        }
-
-        mainImage.addEventListener("click", () => {
-          zoomedImage.src = mainImage.src;
-          resetZoom();
-          zoomModal.classList.add("active");
-        });
-
-        zoomedImage.addEventListener("pointerdown", (e) => {
-          isClick = true;
-          startX = e.clientX;
-          startY = e.clientY;
-          if (!isZoomed) return;
-          
-          e.preventDefault();
-          isDragging = true;
-          zoomedImage.style.transition = "none";
-        });
-
-        window.addEventListener("pointermove", (e) => {
-          if (!isDragging) return;
-          const dx = e.clientX - startX;
-          const dy = e.clientY - startY;
-          
-          if (Math.abs(dx) > 5 || Math.abs(dy) > 5) isClick = false; 
-          
-          translateX = lastTranslateX + dx;
-          translateY = lastTranslateY + dy;
-          updateTransform();
-        });
-
-        window.addEventListener("pointerup", (e) => {
-          if (isDragging) {
-            isDragging = false;
-            lastTranslateX = translateX;
-            lastTranslateY = translateY;
-            zoomedImage.style.transition = "transform var(--transition-smooth)";
+          function updateTransform() {
+            zoomedImage.style.transform = isZoomed
+              ? `translate(${translateX}px, ${translateY}px) scale(2.5)`
+              : `translate(0px, 0px) scale(1)`;
           }
-          
-          if (isClick && e.target === zoomedImage) {
-            isZoomed = !isZoomed;
-            if (isZoomed) zoomedImage.classList.add("is-zoomed");
-            else resetZoom();
+
+          function resetZoom() {
+            isZoomed = false;
+            isDragging = false;
+            translateX = 0;
+            translateY = 0;
+            lastTranslateX = 0;
+            lastTranslateY = 0;
+            zoomedImage.classList.remove("is-zoomed");
+            zoomedImage.style.transition = "transform var(--transition-smooth)";
             updateTransform();
           }
-        });
 
-        const closeZoom = () => {
-          zoomModal.classList.remove("active");
-          setTimeout(resetZoom, 300);
-        };
+          mainImage.addEventListener("click", () => {
+            zoomedImage.src = mainImage.src;
+            resetZoom();
+            zoomModal.classList.add("active");
+          });
 
-        closeZoomBtn.addEventListener("click", closeZoom);
-        zoomModal.addEventListener("click", (e) => { if (e.target === zoomModal) closeZoom(); });
+          zoomedImage.addEventListener("pointerdown", (e) => {
+            isClick = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            if (!isZoomed) return;
 
-        window.addEventListener("keydown", (e) => {
-          if (e.key === "Escape") {
-            if (purchaseModal.classList.contains("active")) {
-              purchaseModal.classList.remove("active");
-              inquireBtn.setAttribute("aria-expanded", "false");
+            e.preventDefault();
+            isDragging = true;
+            zoomedImage.style.transition = "none";
+          });
+
+          window.addEventListener("pointermove", (e) => {
+            if (!isDragging) return;
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+
+            if (Math.abs(dx) > 5 || Math.abs(dy) > 5) isClick = false;
+
+            translateX = lastTranslateX + dx;
+            translateY = lastTranslateY + dy;
+            updateTransform();
+          });
+
+          window.addEventListener("pointerup", (e) => {
+            if (isDragging) {
+              isDragging = false;
+              lastTranslateX = translateX;
+              lastTranslateY = translateY;
+              zoomedImage.style.transition = "transform var(--transition-smooth)";
             }
-            if (zoomModal.classList.contains("active")) closeZoom();
-          }
-        });
+
+            if (isClick && e.target === zoomedImage) {
+              isZoomed = !isZoomed;
+              if (isZoomed) zoomedImage.classList.add("is-zoomed");
+              else resetZoom();
+              updateTransform();
+            }
+          });
+
+          const closeZoom = () => {
+            zoomModal.classList.remove("active");
+            setTimeout(resetZoom, 300);
+          };
+
+          closeZoomBtn.addEventListener("click", closeZoom);
+          zoomModal.addEventListener("click", (e) => {
+            if (e.target === zoomModal) closeZoom();
+          });
+
+          window.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+              if (purchaseModal?.classList.contains("active")) {
+                purchaseModal.classList.remove("active");
+                inquireBtn?.setAttribute("aria-expanded", "false");
+              }
+              if (zoomModal?.classList.contains("active")) {
+                closeZoom();
+              }
+            }
+          });
+        }
       }
+
+      document.addEventListener("DOMContentLoaded", initPaintingPage);
     </script>
   </body>
 </html>

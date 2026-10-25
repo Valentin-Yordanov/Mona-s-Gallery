@@ -9,7 +9,7 @@
     />
     <title>Mona - Artist Profile</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" type="image/jpeg" href="page_elements/kokosan.png">
+    <link rel="icon" type="image/jpeg" href="page_elements/kokosan.png" />
   </head>
   <body>
     <nav
@@ -19,52 +19,53 @@
     ></nav>
 
     <main class="artist-main">
-  <div class="artist-layout-top">
-    <!-- Снимка (Лилаво) -->
-    <div class="artist-photo-placeholder">
-      <div class="placeholder-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-        </svg>
+      <div class="artist-layout-top">
+        <div class="artist-photo-placeholder">
+          <div class="placeholder-icon">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <span data-i18n="artistPhotoLabel">Artist photo</span>
+        </div>
+
+        <div class="artist-text-content">
+          <header class="artist-title">
+            <h1>Simona Nikolaeva Dobreva</h1>
+          </header>
+          <article class="info-card">
+            <p>YAP YAP YAP</p>
+          </article>
+        </div>
       </div>
-      <span>Artist photo</span>
-    </div>
 
-    <!-- Горна дясна част (Червено) -->
-    <div class="artist-text-content">
-      <header class="artist-title">
-        <h1>Simona Nikolaeva Dobreva</h1>
-      </header>
-      <article class="info-card">
-        <p>YAP YAP YAP</p>
-      </article>
-    </div>
-  </div>
-
-  <!-- Долна част на цяла ширина (Оранжево) -->
-  <section class="artist-details">
-    <article class="info-card">
-      <p>YAP YAP YAP</p>
-    </article>
-  </section>
-</main>
+      <section class="artist-details">
+        <article class="info-card">
+          <p>YAP YAP YAP</p>
+        </article>
+      </section>
+    </main>
 
     <footer class="footer" id="footer-placeholder"></footer>
-    <script>
-      // Load Navbar safely
-      fetch("page_elements/navbar.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar-placeholder").innerHTML = data;
-        });
 
-      // Load Footer
-      fetch("page_elements/footer.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("footer-placeholder").innerHTML = data;
-        });
+    <!-- Shared Modules -->
+    <script src="js/i18n.js"></script>
+    <script src="js/components.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        Components.initLayout();
+      });
     </script>
   </body>
 </html>

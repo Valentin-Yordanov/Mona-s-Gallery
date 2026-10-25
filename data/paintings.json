@@ -1,482 +1,738 @@
 [
-  {
-    "id": "1",
-    "imageUrl": "images/img1.jpg",
-    "titleENG": "The Birth of Venus",
-    "titleBGN": "Раждането на Венера",
-    "date": "26.06.2023",
-    "price": " ",
-    "size": "50 x 80 cm",
-    "typeENG": "Not Original",
-    "typeBGN": "Неоригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "2",
-    "imageUrl": "images/img2.jpg",
-    "titleENG": "Everyday Life",
-    "titleBGN": "Битово Ежедневие",
-    "date": "15.10.2025",
-    "price": " ",
-    "size": "50 x 70 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "3",
-    "imageUrl": "images/img3.jpg",
-    "titleENG": "The Fallen Angel",
-    "titleBGN": "Падналият Ангел",
-    "date": "17.06.2023",
-    "price": " ",
-    "size": "50 x 70 cm",
-    "typeENG": "Not Original",
-    "typeBGN": "Неоригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "4",
-    "imageUrl": "images/img4.jpg",
-    "titleENG": "Saints KIril And Metodii",
-    "titleBGN": "св св Кирил и Методий",
-    "date": "12.09.2025",
-    "price": " ",
-    "size": "50 x 70 cm",
-    "typeENG": "Not Original",
-    "typeBGN": "Неоригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "5",
-    "imageUrl": "images/img5.jpg",
-    "titleENG": "The World of Koki",
-    "titleBGN": "Светът на Коки",
-    "date": "18.01.2025",
-    "price": " ",
-    "size": "40 x 40 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "6",
-    "imageUrl": "images/img6.jpg",
-    "titleENG": "May Lillies 3",
-    "titleBGN": "Майски Лилии 3",
-    "date": "14.06.2025",
-    "price": "155 €",
-    "size": "40 x 40 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "7",
-    "imageUrl": "images/img7.jpg",
-    "titleENG": "May Lillies 1",
-    "titleBGN": "Майски Лилии 1",
-    "date": "26.05.2024",
-    "price": " ",
-    "size": "40 x 40 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "8",
-    "imageUrl": "images/img8.jpg",
-    "titleENG": "May Lillies 2",
-    "titleBGN": "Майски Лилии 2",
-    "date": "26.05.2024",
-    "price": " ",
-    "size": "40 x 40 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "9",
-    "imageUrl": "images/img9.jpg",
-    "titleENG": "A Child’s work",
-    "titleBGN": "Детски труд",
-    "date": "09.11.2024",
-    "price": " ",
-    "size": "50 x 70 cm",
-    "typeENG": "Not Original",
-    "typeBGN": "Неоригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "10",
-    "imageUrl": "images/img10.jpg",
-    "titleENG": "Lukovit",
-    "titleBGN": "Луковит",
-    "date": "24.07.2025",
-    "price": " ",
-    "size": "50 x 70 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "11",
-    "imageUrl": "images/img11.jpg",
-    "titleENG": "A Woman’s Body",
-    "titleBGN": "Женско Тяло",
-    "date": "10.06.2024",
-    "price": " ",
-    "size": "40 x 50 cm",
-    "typeENG": "Not Original",
-    "typeBGN": "Неоригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "12",
-    "imageUrl": "images/img12.jpg",
-    "titleENG": "A woman’s Body 2",
-    "titleBGN": "Женско Тяло 2",
-    "date": "12.02.2026",
-    "price": "155 €",
-    "size": "40 x 40 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "13",
-    "imageUrl": "images/img13.jpg",
-    "titleENG": "Calm in the Library",
-    "titleBGN": "Спокойствие в библиотеката",
-    "date": "01.04.2025",
-    "price": " ",
-    "size": "40 x 70 cm",
-    "typeENG": "Not Original",
-    "typeBGN": "Неоригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "14",
-    "imageUrl": "images/img14.jpg",
-    "titleENG": "On the Way Home",
-    "titleBGN": "По път за Вкъщи",
-    "date": "27.11.2025",
-    "price": " ",
-    "size": "40 x 40 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "15",
-    "imageUrl": "images/img15.jpg",
-    "titleENG": "Sister’s love",
-    "titleBGN": "Сестринска любов",
-    "date": "07.02.2026",
-    "price": " ",
-    "size": "20 x 30 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "16",
-    "imageUrl": "images/img16.jpg",
-    "titleENG": "Pieta",
-    "titleBGN": "Пиета",
-    "date": "12.03.2025",
-    "price": " ",
-    "size": "50 x 70 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "17",
-    "imageUrl": "images/img17.jpg",
-    "titleENG": "The Beginning",
-    "titleBGN": "Началото",
-    "date": "01.04.2023",
-    "price": " ",
-    "size": "40 x 40 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "18",
-    "imageUrl": "images/img18.jpg",
-    "titleENG": "My Second Home",
-    "titleBGN": "Моя втори дом",
-    "date": "16.05.2024",
-    "price": "250 €",
-    "size": "50 x 80 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "19",
-    "imageUrl": "images/img19.jpg",
-    "titleENG": "Ravda",
-    "titleBGN": "Равда",
-    "date": "18.04.2026",
-    "price": "270 €",
-    "size": "50 x 70 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "20",
-    "imageUrl": "images/img20.jpg",
-    "titleENG": "On the Way to Rila",
-    "titleBGN": "На път за Рила",
-    "date": "19.11.2025",
-    "price": " ",
-    "size": "50 x 70 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "21",
-    "imageUrl": "images/img21.jpg",
-    "titleENG": "Autoportrait",
-    "titleBGN": "Автопортрет",
-    "date": "18.06.2025",
-    "price": "120 €",
-    "size": "35 x 40 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "22",
-    "imageUrl": "images/img22.jpg",
-    "titleENG": "Portrait of a Friend",
-    "titleBGN": "Портрет на другарче",
-    "date": "27.04.2024",
-    "price": " ",
-    "size": "40 x 40 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "23",
-    "imageUrl": "images/img23.jpg",
-    "titleENG": "Love",
-    "titleBGN": "Любовта",
-    "date": "17.04.2025",
-    "price": " ",
-    "size": "40 x 40 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "24",
-    "imageUrl": "images/img24.jpg",
-    "titleENG": "The Shiny Kettle",
-    "titleBGN": "Лъскавият Чайник",
-    "date": "31.05.2025",
-    "price": "200 €",
-    "size": "40 x 40 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "25",
-    "imageUrl": "images/img25.jpg",
-    "titleENG": "Life after some time",
-    "titleBGN": "Животът след време",
-    "date": "26.09.2025",
-    "price": "180 €",
-    "size": "40 x 40 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "26",
-    "imageUrl": "images/img26.jpg",
-    "titleENG": "Sunflowers",
-    "titleBGN": "Слънчогледи",
-    "date": "13.04.2024",
-    "price": " ",
-    "size": "50 x 70 cm",
-    "typeENG": "Not Original",
-    "typeBGN": "Неоригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "27",
-    "imageUrl": "images/img27.jpg",
-    "titleENG": "Sweden",
-    "titleBGN": "Швеция",
-    "date": "17.12.2025",
-    "price": " ",
-    "size": "35 x 40 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "28",
-    "imageUrl": "images/img28.jpg",
-    "titleENG": "portrait",
-    "titleBGN": "Портрет",
-    "date": "13.07.2023",
-    "price": " ",
-    "size": "40 x 40 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "29",
-    "imageUrl": "images/img29.jpg",
-    "titleENG": "A statuette",
-    "titleBGN": "Статуетка",
-    "date": "21.12.2024",
-    "price": "100 €",
-    "size": "35 x 40 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "30",
-    "imageUrl": "images/img30.jpg",
-    "titleENG": "A dear friend",
-    "titleBGN": "Скъпа приятелка",
-    "date": "14.05.2025",
-    "price": " ",
-    "size": "50 x 70 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "31",
-    "imageUrl": "images/img31.jpg",
-    "titleENG": "Window to the world",
-    "titleBGN": "Прозорец към света",
-    "date": "03.02.2024",
-    "price": " ",
-    "size": "50 x 70 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  },
-  {
-    "id": "32",
-    "imageUrl": "images/img32.jpg",
-    "titleENG": "Pigeon",
-    "titleBGN": "Гълъб",
-    "date": "21.12.2024",
-    "price": " ",
-    "size": "20 x 20 cm",
-    "typeENG": "Original",
-    "typeBGN": "Оригинална",
-    "madeOutOFENG": "Oil paints",
-    "madeOutOFBGN": "Маслени бои",
-    "descriptionENG": "",
-    "descriptionBGN": ""
-  }
+    {
+        "id":  "1",
+        "imageUrl":  "images/img1.jpg",
+        "title":  {
+                      "en":  "The Birth of Venus",
+                      "bg":  "Раждането на Венера"
+                  },
+        "date":  "2023-06-26",
+        "price":  null,
+        "size":  "50 x 80 cm",
+        "type":  {
+                     "en":  "Not Original",
+                     "bg":  "Неоригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "2",
+        "imageUrl":  "images/img2.jpg",
+        "title":  {
+                      "en":  "Everyday Life",
+                      "bg":  "Битово Ежедневие"
+                  },
+        "date":  "2025-10-15",
+        "price":  null,
+        "size":  "50 x 70 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "3",
+        "imageUrl":  "images/img3.jpg",
+        "title":  {
+                      "en":  "The Fallen Angel",
+                      "bg":  "Падналият Ангел"
+                  },
+        "date":  "2023-06-17",
+        "price":  null,
+        "size":  "50 x 70 cm",
+        "type":  {
+                     "en":  "Not Original",
+                     "bg":  "Неоригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "4",
+        "imageUrl":  "images/img4.jpg",
+        "title":  {
+                      "en":  "Saints KIril And Metodii",
+                      "bg":  "св св Кирил и Методий"
+                  },
+        "date":  "2025-09-12",
+        "price":  null,
+        "size":  "50 x 70 cm",
+        "type":  {
+                     "en":  "Not Original",
+                     "bg":  "Неоригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "5",
+        "imageUrl":  "images/img5.jpg",
+        "title":  {
+                      "en":  "The World of Koki",
+                      "bg":  "Светът на Коки"
+                  },
+        "date":  "2025-01-18",
+        "price":  null,
+        "size":  "40 x 40 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "6",
+        "imageUrl":  "images/img6.jpg",
+        "title":  {
+                      "en":  "May Lillies 3",
+                      "bg":  "Майски Лилии 3"
+                  },
+        "date":  "2025-06-14",
+        "price":  155,
+        "size":  "40 x 40 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "7",
+        "imageUrl":  "images/img7.jpg",
+        "title":  {
+                      "en":  "May Lillies 1",
+                      "bg":  "Майски Лилии 1"
+                  },
+        "date":  "2024-05-26",
+        "price":  null,
+        "size":  "40 x 40 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "8",
+        "imageUrl":  "images/img8.jpg",
+        "title":  {
+                      "en":  "May Lillies 2",
+                      "bg":  "Майски Лилии 2"
+                  },
+        "date":  "2024-05-26",
+        "price":  null,
+        "size":  "40 x 40 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "9",
+        "imageUrl":  "images/img9.jpg",
+        "title":  {
+                      "en":  "A Child’s work",
+                      "bg":  "Детски труд"
+                  },
+        "date":  "2024-11-09",
+        "price":  null,
+        "size":  "50 x 70 cm",
+        "type":  {
+                     "en":  "Not Original",
+                     "bg":  "Неоригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "10",
+        "imageUrl":  "images/img10.jpg",
+        "title":  {
+                      "en":  "Lukovit",
+                      "bg":  "Луковит"
+                  },
+        "date":  "2025-07-24",
+        "price":  null,
+        "size":  "50 x 70 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "11",
+        "imageUrl":  "images/img11.jpg",
+        "title":  {
+                      "en":  "A Woman’s Body",
+                      "bg":  "Женско Тяло"
+                  },
+        "date":  "2024-06-10",
+        "price":  null,
+        "size":  "40 x 50 cm",
+        "type":  {
+                     "en":  "Not Original",
+                     "bg":  "Неоригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "12",
+        "imageUrl":  "images/img12.jpg",
+        "title":  {
+                      "en":  "A woman’s Body 2",
+                      "bg":  "Женско Тяло 2"
+                  },
+        "date":  "2026-02-12",
+        "price":  155,
+        "size":  "40 x 40 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "13",
+        "imageUrl":  "images/img13.jpg",
+        "title":  {
+                      "en":  "Calm in the Library",
+                      "bg":  "Спокойствие в библиотеката"
+                  },
+        "date":  "2025-04-01",
+        "price":  null,
+        "size":  "40 x 70 cm",
+        "type":  {
+                     "en":  "Not Original",
+                     "bg":  "Неоригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "14",
+        "imageUrl":  "images/img14.jpg",
+        "title":  {
+                      "en":  "On the Way Home",
+                      "bg":  "По път за Вкъщи"
+                  },
+        "date":  "2025-11-27",
+        "price":  null,
+        "size":  "40 x 40 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "15",
+        "imageUrl":  "images/img15.jpg",
+        "title":  {
+                      "en":  "Sister’s love",
+                      "bg":  "Сестринска любов"
+                  },
+        "date":  "2026-02-07",
+        "price":  null,
+        "size":  "20 x 30 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "16",
+        "imageUrl":  "images/img16.jpg",
+        "title":  {
+                      "en":  "Pieta",
+                      "bg":  "Пиета"
+                  },
+        "date":  "2025-03-12",
+        "price":  null,
+        "size":  "50 x 70 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "17",
+        "imageUrl":  "images/img17.jpg",
+        "title":  {
+                      "en":  "The Beginning",
+                      "bg":  "Началото"
+                  },
+        "date":  "2023-04-01",
+        "price":  null,
+        "size":  "40 x 40 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "18",
+        "imageUrl":  "images/img18.jpg",
+        "title":  {
+                      "en":  "My Second Home",
+                      "bg":  "Моя втори дом"
+                  },
+        "date":  "2024-05-16",
+        "price":  250,
+        "size":  "50 x 80 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "19",
+        "imageUrl":  "images/img19.jpg",
+        "title":  {
+                      "en":  "Ravda",
+                      "bg":  "Равда"
+                  },
+        "date":  "2026-04-18",
+        "price":  270,
+        "size":  "50 x 70 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "20",
+        "imageUrl":  "images/img20.jpg",
+        "title":  {
+                      "en":  "On the Way to Rila",
+                      "bg":  "На път за Рила"
+                  },
+        "date":  "2025-11-19",
+        "price":  null,
+        "size":  "50 x 70 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "21",
+        "imageUrl":  "images/img21.jpg",
+        "title":  {
+                      "en":  "Autoportrait",
+                      "bg":  "Автопортрет"
+                  },
+        "date":  "2025-06-18",
+        "price":  120,
+        "size":  "35 x 40 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "22",
+        "imageUrl":  "images/img22.jpg",
+        "title":  {
+                      "en":  "Portrait of a Friend",
+                      "bg":  "Портрет на другарче"
+                  },
+        "date":  "2024-04-27",
+        "price":  null,
+        "size":  "40 x 40 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "23",
+        "imageUrl":  "images/img23.jpg",
+        "title":  {
+                      "en":  "Love",
+                      "bg":  "Любовта"
+                  },
+        "date":  "2025-04-17",
+        "price":  null,
+        "size":  "40 x 40 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "24",
+        "imageUrl":  "images/img24.jpg",
+        "title":  {
+                      "en":  "The Shiny Kettle",
+                      "bg":  "Лъскавият Чайник"
+                  },
+        "date":  "2025-05-31",
+        "price":  200,
+        "size":  "40 x 40 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "25",
+        "imageUrl":  "images/img25.jpg",
+        "title":  {
+                      "en":  "Life after some time",
+                      "bg":  "Животът след време"
+                  },
+        "date":  "2025-09-26",
+        "price":  180,
+        "size":  "40 x 40 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "26",
+        "imageUrl":  "images/img26.jpg",
+        "title":  {
+                      "en":  "Sunflowers",
+                      "bg":  "Слънчогледи"
+                  },
+        "date":  "2024-04-13",
+        "price":  null,
+        "size":  "50 x 70 cm",
+        "type":  {
+                     "en":  "Not Original",
+                     "bg":  "Неоригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "27",
+        "imageUrl":  "images/img27.jpg",
+        "title":  {
+                      "en":  "Sweden",
+                      "bg":  "Швеция"
+                  },
+        "date":  "2025-12-17",
+        "price":  null,
+        "size":  "35 x 40 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "28",
+        "imageUrl":  "images/img28.jpg",
+        "title":  {
+                      "en":  "portrait",
+                      "bg":  "Портрет"
+                  },
+        "date":  "2023-07-13",
+        "price":  null,
+        "size":  "40 x 40 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "29",
+        "imageUrl":  "images/img29.jpg",
+        "title":  {
+                      "en":  "A statuette",
+                      "bg":  "Статуетка"
+                  },
+        "date":  "2024-12-21",
+        "price":  100,
+        "size":  "35 x 40 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "30",
+        "imageUrl":  "images/img30.jpg",
+        "title":  {
+                      "en":  "A dear friend",
+                      "bg":  "Скъпа приятелка"
+                  },
+        "date":  "2025-05-14",
+        "price":  null,
+        "size":  "50 x 70 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "31",
+        "imageUrl":  "images/img31.jpg",
+        "title":  {
+                      "en":  "Window to the world",
+                      "bg":  "Прозорец към света"
+                  },
+        "date":  "2024-02-03",
+        "price":  null,
+        "size":  "50 x 70 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    },
+    {
+        "id":  "32",
+        "imageUrl":  "images/img32.jpg",
+        "title":  {
+                      "en":  "Pigeon",
+                      "bg":  "Гълъб"
+                  },
+        "date":  "2024-12-21",
+        "price":  null,
+        "size":  "20 x 20 cm",
+        "type":  {
+                     "en":  "Original",
+                     "bg":  "Оригинална"
+                 },
+        "medium":  {
+                       "en":  "Oil paints",
+                       "bg":  "Маслени бои"
+                   },
+        "description":  {
+                            "en":  "",
+                            "bg":  ""
+                        }
+    }
 ]

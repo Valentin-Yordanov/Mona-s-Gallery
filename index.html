@@ -9,7 +9,7 @@
     />
     <title>Mona's Gallery</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" type="image/jpeg" href="page_elements/kokosan.png">
+    <link rel="icon" type="image/jpeg" href="page_elements/kokosan.png" />
   </head>
   <body>
     <nav
@@ -49,7 +49,9 @@
           <div>
             <h2 data-i18n="seriesTitle">Latest Paintings</h2>
           </div>
-          <a href="catalog.html" class="view-all" data-i18n="seriesBtn">View all paintings &rarr;</a>
+          <a href="catalog.html" class="view-all" data-i18n="seriesBtn"
+            >View all paintings &rarr;</a
+          >
         </header>
 
         <div class="color-grid" id="series-carousel">
@@ -107,99 +109,17 @@
     </main>
 
     <footer class="footer" id="footer-placeholder"></footer>
-    
+
+    <!-- Shared Modules -->
+    <script src="js/i18n.js"></script>
+    <script src="js/components.js"></script>
+
     <script>
-      // --- TRANSLATION DICTIONARY ---
-      const t = {
-        ENG: {
-          navHome: "HOME",
-          navArtist: "ARTIST",
-          navPaintings: "PAINTINGS",
-          langBtn: "БГ",
-          featTitle: "Paintings that Breathe",
-          featDesc: "Each piece is an intimate conversation between pigment, canvas, and feeling. Thick impasto layers invite you to reach out and touch the work itself.",
-          featBtn: "Explore Paintings &rarr;",
-          seriesTitle: "Latest Paintings",
-          seriesBtn: "View all paintings &rarr;",
-          card1: "Cosmic Bloom",
-          card2: "Ocean Fire",
-          card3: "Golden Hour",
-          card4: "Deep Forest",
-          card5: "Twilight",
-          aboutTitle: "An Artist Driven by Color",
-          aboutDesc: "Mona has been painting for over 8 years, exploring how color can evoke memory, mood, and meaning. Her studio is a laboratory of light and pigment.",
-          aboutBtn: "Read the Story &rarr;"
-        },
-        BGN: {
-          navHome: "НАЧАЛО",
-          navArtist: "ХУДОЖНИК",
-          navPaintings: "КАРТИНИ",
-          langBtn: "EN",
-          featTitle: "Картини, които дишат",
-          featDesc: "Всяка творба е интимен разговор между пигмент, платно и чувство. Плътните импасто слоеве ви приканват да се докоснете до самото произведение.",
-          featBtn: "Разгледай картините &rarr;",
-          seriesTitle: "Последни картини",
-          seriesBtn: "Виж всички картини &rarr;",
-          card1: "Космически цъфтеж",
-          card2: "Океански огън",
-          card3: "Златен час",
-          card4: "Дълбока гора",
-          card5: "Здрач",
-          aboutTitle: "Творец, воден от цвета",
-          aboutDesc: "Мона рисува от над 8 години, изследвайки как цветът може да събуди спомен, настроение и смисъл. Нейното студио е лаборатория за светлина и пигмент.",
-          aboutBtn: "Прочети историята &rarr;"
-        }
-      };
-
-      let currentLang = localStorage.getItem("mona_lang") || "ENG";
-
-      // --- PAGE INITIALIZATION & DOM LOADS ---
-      Promise.all([
-        fetch("page_elements/navbar.html").then(res => res.text()),
-        fetch("page_elements/footer.html").then(res => res.text())
-      ]).then(([navData, footData]) => {
-        document.getElementById("navbar-placeholder").innerHTML = navData;
-        document.getElementById("footer-placeholder").innerHTML = footData;
-
-        // Initialize Carousel (needs to happen before translation so clones get tagged)
+      document.addEventListener("DOMContentLoaded", async () => {
         setupCarousel();
-
-        // Bind Language Button
-        const langBtn = document.querySelector(".lang-switch");
-        if (langBtn) {
-          langBtn.addEventListener("click", () => {
-            currentLang = currentLang === "ENG" ? "BGN" : "ENG";
-            localStorage.setItem("mona_lang", currentLang);
-            applyTranslations();
-          });
-        }
-
-        applyTranslations();
+        await Components.initLayout();
       });
 
-      // --- TRANSLATION APPLICATION ---
-      function applyTranslations() {
-        // 1. Translate all content blocks tagged with data-i18n
-        document.querySelectorAll('[data-i18n]').forEach(element => {
-          const key = element.getAttribute('data-i18n');
-          if (t[currentLang][key]) {
-            element.innerHTML = t[currentLang][key]; // innerHTML allows the &rarr; arrows to render
-          }
-        });
-
-        // 2. Translate Navbar manually since it's injected
-        const navLinks = document.querySelectorAll(".nav-links a");
-        if (navLinks.length >= 3) {
-          navLinks[0].textContent = t[currentLang].navHome;
-          navLinks[1].textContent = t[currentLang].navArtist;
-          navLinks[2].textContent = t[currentLang].navPaintings;
-        }
-        
-        const langBtn = document.querySelector(".lang-switch");
-        if (langBtn) langBtn.textContent = t[currentLang].langBtn;
-      }
-
-      // --- CAROUSEL LOGIC ---
       function setupCarousel() {
         const carousel = document.getElementById("series-carousel");
 
@@ -207,9 +127,10 @@
         setInterval(() => {
           if (window.innerWidth > 768 && carousel) {
             const firstCard = carousel.firstElementChild;
+            if (!firstCard) return;
             firstCard.style.transition = "opacity 0.3s ease";
             firstCard.style.opacity = "0";
-            
+
             setTimeout(() => {
               carousel.appendChild(firstCard);
               firstCard.style.opacity = "1";
@@ -220,26 +141,25 @@
         // 2. Mobile: Seamless infinite scroll loop
         if (carousel && window.innerWidth <= 768) {
           const cards = Array.from(carousel.children);
-          
-          // Clone the cards TWICE to create a massive buffer on both sides.
-          cards.forEach(card => carousel.appendChild(card.cloneNode(true)));
-          cards.forEach(card => carousel.appendChild(card.cloneNode(true)));
+          cards.forEach((card) => carousel.appendChild(card.cloneNode(true)));
+          cards.forEach((card) => carousel.appendChild(card.cloneNode(true)));
 
-          const gap = parseFloat(getComputedStyle(carousel).gap) || 24; 
+          const gap = parseFloat(getComputedStyle(carousel).gap) || 24;
           const jumpDistance = (cards[0].offsetWidth + gap) * cards.length;
 
-          setTimeout(() => { carousel.scrollLeft = jumpDistance; }, 50);
+          setTimeout(() => {
+            carousel.scrollLeft = jumpDistance;
+          }, 50);
 
           carousel.addEventListener("scroll", () => {
             if (carousel.scrollLeft >= jumpDistance * 2 - 5) {
               carousel.style.scrollSnapType = "none";
               carousel.scrollLeft -= jumpDistance;
-              setTimeout(() => carousel.style.scrollSnapType = "x mandatory", 10);
-            } 
-            else if (carousel.scrollLeft <= 5) {
+              setTimeout(() => (carousel.style.scrollSnapType = "x mandatory"), 10);
+            } else if (carousel.scrollLeft <= 5) {
               carousel.style.scrollSnapType = "none";
               carousel.scrollLeft += jumpDistance;
-              setTimeout(() => carousel.style.scrollSnapType = "x mandatory", 10);
+              setTimeout(() => (carousel.style.scrollSnapType = "x mandatory"), 10);
             }
           });
         }
