@@ -19,6 +19,7 @@
     ></nav>
 
     <main class="catalog-main">
+      <div class="ambient-glow ambient-glow--catalog"></div>
       <header class="catalog-header">
         <h1 data-i18n="catalogTitle">Selected Works</h1>
         <p data-i18n="catalogSubtitle">Original paintings, studies, and textural explorations.</p>
@@ -134,12 +135,14 @@
           setupEventListeners();
           updateDropdownLabels();
           populateDynamicDropdowns();
+          syncCustomSelects();
           renderGallery();
 
           I18n.onLanguageChange(() => {
             updateDropdownLabels();
             document.getElementById("medium-select").value = "all";
             populateDynamicDropdowns();
+            syncCustomSelects();
             renderGallery();
           });
         } catch (error) {
@@ -216,6 +219,7 @@
         });
         sizeSelect.replaceChildren(sizeFrag);
         if (sizes.has(prevSize)) sizeSelect.value = prevSize;
+        syncCustomSelects();
       }
 
       function renderGallery() {
@@ -290,6 +294,7 @@
           const size = painting.size && painting.size.trim() !== "cm" ? painting.size : "";
 
           const isAvailable = painting.price !== null;
+          const cardClass = isAvailable ? "art-card" : "art-card art-card--sold";
           const badgeClass = isAvailable ? "badge-available" : "badge-sold";
           const badgeText = isAvailable ? I18n.t("badgeAvail", lang) : I18n.t("badgeUnavail", lang);
           const displayPrice = ArtService.formatPrice(painting.price, lang);
@@ -297,7 +302,7 @@
           const detailsLine = [medium, size, year].filter(Boolean).join(" | ");
 
           return `
-            <a href="painting.html?id=${painting.id}" class="art-card">
+            <a href="painting.html?id=${painting.id}" class="${cardClass}">
               <div class="art-image-wrapper">
                 <span class="art-badge ${badgeClass}">${badgeText}</span>
                 <img src="${painting.imageUrl}" alt="${title}" loading="lazy" />
@@ -335,7 +340,210 @@
         });
 
         document.querySelectorAll(".catalog-filters__select").forEach((select) => {
-          select.addEventListener("change", renderGallery);
+          select.addEventListener("change", () => {
+            syncCustomSelects();
+            renderGallery();
+          });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener("click", (e) => {
+          if (!e.target.closest(".custom-select")) {
+            closeAllCustomSelects();
+          }
+        });
+
+        // Close dropdowns on Escape key
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            closeAllCustomSelects();
+          }
+        });
+      }
+
+      /**
+       * Synchronize custom styled dropdowns with underlying native selects.
+       * Provides accessible triggers, glassmorphic dropdown menus, and active indicators.
+       */
+      function syncCustomSelects() {
+        const wrappers = document.querySelectorAll(".catalog-filters__select-wrapper");
+
+        wrappers.forEach((wrapper) => {
+          const select = wrapper.querySelector(".catalog-filters__select");
+          if (!select) return;
+
+          select.setAttribute("tabindex", "-1");
+          select.setAttribute("aria-hidden", "true");
+
+          let customSelect = wrapper.querySelector(".custom-select");
+
+          if (!customSelect) {
+            customSelect = document.createElement("div");
+            customSelect.className = "custom-select";
+            customSelect.setAttribute("data-for", select.id);
+
+            const trigger = document.createElement("button");
+            trigger.type = "button";
+            trigger.className = "custom-select__trigger";
+            trigger.setAttribute("aria-haspopup", "listbox");
+            trigger.setAttribute("aria-expanded", "false");
+            trigger.setAttribute(
+              "aria-label",
+              select.getAttribute("aria-label") || "Filter selection"
+            );
+
+            const label = document.createElement("span");
+            label.className = "custom-select__label";
+
+            const arrow = document.createElement("span");
+            arrow.className = "custom-select__arrow";
+            arrow.innerHTML = `
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 1L5 5L9 1" />
+              </svg>
+            `;
+
+            trigger.appendChild(label);
+            trigger.appendChild(arrow);
+
+            const menu = document.createElement("div");
+            menu.className = "custom-select__menu";
+            menu.setAttribute("role", "listbox");
+
+            const optionsList = document.createElement("div");
+            optionsList.className = "custom-select__options";
+            menu.appendChild(optionsList);
+
+            customSelect.appendChild(trigger);
+            customSelect.appendChild(menu);
+            wrapper.appendChild(customSelect);
+
+            trigger.addEventListener("click", (e) => {
+              e.stopPropagation();
+              const isOpen = customSelect.classList.contains("is-open");
+              closeAllCustomSelects();
+              if (!isOpen) {
+                customSelect.classList.add("is-open");
+                wrapper.classList.add("is-open");
+                trigger.setAttribute("aria-expanded", "true");
+              }
+            });
+
+            trigger.addEventListener("keydown", (e) => {
+              if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+                e.preventDefault();
+                if (!customSelect.classList.contains("is-open")) {
+                  closeAllCustomSelects();
+                  customSelect.classList.add("is-open");
+                  trigger.setAttribute("aria-expanded", "true");
+                }
+                const firstOption = optionsList.querySelector(".custom-select__option");
+                if (firstOption) firstOption.focus();
+              }
+            });
+          }
+
+          const trigger = customSelect.querySelector(".custom-select__trigger");
+          const label = customSelect.querySelector(".custom-select__label");
+          const optionsList = customSelect.querySelector(".custom-select__options");
+          const currentOpt = select.options[select.selectedIndex] || select.options[0];
+
+          if (label && currentOpt) {
+            label.textContent = currentOpt.textContent;
+          }
+
+          if (optionsList) {
+            optionsList.innerHTML = "";
+            Array.from(select.options).forEach((opt) => {
+              const item = document.createElement("div");
+              item.className = "custom-select__option";
+              item.setAttribute("role", "option");
+              item.setAttribute("data-value", opt.value);
+              item.setAttribute("tabindex", "0");
+
+              const isSelected = opt.value === select.value;
+              if (isSelected) {
+                item.classList.add("is-selected");
+                item.setAttribute("aria-selected", "true");
+              } else {
+                item.setAttribute("aria-selected", "false");
+              }
+
+              const itemText = document.createElement("span");
+              itemText.className = "custom-select__option-text";
+              itemText.textContent = opt.textContent;
+
+              const checkIcon = document.createElementNS(
+                "http://www.w3.org/2000/svg",
+                "svg"
+              );
+              checkIcon.setAttribute("class", "custom-select__check");
+              checkIcon.setAttribute("viewBox", "0 0 24 24");
+              checkIcon.setAttribute("fill", "none");
+              checkIcon.setAttribute("stroke", "currentColor");
+              checkIcon.setAttribute("stroke-width", "2.5");
+              checkIcon.setAttribute("stroke-linecap", "round");
+              checkIcon.setAttribute("stroke-linejoin", "round");
+              checkIcon.innerHTML = '<polyline points="20 6 9 17 4 12"></polyline>';
+
+              item.appendChild(itemText);
+              item.appendChild(checkIcon);
+
+              item.addEventListener("click", (e) => {
+                e.stopPropagation();
+                select.value = opt.value;
+                select.dispatchEvent(new Event("change"));
+
+                label.textContent = opt.textContent;
+                optionsList
+                  .querySelectorAll(".custom-select__option")
+                  .forEach((el) => {
+                    el.classList.remove("is-selected");
+                    el.setAttribute("aria-selected", "false");
+                  });
+                item.classList.add("is-selected");
+                item.setAttribute("aria-selected", "true");
+
+                customSelect.classList.remove("is-open");
+                wrapper.classList.remove("is-open");
+                trigger.setAttribute("aria-expanded", "false");
+              });
+
+              item.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  item.click();
+                  trigger.focus();
+                } else if (e.key === "ArrowDown") {
+                  e.preventDefault();
+                  const next = item.nextElementSibling;
+                  if (next) next.focus();
+                } else if (e.key === "ArrowUp") {
+                  e.preventDefault();
+                  const prev = item.previousElementSibling;
+                  if (prev) prev.focus();
+                  else trigger.focus();
+                } else if (e.key === "Escape") {
+                  e.preventDefault();
+                  closeAllCustomSelects();
+                  trigger.focus();
+                }
+              });
+
+              optionsList.appendChild(item);
+            });
+          }
+        });
+      }
+
+      function closeAllCustomSelects() {
+        document.querySelectorAll(".custom-select.is-open").forEach((el) => {
+          el.classList.remove("is-open");
+          const trigger = el.querySelector(".custom-select__trigger");
+          if (trigger) trigger.setAttribute("aria-expanded", "false");
+        });
+        document.querySelectorAll(".catalog-filters__select-wrapper.is-open").forEach((w) => {
+          w.classList.remove("is-open");
         });
       }
 

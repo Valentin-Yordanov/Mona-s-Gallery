@@ -22,7 +22,29 @@ const I18n = {
     },
     artistPhotoLabel: { en: "Artist photo", bg: "Снимка на художника" },
 
-    // Home Page
+    // Home Page - Editorial Hero
+    heroBadge: { en: "Exhibition 2026", bg: "Изложба 2026" },
+    heroSubbadge: {
+      en: "Original Fine Art & Oil Explorations",
+      bg: "Оригинално изящно изкуство и маслена живопис"
+    },
+    heroTitle: {
+      en: "Visual Poetry in <span class='hero-title-accent'>Oil & Pigment</span>",
+      bg: "Визуална поезия в <span class='hero-title-accent'>масло и пигмент</span>"
+    },
+    heroDesc: {
+      en: "Step into the contemplative studio of Simona Dobreva. A collection of rich impasto, vibrant harmonies, and soulful textural depth.",
+      bg: "Влезте в съзерцателното студио на Симона Добрева. Колекция от богат импасто релеф, живи хармонии и дълбока текстура."
+    },
+    meetArtistBtn: { en: "Meet the Artist &rarr;", bg: "За художника &rarr;" },
+    artworkTagTitle: { en: "Everyday Life", bg: "Битово Ежедневие" },
+    artworkTagSub: {
+      en: "Original Oil on Canvas • 50 × 70 cm",
+      bg: "Оригинална маслена живопис • 50 × 70 см"
+    },
+    handcraftedBadge: { en: "Handcrafted Oil", bg: "Ръчна маслена творба" },
+
+    // Home Page - Featured & About
     featTitle: { en: "Paintings that Breathe", bg: "Картини, които дишат" },
     featDesc: {
       en: "Each piece is an intimate conversation between pigment, canvas, and feeling. Thick impasto layers invite you to reach out and touch the work itself.",
@@ -44,8 +66,12 @@ const I18n = {
     aboutBtn: { en: "Read the Story &rarr;", bg: "Прочети историята &rarr;" },
 
     // Catalog Page
+    catalogBadge: { en: "Gallery Collection", bg: "Галерийна колекция" },
     catalogTitle: { en: "Selected Works", bg: "Избрани Творби" },
-    catalogSubtitle: { en: "Original paintings, studies, and textural explorations.", bg: "Оригинални картини, етюди и текстурни изследвания." },
+    catalogSubtitle: {
+      en: "Original paintings, studies, and textural explorations.",
+      bg: "Оригинални картини, етюди и текстурни изследвания."
+    },
     btnAvail: { en: "Available", bg: "Налични" },
     btnUnavail: { en: "Unavailable", bg: "Неналични" },
     btnOrig: { en: "Original", bg: "Оригинални" },
@@ -63,10 +89,14 @@ const I18n = {
     badgeAvail: { en: "AVAILABLE", bg: "НАЛИЧНА" },
     badgeUnavail: { en: "UNAVAILABLE", bg: "ПРОДАДЕНА" },
     textUnavail: { en: "Unavailable", bg: "Неналична" },
-    textNoMatch: { en: "No paintings match your selected filters.", bg: "Няма картини, отговарящи на вашите филтри." },
+    textNoMatch: {
+      en: "No paintings match your selected filters.",
+      bg: "Няма картини, отговарящи на вашите филтри."
+    },
 
     // Detail Painting Page
     backLink: { en: "← Back to Paintings", bg: "← Назад към картините" },
+    zoomHint: { en: "Click to Zoom", bg: "Кликнете за увеличение" },
     specMedium: { en: "MEDIUM", bg: "МАТЕРИАЛ" },
     specSize: { en: "SIZE", bg: "РАЗМЕР" },
     specDate: { en: "DATE", bg: "ГОДИНА" },
@@ -134,7 +164,22 @@ const I18n = {
     }
 
     container.querySelectorAll(".lang-switch").forEach((btn) => {
-      btn.textContent = this.t("langBtn", lang);
+      const pills = btn.querySelectorAll(".lang-pill");
+      if (pills.length > 0) {
+        pills.forEach((pill) => {
+          if (pill.getAttribute("data-lang") === lang) {
+            pill.classList.add("is-active");
+          } else {
+            pill.classList.remove("is-active");
+          }
+        });
+        btn.setAttribute(
+          "aria-label",
+          lang === "en" ? "Switch language to Bulgarian" : "Switch language to English"
+        );
+      } else {
+        btn.textContent = this.t("langBtn", lang);
+      }
     });
 
     document.documentElement.lang = lang;

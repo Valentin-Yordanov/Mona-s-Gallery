@@ -19,10 +19,51 @@
     ></nav>
 
     <main>
-      <section class="hero-banner">
-        <img src="images/img2.jpg" alt="Gallery Banner" class="hero-image" />
+      <!-- Editorial Hero Section -->
+      <section class="hero-section">
+        <div class="hero-ambient-glow"></div>
+        <div class="hero-layout">
+          <div class="hero-content">
+            <h1 class="hero-title" data-i18n="heroTitle">
+              Visual Poetry in
+              <span class="hero-title-accent">Oil &amp; Pigment</span>
+            </h1>
+            <p class="hero-description" data-i18n="heroDesc">
+              Step into the contemplative studio of Simona Dobreva. A collection
+              of rich impasto, vibrant harmonies, and soulful textural depth.
+            </p>
+            <div class="hero-actions">
+              <a
+                href="catalog.html"
+                class="btn btn-primary btn-glow1"
+                data-i18n="featBtn"
+              >
+                Explore Paintings &rarr;
+              </a>
+              <a
+                href="artist.html"
+                class="btn btn-primary btn-glow2"
+                data-i18n="meetArtistBtn"
+              >
+                Meet the Artist &rarr;
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-artwork-frame">
+            <div class="artwork-canvas-glow"></div>
+            <div class="artwork-canvas-wrap">
+              <img
+                src="images/img2.jpg"
+                alt="Featured Painting by Mona"
+                class="hero-main-image"
+              />
+            </div>
+          </div>
+        </div>
       </section>
 
+      <!-- Featured Painting Section -->
       <section class="featured-section">
         <div class="featured-card">
           <div class="featured-image">
@@ -44,9 +85,11 @@
         </div>
       </section>
 
+      <!-- Series Carousel Section -->
       <section class="series-section">
         <header class="series-header">
           <div>
+            <span class="series-eyebrow">Contemporary Series</span>
             <h2 data-i18n="seriesTitle">Latest Paintings</h2>
           </div>
           <a href="catalog.html" class="view-all" data-i18n="seriesBtn"
@@ -88,9 +131,11 @@
         </div>
       </section>
 
+      <!-- Artist Story Section -->
       <section class="about-section">
         <div class="about-card">
           <div class="about-text">
+            <div class="accent-line"></div>
             <h2 data-i18n="aboutTitle">An Artist Driven by Color</h2>
             <p data-i18n="aboutDesc">
               Mona has been painting for over 8 years, exploring how color can
@@ -155,11 +200,17 @@
             if (carousel.scrollLeft >= jumpDistance * 2 - 5) {
               carousel.style.scrollSnapType = "none";
               carousel.scrollLeft -= jumpDistance;
-              setTimeout(() => (carousel.style.scrollSnapType = "x mandatory"), 10);
+              setTimeout(
+                () => (carousel.style.scrollSnapType = "x mandatory"),
+                10,
+              );
             } else if (carousel.scrollLeft <= 5) {
               carousel.style.scrollSnapType = "none";
               carousel.scrollLeft += jumpDistance;
-              setTimeout(() => (carousel.style.scrollSnapType = "x mandatory"), 10);
+              setTimeout(
+                () => (carousel.style.scrollSnapType = "x mandatory"),
+                10,
+              );
             }
           });
         }

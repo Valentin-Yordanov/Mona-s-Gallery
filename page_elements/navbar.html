@@ -1,10 +1,46 @@
-<a href="index.html" class="logo">
-    <h1 class="logo-text">Mona's Gallery</h1>
-    <img src="page_elements/kokosan.png" alt="Kokosan Logo" class="logo-img">
-</a>
-<ul class="nav-links">
+<div class="nav-brand-wrap">
+  <a href="index.html" class="logo">
+    <img src="page_elements/kokosan.png" alt="Kokosan Logo" class="logo-img" />
+    <span class="logo-text">Mona's Gallery</span>
+  </a>
+</div>
+<button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" type="button">
+  <span class="nav-toggle-bar"></span>
+  <span class="nav-toggle-bar"></span>
+  <span class="nav-toggle-bar"></span>
+</button>
+<div class="nav-menu">
+  <ul class="nav-links">
     <li><a href="index.html">HOME</a></li>
     <li><a href="artist.html">ARTIST</a></li>
     <li><a href="catalog.html">PAINTINGS</a></li>
-</ul>
-<button class="lang-switch" aria-label="Switch Language">EN / BG</button>
+  </ul>
+  <div class="nav-actions">
+    <button class="lang-switch" type="button" aria-label="Switch Language" title="Switch Language">
+      <span class="lang-pill is-active" data-lang="en">
+        <svg class="lang-flag" width="16" height="12" viewBox="0 0 60 40" aria-hidden="true">
+          <clipPath id="uk-flag-clip"><rect width="60" height="40" rx="4"/></clipPath>
+          <g clip-path="url(#uk-flag-clip)">
+            <rect width="60" height="40" fill="#012169"/>
+            <path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="8"/>
+            <path d="M0 0L60 40M60 0L0 40" stroke="#C8102E" stroke-width="4"/>
+            <path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="12"/>
+            <path d="M30 0V40M0 20H60" stroke="#C8102E" stroke-width="6"/>
+          </g>
+        </svg>
+        <span class="lang-code">EN</span>
+      </span>
+      <span class="lang-pill" data-lang="bg">
+        <svg class="lang-flag" width="16" height="12" viewBox="0 0 20 14" aria-hidden="true">
+          <clipPath id="bg-flag-clip"><rect width="20" height="14" rx="2"/></clipPath>
+          <g clip-path="url(#bg-flag-clip)">
+            <rect width="20" height="14" fill="#d62612"/>
+            <rect width="20" height="9.33" fill="#00966e"/>
+            <rect width="20" height="4.67" fill="#ffffff"/>
+          </g>
+        </svg>
+        <span class="lang-code">BG</span>
+      </span>
+    </button>
+  </div>
+</div>
