@@ -14,6 +14,7 @@ const I18n = {
       en: "Fine art paintings — original works for sale",
       bg: "Изящни картини — оригинални творби за продажба"
     },
+    footerHome: { en: "Home", bg: "Начало" },
     footerArtist: { en: "Artist", bg: "Художник" },
     footerPaintings: { en: "Paintings", bg: "Картини" },
     footerRights: {
