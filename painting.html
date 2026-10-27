@@ -276,7 +276,9 @@
             ? currentPainting.size
             : "N/A";
         document.getElementById("p-date").textContent =
-          ArtService.getYear(currentPainting.date) || "N/A";
+          ArtService.formatDate(currentPainting.date) ||
+          ArtService.getYear(currentPainting.date) ||
+          "N/A";
 
         // Availability & Price
         const isAvailable = currentPainting.price !== null;

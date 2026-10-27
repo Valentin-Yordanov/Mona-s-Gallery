@@ -740,23 +740,17 @@ body:has(.catalog-main) .navbar {
 .series-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 3rem;
-}
-
-.series-eyebrow {
-  display: block;
-  color: var(--color-azure-600);
-  font-size: 0.8rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-bottom: 0.4rem;
+  align-items: baseline;
+  margin-bottom: 2.5rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .series-header h2 {
-  font-size: 2.8rem;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
   color: var(--text-main);
+  line-height: 1.15;
+  margin: 0;
 }
 
 .view-all {
@@ -765,9 +759,10 @@ body:has(.catalog-main) .navbar {
   font-weight: 600;
   letter-spacing: 0.5px;
   transition: all var(--transition-fast);
-  display: flex;
-  align-items: center;
+  display: inline-flex;
+  align-items: baseline;
   gap: 0.4rem;
+  line-height: 1;
 }
 
 .view-all:hover {
@@ -782,6 +777,8 @@ body:has(.catalog-main) .navbar {
 }
 
 .color-card {
+  display: block;
+  text-decoration: none;
   height: 320px;
   border-radius: 20px;
   position: relative;
@@ -798,6 +795,18 @@ body:has(.catalog-main) .navbar {
   border-color: rgba(14, 165, 233, 0.4);
 }
 
+.color-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-smooth);
+}
+
+.color-card:hover .color-card-img {
+  transform: scale(1.06);
+}
+
 .c-purple { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
 .c-teal   { background: linear-gradient(135deg, #0f766e, #0ea5e9); }
 .c-orange { background: linear-gradient(135deg, #1e293b, #2563eb); }
@@ -810,15 +819,19 @@ body:has(.catalog-main) .navbar {
   left: 0;
   right: 0;
   padding: 1.8rem 1.4rem;
-  background: linear-gradient(to top, rgba(7, 13, 24, 0.9) 0%, rgba(7, 13, 24, 0.4) 70%, transparent 100%);
+  background: linear-gradient(to top, rgba(7, 13, 24, 0.92) 0%, rgba(7, 13, 24, 0.45) 70%, transparent 100%);
   color: #ffffff;
   transition: transform var(--transition-smooth);
+  z-index: 2;
 }
 
 .color-info h3 {
   font-size: 1.15rem;
   font-family: var(--font-heading);
   margin-bottom: 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .color-info span {

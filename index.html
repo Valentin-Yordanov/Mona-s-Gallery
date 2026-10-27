@@ -35,14 +35,14 @@
             <div class="hero-actions">
               <a
                 href="catalog.html"
-                class="btn btn-primary "
+                class="btn btn-primary"
                 data-i18n="featBtn"
               >
                 Explore Paintings &rarr;
               </a>
               <a
                 href="artist.html"
-                class="btn btn-primary "
+                class="btn btn-primary"
                 data-i18n="meetArtistBtn"
               >
                 Meet the Artist &rarr;
@@ -88,46 +88,14 @@
       <!-- Series Carousel Section -->
       <section class="series-section">
         <header class="series-header">
-          <div>
-            <span class="series-eyebrow">Contemporary Series</span>
-            <h2 data-i18n="seriesTitle">Latest Paintings</h2>
-          </div>
+          <h2 data-i18n="seriesTitle">Latest Paintings</h2>
           <a href="catalog.html" class="view-all" data-i18n="seriesBtn"
             >View all paintings &rarr;</a
           >
         </header>
 
         <div class="color-grid" id="series-carousel">
-          <article class="color-card c-purple">
-            <div class="color-info">
-              <h3 data-i18n="card1">Cosmic Bloom</h3>
-              <span>2025</span>
-            </div>
-          </article>
-          <article class="color-card c-teal">
-            <div class="color-info">
-              <h3 data-i18n="card2">Ocean Fire</h3>
-              <span>2024</span>
-            </div>
-          </article>
-          <article class="color-card c-orange">
-            <div class="color-info">
-              <h3 data-i18n="card3">Golden Hour</h3>
-              <span>2024</span>
-            </div>
-          </article>
-          <article class="color-card c-green">
-            <div class="color-info">
-              <h3 data-i18n="card4">Deep Forest</h3>
-              <span>2023</span>
-            </div>
-          </article>
-          <article class="color-card c-blue">
-            <div class="color-info">
-              <h3 data-i18n="card5">Twilight</h3>
-              <span>2023</span>
-            </div>
-          </article>
+          <!-- Dynamic cards loaded via JavaScript -->
         </div>
       </section>
 
@@ -158,15 +126,103 @@
     <!-- Shared Modules -->
     <script src="js/i18n.js"></script>
     <script src="js/components.js"></script>
+    <script src="js/art-service.js"></script>
 
     <script>
+      let latestPaintings = [];
+
       document.addEventListener("DOMContentLoaded", async () => {
-        setupCarousel();
+        await loadLatestPaintings();
         await Components.initLayout();
+
+        I18n.onLanguageChange(() => {
+          updateCarouselText();
+        });
       });
+
+      async function loadLatestPaintings() {
+        const carousel = document.getElementById("series-carousel");
+        if (!carousel) return;
+
+        try {
+          const paintings = await ArtService.getAll();
+          const sorted = paintings.slice().sort((a, b) => {
+            return ArtService.parseDate(b.date) - ArtService.parseDate(a.date);
+          });
+
+          latestPaintings = sorted.slice(0, 5);
+          renderCarouselCards(latestPaintings);
+          setupCarousel();
+        } catch (error) {
+          console.error("Error loading latest paintings:", error);
+        }
+      }
+
+      function renderCarouselCards(paintings) {
+        const carousel = document.getElementById("series-carousel");
+        if (!carousel) return;
+
+        const lang = I18n.getLanguage();
+        const gradientClasses = [
+          "c-purple",
+          "c-teal",
+          "c-orange",
+          "c-green",
+          "c-blue",
+        ];
+
+        const cardsHTML = paintings
+          .map((painting, index) => {
+            const title = ArtService.getLocalized(
+              painting.title,
+              lang,
+              I18n.t("untitled", lang),
+            );
+            const dateStr = ArtService.formatDate(painting.date);
+            const gradient = gradientClasses[index % gradientClasses.length];
+
+            return `
+            <a href="painting.html?id=${painting.id}" class="color-card ${gradient}" data-id="${painting.id}">
+              <img src="${painting.imageUrl}" alt="${title}" class="color-card-img" loading="lazy" />
+              <div class="color-info">
+                <h3>${title}</h3>
+                <span>${dateStr}</span>
+              </div>
+            </a>
+          `;
+          })
+          .join("");
+
+        carousel.innerHTML = cardsHTML;
+      }
+
+      function updateCarouselText() {
+        const lang = I18n.getLanguage();
+        const carousel = document.getElementById("series-carousel");
+        if (!carousel) return;
+
+        const cardElements = carousel.querySelectorAll(".color-card");
+        cardElements.forEach((card) => {
+          const id = card.getAttribute("data-id");
+          const painting = latestPaintings.find(
+            (p) => String(p.id) === String(id),
+          );
+          if (painting) {
+            const titleEl = card.querySelector(".color-info h3");
+            if (titleEl) {
+              titleEl.textContent = ArtService.getLocalized(
+                painting.title,
+                lang,
+                I18n.t("untitled", lang),
+              );
+            }
+          }
+        });
+      }
 
       function setupCarousel() {
         const carousel = document.getElementById("series-carousel");
+        if (!carousel || carousel.children.length === 0) return;
 
         // 1. Desktop: Fade and rotate every 7 seconds
         setInterval(() => {
@@ -184,8 +240,10 @@
         }, 7000);
 
         // 2. Mobile: Seamless infinite scroll loop
-        if (carousel && window.innerWidth <= 768) {
+        if (window.innerWidth <= 768) {
           const cards = Array.from(carousel.children);
+          if (cards.length === 0) return;
+
           cards.forEach((card) => carousel.appendChild(card.cloneNode(true)));
           cards.forEach((card) => carousel.appendChild(card.cloneNode(true)));
 

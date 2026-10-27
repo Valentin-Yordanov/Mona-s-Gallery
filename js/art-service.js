@@ -34,6 +34,29 @@ const ArtService = {
   getYear(dateStr) {
     if (!dateStr) return "";
     return dateStr.split("-")[0] || "";
+  },
+
+  formatDate(dateStr) {
+    if (!dateStr) return "";
+    const parts = String(dateStr).split("-");
+    if (parts.length === 3) {
+      const [year, month, day] = parts;
+      return `${day}.${month}.${year}`;
+    }
+    return dateStr;
+  },
+
+  parseDate(dateStr) {
+    if (!dateStr) return 0;
+    const parts = String(dateStr).split("-");
+    if (parts.length === 3) {
+      const year = parseInt(parts[0], 10) || 0;
+      const month = parseInt(parts[1], 10) || 0;
+      const day = parseInt(parts[2], 10) || 0;
+      return new Date(year, month - 1, day).getTime();
+    }
+    const timestamp = new Date(dateStr).getTime();
+    return isNaN(timestamp) ? 0 : timestamp;
   }
 };
 
