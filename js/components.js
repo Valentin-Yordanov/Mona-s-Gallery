@@ -76,25 +76,44 @@ const Components = {
         });
       }
 
-      // Auto-hide navbar on mobile when scrolling down across all pages
+      // Auto-hide sticky navbar on scroll-down, show on scroll-up with smooth transition
       let lastScrollY = window.scrollY;
+      let ticking = false;
+
       window.addEventListener(
         "scroll",
         () => {
-          if (window.innerWidth <= 768) {
-            const currentScrollY = window.scrollY;
-            if (
-              currentScrollY > 60 &&
-              currentScrollY > lastScrollY &&
-              !container.classList.contains("is-open")
-            ) {
-              container.classList.add("nav-hidden");
-            } else if (currentScrollY < lastScrollY || currentScrollY <= 20) {
-              container.classList.remove("nav-hidden");
-            }
-            lastScrollY = currentScrollY;
-          } else {
-            container.classList.remove("nav-hidden");
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              const isSticky =
+                window.getComputedStyle(container).position === "sticky";
+
+              if (isSticky) {
+                const currentScrollY = window.scrollY;
+                const scrollDelta = currentScrollY - lastScrollY;
+
+                if (currentScrollY <= 20) {
+                  // Always show near the very top of the page
+                  container.classList.remove("nav-hidden");
+                } else if (!container.classList.contains("is-open")) {
+                  // Scrolling down past initial threshold -> hide
+                  if (scrollDelta > 6 && currentScrollY > 70) {
+                    container.classList.add("nav-hidden");
+                  }
+                  // Scrolling up -> reveal smoothly
+                  else if (scrollDelta < -6) {
+                    container.classList.remove("nav-hidden");
+                  }
+                }
+
+                lastScrollY = currentScrollY;
+              } else {
+                container.classList.remove("nav-hidden");
+              }
+
+              ticking = false;
+            });
+            ticking = true;
           }
         },
         { passive: true }
