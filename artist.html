@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Learn more about Mona, an oil painter based in Bucharest, her education, influences, and exhibitions."
+      content="Learn more about Simona Dobreva (Mona), an oil painter from Pleven, Bulgaria — her background, artistic journey, and technique."
     />
-    <title>Mona - Artist Profile</title>
+    <title>Simona Dobreva - Artist Profile</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/jpeg" href="page_elements/kokosan.png" />
   </head>
@@ -20,40 +20,62 @@
 
     <main class="artist-main">
       <div class="ambient-glow ambient-glow--artist"></div>
+      <header class="artist-title">
+        <h1 data-i18n="artistName">Simona Nikolaeva Dobreva</h1>
+        <span class="overline" data-i18n="artistSubtitle">Visual Artist & Oil Painter • Pleven, Bulgaria</span>
+      </header>
       <div class="artist-layout-top">
-        <div class="artist-photo-placeholder">
-          <div class="placeholder-icon">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
+        <div class="artist-photo-frame">
+          <img
+            src="private/artist.jpg"
+            alt="Simona Dobreva - Artist Portrait"
+            class="artist-photo-img"
+            loading="lazy"
+            onerror="this.parentElement.classList.add('is-fallback')"
+          />
+          <div class="artist-photo-placeholder" aria-hidden="true">
+            <div class="placeholder-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <span data-i18n="artistPhotoLabel">Artist photo</span>
           </div>
-          <span data-i18n="artistPhotoLabel">Artist photo</span>
         </div>
 
         <div class="artist-text-content">
-          <header class="artist-title">
-            <h1>Simona Nikolaeva Dobreva</h1>
-          </header>
           <article class="info-card">
-            <p>YAP YAP YAP</p>
+            <h2 class="info-card-title" data-i18n="artistSectionTitle1">Artistic Journey</h2>
+            <p data-i18n="artistBioP1">
+              Hello! My name is Simona Dobreva, I am 18 years old, and I am an artist from Pleven, Bulgaria. I have been practicing visual art for four years, spending the last three attending dedicated art lessons and actively developing my painterly technique. My artistic path began directly with drawing and painting, and over time it has grown into something far deeper than just a hobby.
+            </p>
+            <p data-i18n="artistBioP2">
+              I draw inspiration from a wide range of artists, styles, and artistic movements. I believe that an artist’s growth demands relentless curiosity and a passion for experimentation. That is why I continually expand my artistic horizons by attending workshops and masterclasses with various artists, including local painters with whom I have had the privilege to work closely.
+            </p>
           </article>
         </div>
       </div>
 
       <section class="artist-details">
         <article class="info-card">
-          <p>YAP YAP YAP</p>
+          <h2 class="info-card-title" data-i18n="artistSectionTitle2">Medium, Philosophy & Inquiries</h2>
+          <p data-i18n="artistDetailsP1">
+            I primarily work with oil paints, though I choose not to confine myself to any single theme or genre. I enjoy experimenting with portraits, landscapes, and diverse compositional concepts. Lately, my main focus has been on exploratory and academic studies through which I investigate new techniques, refine my skills, and steadily shape my own artistic voice.
+          </p>
+          <p data-i18n="artistDetailsP2">
+            I believe that every painting is an essential step in an artist's personal and creative evolution. For any questions, inquiries, or collaboration opportunities, please feel free to reach out to me.
+          </p>
         </article>
       </section>
     </main>

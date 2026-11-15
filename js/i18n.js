@@ -22,6 +22,38 @@ const I18n = {
       bg: "© 2026 Галерията на Мона. Всички права запазени."
     },
     artistPhotoLabel: { en: "Artist photo", bg: "Снимка на художника" },
+    artistName: {
+      en: "Simona Nikolaeva Dobreva",
+      bg: "Симона Николаева Добрева"
+    },
+    artistSubtitle: {
+      en: "Visual Artist & Oil Painter • Pleven, Bulgaria",
+      bg: "Художник и живописец • Плевен, България"
+    },
+    artistSectionTitle1: {
+      en: "Artistic Journey",
+      bg: "Творчески път"
+    },
+    artistBioP1: {
+      en: "Hello! My name is Simona Dobreva, I am 18 years old, and I am an artist from Pleven, Bulgaria. I have been practicing visual art for four years, spending the last three attending dedicated art lessons and actively developing my painterly technique. My artistic path began directly with drawing and painting, and over time it has grown into something far deeper than just a hobby.",
+      bg: "Здравейте! Казвам се Симона Добрева, на 18 години съм и съм художник от Плевен, България. Занимавам се с изобразително изкуство от четири години, като през последните три посещавам художествени уроци и активно развивам уменията си в живописта. Пътят ми в изкуството започна директно с рисуване и живопис, а с времето се превърна в нещо много повече от просто хоби."
+    },
+    artistBioP2: {
+      en: "I draw inspiration from a wide range of artists, styles, and artistic movements. I believe that an artist’s growth demands relentless curiosity and a passion for experimentation. That is why I continually expand my artistic horizons by attending workshops and masterclasses with various artists, including local painters with whom I have had the privilege to work closely.",
+      bg: "Вдъхновение черпя от разнообразни художници, стилове и художествени течения. Вярвам, че развитието на един артист изисква постоянно любопитство и желание за експериментиране. Затова се стремя да разширявам художествения си кръгозор, като посещавам уъркшопи и обучения при различни художници, включително местни творци, с част от които съм имала възможността да работя отблизо."
+    },
+    artistSectionTitle2: {
+      en: "Technique & Inquiries",
+      bg: "Техника & Контакт"
+    },
+    artistDetailsP1: {
+      en: "I primarily work with oil paints, though I choose not to confine myself to any single theme or genre. I enjoy experimenting with portraits, landscapes, and diverse compositional concepts. Lately, my main focus has been on exploratory and academic studies through which I investigate new techniques, refine my skills, and steadily shape my own artistic voice.",
+      bg: "Предпочитам работата с маслени бои, но не искам да се ограничавам до конкретна тематика или жанр. Харесва ми да експериментирам както с портрети и пейзажи, така и с различни композиции и идеи. Напоследък основният ми фокус е върху учебни творби, чрез които изследвам нови техники, усъвършенствам уменията си и постепенно изграждам собствен художествен почерк."
+    },
+    artistDetailsP2: {
+      en: "I believe that every painting is an essential step in an artist's personal and creative evolution. For any questions, inquiries, or collaboration opportunities, please feel free to reach out to me.",
+      bg: "Вярвам, че всяка картина е част от процеса на развитие на един художник. За допълнителни въпроси, предложения или сътрудничество можете да се свържете с мен."
+    },
 
     // Home Page - Editorial Hero
     heroBadge: { en: "Exhibition 2026", bg: "Изложба 2026" },
@@ -100,7 +132,7 @@ const I18n = {
     zoomHint: { en: "Click to Zoom", bg: "Кликнете за увеличение" },
     specMedium: { en: "MEDIUM", bg: "МАТЕРИАЛ" },
     specSize: { en: "SIZE", bg: "РАЗМЕР" },
-    specDate: { en: "DATE", bg: "ГОДИНА" },
+    specDate: { en: "DATE", bg: "ДАТА" },
     specStatus: { en: "STATUS", bg: "СТАТУС" },
     statusAvail: { en: "Available", bg: "Налична" },
     statusUnavail: { en: "Unavailable", bg: "Продадена" },
