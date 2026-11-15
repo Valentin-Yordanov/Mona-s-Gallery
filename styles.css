@@ -1676,22 +1676,13 @@ body:has(.catalog-main) .navbar {
 
 .artist-photo-frame {
   position: relative;
-<<<<<<< Updated upstream
   float: left;
   width: clamp(260px, 31%, 360px);
   aspect-ratio: 4 / 5;
   margin: 0 2.8rem 1.6rem 0;
   border-radius: 20px;
-  border: 1.5px solid rgba(148, 163, 184, 0.4);
-  box-shadow: var(--shadow-lg);
-=======
-  width: 100%;
-  height: 100%;
-  min-height: 400px;
-  border-radius: 24px;
   border: 1.5px solid rgba(57, 59, 58, 0.18);
-  box-shadow: var(--shadow-xl);
->>>>>>> Stashed changes
+  box-shadow: var(--shadow-lg);
   overflow: hidden;
   background-color: var(--bg-panel);
 }
