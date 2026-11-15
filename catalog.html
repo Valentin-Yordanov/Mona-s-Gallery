@@ -299,20 +299,28 @@
           const badgeText = isAvailable ? I18n.t("badgeAvail", lang) : I18n.t("badgeUnavail", lang);
           const displayPrice = ArtService.formatPrice(painting.price, lang);
 
-          const detailsLine = [medium, size, year].filter(Boolean).join(" | ");
+          const detailsLine = ArtService.escapeHtml(
+            [medium, size, year].filter(Boolean).join(" | ")
+          );
+          const safeId = encodeURIComponent(String(painting.id ?? ""));
+          const safeImg = ArtService.escapeHtml(ArtService.sanitizeUrl(painting.imageUrl));
+          const safeTitle = ArtService.escapeHtml(title);
+          const safeType = ArtService.escapeHtml(type);
+          const safePrice = ArtService.escapeHtml(displayPrice);
+          const safeBadge = ArtService.escapeHtml(badgeText);
 
           return `
-            <a href="painting.html?id=${painting.id}" class="${cardClass}">
+            <a href="painting.html?id=${safeId}" class="${cardClass}">
               <div class="art-image-wrapper">
-                <span class="art-badge ${badgeClass}">${badgeText}</span>
-                <img src="${painting.imageUrl}" alt="${title}" loading="lazy" />
+                <span class="art-badge ${badgeClass}">${safeBadge}</span>
+                <img src="${safeImg}" alt="${safeTitle}" loading="lazy" />
               </div>
               <div class="art-info">
                 <header class="art-title-row">
-                  <h3>${title}</h3>
-                  <span class="art-price">${displayPrice}</span>
+                  <h3>${safeTitle}</h3>
+                  <span class="art-price">${safePrice}</span>
                 </header>
-                <p class="art-details-line">${type}</p>
+                <p class="art-details-line">${safeType}</p>
                 <p class="art-details-line">${detailsLine}</p>
               </div>
             </a>

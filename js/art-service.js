@@ -57,6 +57,23 @@ const ArtService = {
     }
     const timestamp = new Date(dateStr).getTime();
     return isNaN(timestamp) ? 0 : timestamp;
+  },
+
+  escapeHtml(str) {
+    if (str === null || str === undefined) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  },
+
+  sanitizeUrl(url) {
+    if (!url || typeof url !== "string") return "";
+    const trimmed = url.trim();
+    if (/^(javascript|data|vbscript):/i.test(trimmed)) return "";
+    return trimmed;
   }
 };
 

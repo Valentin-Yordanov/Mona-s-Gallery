@@ -165,9 +165,11 @@ const I18n = {
   },
 
   t(key, lang = this.getLanguage()) {
+    if (!Object.prototype.hasOwnProperty.call(this.translations, key)) {
+      return "";
+    }
     const item = this.translations[key];
-    if (!item) return key;
-    return item[lang] ?? item["en"] ?? key;
+    return item[lang] ?? item["en"] ?? "";
   },
 
   applyTranslations(container = document) {

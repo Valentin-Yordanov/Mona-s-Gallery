@@ -173,17 +173,20 @@
 
         const cardsHTML = paintings
           .map((painting, index) => {
-            const title = ArtService.getLocalized(
+            const rawTitle = ArtService.getLocalized(
               painting.title,
               lang,
               I18n.t("untitled", lang),
             );
-            const dateStr = ArtService.formatDate(painting.date);
+            const title = ArtService.escapeHtml(rawTitle);
+            const dateStr = ArtService.escapeHtml(ArtService.formatDate(painting.date));
+            const safeId = encodeURIComponent(String(painting.id ?? ""));
+            const safeImg = ArtService.escapeHtml(ArtService.sanitizeUrl(painting.imageUrl));
             const gradient = gradientClasses[index % gradientClasses.length];
 
             return `
-            <a href="painting.html?id=${painting.id}" class="color-card ${gradient}" data-id="${painting.id}">
-              <img src="${painting.imageUrl}" alt="${title}" class="color-card-img" loading="lazy" />
+            <a href="painting.html?id=${safeId}" class="color-card ${gradient}" data-id="${ArtService.escapeHtml(painting.id)}">
+              <img src="${safeImg}" alt="${title}" class="color-card-img" loading="lazy" />
               <div class="color-info">
                 <h3>${title}</h3>
                 <span>${dateStr}</span>

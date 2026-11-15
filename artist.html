@@ -27,11 +27,11 @@
       <article class="info-card artist-bio-card">
         <div class="artist-photo-frame">
           <img
-            src="private/artist.jpg"
+            src="https://pub-3564e37931dd48abad98569ec54f1b77.r2.dev/artist.jpg"
             alt="Simona Dobreva - Artist Portrait"
             class="artist-photo-img"
             loading="lazy"
-            onerror="this.parentElement.classList.add('is-fallback')"
+            referrerpolicy="no-referrer"
           />
           <div class="artist-photo-placeholder" aria-hidden="true">
             <div class="placeholder-icon">
@@ -77,6 +77,12 @@
     <script src="js/components.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        const artistImg = document.querySelector(".artist-photo-img");
+        if (artistImg) {
+          artistImg.addEventListener("error", () => {
+            artistImg.parentElement?.classList.add("is-fallback");
+          });
+        }
         Components.initLayout();
       });
     </script>

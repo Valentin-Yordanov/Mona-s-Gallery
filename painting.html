@@ -248,8 +248,9 @@
           }
         }
 
-        if (!imgElement.src.includes(currentPainting.imageUrl)) {
-          imgElement.src = currentPainting.imageUrl;
+        const safeImageUrl = ArtService.sanitizeUrl(currentPainting.imageUrl);
+        if (safeImageUrl && !imgElement.src.includes(safeImageUrl)) {
+          imgElement.src = safeImageUrl;
           imgElement.onload = updateOrientation;
           if (imgElement.complete && imgElement.naturalWidth > 0) {
             updateOrientation();
