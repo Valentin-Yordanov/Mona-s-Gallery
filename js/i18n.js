@@ -23,16 +23,16 @@ const I18n = {
     },
     artistPhotoLabel: { en: "Artist photo", bg: "Снимка на художника" },
     artistName: {
-      en: "Simona Nikolaeva Dobreva",
-      bg: "Симона Николаева Добрева"
+      en: "Simona Dobreva",
+      bg: "Симона Добрева"
     },
     artistSubtitle: {
       en: "Visual Artist & Oil Painter • Pleven, Bulgaria",
       bg: "Художник и живописец • Плевен, България"
     },
     artistSectionTitle1: {
-      en: "Artistic Journey",
-      bg: "Творчески път"
+      en: "About me",
+      bg: "За мен"
     },
     artistBioP1: {
       en: "Hello! My name is Simona Dobreva, I am 18 years old, and I am an artist from Pleven, Bulgaria. I have been practicing visual art for four years, spending the last three attending dedicated art lessons and actively developing my painterly technique. My artistic path began directly with drawing and painting, and over time it has grown into something far deeper than just a hobby.",
@@ -41,10 +41,6 @@ const I18n = {
     artistBioP2: {
       en: "I draw inspiration from a wide range of artists, styles, and artistic movements. I believe that an artist’s growth demands relentless curiosity and a passion for experimentation. That is why I continually expand my artistic horizons by attending workshops and masterclasses with various artists, including local painters with whom I have had the privilege to work closely.",
       bg: "Вдъхновение черпя от разнообразни художници, стилове и художествени течения. Вярвам, че развитието на един артист изисква постоянно любопитство и желание за експериментиране. Затова се стремя да разширявам художествения си кръгозор, като посещавам уъркшопи и обучения при различни художници, включително местни творци, с част от които съм имала възможността да работя отблизо."
-    },
-    artistSectionTitle2: {
-      en: "Technique & Inquiries",
-      bg: "Техника & Контакт"
     },
     artistDetailsP1: {
       en: "I primarily work with oil paints, though I choose not to confine myself to any single theme or genre. I enjoy experimenting with portraits, landscapes, and diverse compositional concepts. Lately, my main focus has been on exploratory and academic studies through which I investigate new techniques, refine my skills, and steadily shape my own artistic voice.",

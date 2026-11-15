@@ -1653,22 +1653,23 @@ body:has(.catalog-main) .navbar {
   margin: 0 auto;
 }
 
-.artist-layout-top {
-  display: grid;
-  grid-template-columns: minmax(280px, 380px) 1fr;
-  gap: 3.5rem;
-  align-items: stretch;
-  margin-bottom: 2.5rem;
+.artist-bio-card {
+  display: flow-root;
+}
+
+.artist-bio-card p:nth-of-type(3) {
+  clear: left;
 }
 
 .artist-photo-frame {
   position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 400px;
-  border-radius: 24px;
+  float: left;
+  width: clamp(260px, 31%, 360px);
+  aspect-ratio: 4 / 5;
+  margin: 0 2.8rem 1.6rem 0;
+  border-radius: 20px;
   border: 1.5px solid rgba(148, 163, 184, 0.4);
-  box-shadow: var(--shadow-xl);
+  box-shadow: var(--shadow-lg);
   overflow: hidden;
   background-color: #e9eef5;
 }
@@ -1769,19 +1770,6 @@ body:has(.catalog-main) .navbar {
 
 .info-card p:not(:last-child) {
   margin-bottom: 1.25rem;
-}
-
-.artist-text-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.artist-text-content .info-card {
-  height: 100%;
-}
-
-.artist-details {
-  margin-top: 0;
 }
 
 /* =========================================
@@ -1952,22 +1940,17 @@ body:has(.catalog-main) .navbar {
   .featured-card,
   .about-card,
   .painting-layout,
-  .painting-layout.landscape,
-  .artist-layout-top {
+  .painting-layout.landscape {
     grid-template-columns: 1fr;
     gap: 3.5rem;
   }
 
-  .artist-layout-top {
-    gap: 2.5rem;
-  }
-
   .artist-photo-frame {
-    max-width: 400px;
-    height: auto;
-    min-height: 0;
+    float: none;
+    width: 100%;
+    max-width: 380px;
     aspect-ratio: 4 / 5;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
   }
 
   .artist-title {
@@ -2354,14 +2337,9 @@ body:has(.catalog-main) .navbar {
   }
 
   /* Artist Profile Mobile Layout */
-  .artist-layout-top {
-    gap: 2rem;
-    margin-bottom: 2rem;
-  }
-
   .artist-photo-frame {
     max-width: 340px;
-    margin: 0 auto;
+    margin: 0 auto 1.6rem;
   }
 
   .artist-title {
