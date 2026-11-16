@@ -1,6 +1,7 @@
 /* ==========================================================================
    MONA'S GALLERY - MODERN FINE ART VISUAL IDENTITY
    ========================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&subset=latin,cyrillic&display=swap");
 
 /* =========================================
    DESIGN TOKENS & EXPANDED COLOR PALETTE
@@ -66,8 +67,8 @@
   --border-accent: rgba(113, 156, 154, 0.45);
 
   /* Typography */
-  --font-heading: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
-  --font-body: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+  --font-heading: "Balsamiq Sans", "Comic Sans MS", sans-serif;
+  --font-body: "Balsamiq Sans", "Comic Sans MS", sans-serif;
 
   /* Radii */
   --border-radius: 20px;
